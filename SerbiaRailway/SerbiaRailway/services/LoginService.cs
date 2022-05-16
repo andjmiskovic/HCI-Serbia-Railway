@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace SerbiaRailway.services
 {
+    public enum UserType { CLIENT, MANAGER, UNAUTHENTICATED }
+
     class LoginService
     {
         private List<Client> Clients { get; set; }
@@ -25,27 +27,49 @@ namespace SerbiaRailway.services
             };
         }
 
-        public bool Login(string username, string password)
+        public UserType Login(string username, string password)
         {
-            string p = getPassword(username);
-            if (p == null) { 
-                Console.WriteLine("Username does not exists.");
-                return false;
+            UserType type = GetUserType(username);
+            if (type != UserType.UNAUTHENTICATED)
+            {
+                if(GetPassword(username, type).Equals(password))
+                    return type;
             }
-            return password.Equals(p);
+            return UserType.UNAUTHENTICATED;
         }
 
-        public string getPassword(string username)
+        public UserType GetUserType(string username)
         {
-            foreach(Client c in Clients)
+            foreach (Client c in Clients)
             {
                 if (c.Username.Equals(username))
-                    return c.Password;
+                    return UserType.CLIENT;
             }
             foreach (Manager m in Managers)
             {
                 if (m.Username.Equals(username))
-                    return m.Password;
+                    return UserType.MANAGER;
+            }
+            return UserType.UNAUTHENTICATED;
+        }
+
+        public string GetPassword(string username, UserType type)
+        {
+            if (UserType.CLIENT == type)
+            {
+                foreach (Client c in Clients)
+                {
+                    if (c.Username.Equals(username))
+                        return c.Password;
+                }
+            }
+            if (UserType.MANAGER == type)
+            {
+                foreach (Manager m in Managers)
+                {
+                    if (m.Username.Equals(username))
+                        return m.Password;
+                }
             }
             return null;
         }

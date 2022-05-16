@@ -27,12 +27,14 @@
                 <TextBlock HorizontalAlignment="Left" Height="88" Margin="23,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" FontSize="15" FontWeight="Bold" TextAlignment="Center"><Run Text="Are you ready for the ride?"/><LineBreak/><Run Text="Login to our application in order to search, reserve and buy the ticket for your next journey!"/></TextBlock>
 
                 <Label Content="Username:" HorizontalAlignment="Left" Margin="60,300,0,0" VerticalAlignment="Top" FontSize="20" Height="30" Width="140"/>
-                <TextBox HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="270" Margin="60,330,0,0"/>
+                <TextBox HorizontalAlignment="Left" Name="Username" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="270" Margin="60,330,0,0"/>
 
                 <Label Content="Password:" HorizontalAlignment="Left" Margin="60,370,0,0" VerticalAlignment="Top" FontSize="20" Height="30" Width="140"/>
-                <PasswordBox HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" FontSize="20" Width="270" Margin="60,400,0,0"/>
+                <PasswordBox HorizontalAlignment="Left" Name="Password" Height="30" VerticalAlignment="Top" FontSize="20" Width="270" Margin="60,400,0,0"/>
 
-                <Button Margin="0,490,0,0.6" Background="#FFFCA311" BorderBrush="#FFFCA311" FontSize="20" Height="Auto">Login</Button>
+                <TextBlock HorizontalAlignment="Left" Name="ErrorMessage" Opacity="0" Margin="60,440,0,0" VerticalAlignment="Top" FontSize="15" Height="40" Width="270"><Run Text="Wrong username or password. "/><LineBreak/><Run Text="Please try again."/></TextBlock>
+
+                <Button Margin="0,490,0,0.6" Background="#FFFCA311" BorderBrush="#FFFCA311" FontSize="20" Height="Auto" Click="Button_Click_1">Login</Button>
             </Grid>
         </materialDesign:Card>
     </Grid>
