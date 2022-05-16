@@ -121,6 +121,15 @@
   <ItemGroup>
     <Resource Include="charles-forerunner-gapYVvUg1M8-unsplash.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\logo_hor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\logo_ver.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
