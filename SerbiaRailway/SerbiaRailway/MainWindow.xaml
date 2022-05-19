@@ -16,10 +16,10 @@
          Background="{DynamicResource MaterialDesignPaper}"
          FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="Serbia Railway" Height="800" Width="1200" ResizeMode="NoResize">
+        Title="Serbia Railway" Height="800" Width="1200" MinHeight="700" MinWidth="500">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="charles-forerunner-gapYVvUg1M8-unsplash.jpg"/>
+            <ImageBrush ImageSource="charles-forerunner-gapYVvUg1M8-unsplash.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" Height="550" Width="400">
             <Grid>

@@ -39,11 +39,13 @@ namespace SerbiaRailway
             {
                 ManagerWindow managerWindow = new ManagerWindow();
                 managerWindow.Show();
+                this.Close();
             }
             else if (type == UserType.CLIENT)
             {
                 ClientWindow clientWindow = new ClientWindow();
                 clientWindow.Show();
+                this.Close();
             }
             else
             {

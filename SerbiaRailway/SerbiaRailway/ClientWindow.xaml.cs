@@ -19,9 +19,46 @@ namespace SerbiaRailway
     /// </summary>
     public partial class ClientWindow : Window
     {
+        MyTickets MyTickets;
+        TimetableClient TimetableClient;
+        TrainNetwork TrainNetwork;
         public ClientWindow()
         {
             InitializeComponent();
+            MyTickets = new MyTickets();
+            TimetableClient = new TimetableClient();
+            TrainNetwork = new TrainNetwork();
+        }
+
+        private void SwitchToMyTickets(object sender, RoutedEventArgs e)
+        {
+            Main.Content = this.MyTickets;
+            MyTicketsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
+            TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            TrainNetworkBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+        }
+
+        private void SwitchToTimetableClient(object sender, RoutedEventArgs e)
+        {
+            Main.Content = this.TimetableClient;
+            MyTicketsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
+            TrainNetworkBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+        }
+
+        private void SwitchToTrainNetwork(object sender, RoutedEventArgs e)
+        {
+            Main.Content = this.TrainNetwork;
+            MyTicketsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            TrainNetworkBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
+        }
+
+        private void LogOut(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

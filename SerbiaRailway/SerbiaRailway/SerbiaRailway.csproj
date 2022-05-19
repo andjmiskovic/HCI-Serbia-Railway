@@ -72,11 +72,36 @@
     <Compile Include="ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lines.xaml.cs">
+      <DependentUpon>Lines.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyTickets.xaml.cs">
+      <DependentUpon>MyTickets.xaml</DependentUpon>
+    </Compile>
     <Compile Include="services\LoginService.cs" />
+    <Compile Include="TicketsReport.xaml.cs">
+      <DependentUpon>TicketsReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimetableClient.xaml.cs">
+      <DependentUpon>TimetableClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimetableManager.xaml.cs">
+      <DependentUpon>TimetableManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TrainNetwork.xaml.cs">
+      <DependentUpon>TrainNetwork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Trains.xaml.cs">
+      <DependentUpon>Trains.xaml</DependentUpon>
+    </Compile>
     <Page Include="ClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lines.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -93,6 +118,30 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTickets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TicketsReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimetableClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimetableManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TrainNetwork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Trains.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

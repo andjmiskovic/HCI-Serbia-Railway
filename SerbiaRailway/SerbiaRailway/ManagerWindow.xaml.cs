@@ -19,9 +19,60 @@ namespace SerbiaRailway
     /// </summary>
     public partial class ManagerWindow : Window
     {
+        Trains Trains;
+        Lines Lines;
+        TimetableManager TimetableManager;
+        TicketsReport TicketsReport;
         public ManagerWindow()
         {
             InitializeComponent();
+            Trains = new Trains();
+            Lines = new Lines();
+            TimetableManager = new TimetableManager();
+            TicketsReport = new TicketsReport();
+        }
+
+        private void SwitchToTrainsPage(object sender, RoutedEventArgs e)
+        {
+            Main.Content = this.Trains;
+            TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
+            LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            TicketsReportBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+        }
+
+        private void SwitchToLinesPage(object sender, RoutedEventArgs e)
+        {
+            Main.Content = this.Lines;
+            TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
+            TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            TicketsReportBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+        }
+
+        private void SwitchToTimetablePage(object sender, RoutedEventArgs e)
+        {
+            Main.Content = this.TimetableManager;
+            TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
+            TicketsReportBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+        }
+
+        private void SwitchToTicketsReportPage(object sender, RoutedEventArgs e)
+        {
+            Main.Content = this.TicketsReport;
+            TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            TicketsReportBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
+        }
+
+        private void LogOut(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

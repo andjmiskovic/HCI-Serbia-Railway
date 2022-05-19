@@ -1,12 +1,32 @@
-﻿<Window x:Class="SerbiaRailway.ManagerWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbiaRailway"
+        xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="SerbiaRailway.ManagerWindow"
         mc:Ignorable="d"
-        Title="ManagerWindow" Height="450" Width="800">
+        Icon="resources/icon.png"
+        Title="Serbia Railway - Manager" MinHeight="500" MinWidth="700">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="8*" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" HorizontalAlignment="Left" MaxWidth="150" Margin="20 0 0 0" Source="resources/logo_hor.png"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0 0 10 0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Name="TrainsBtn" FontSize="15" FontWeight="Bold" Background="{x:Null}" Foreground="Black" BorderThickness="0" Margin="2" Content="TRAINS" Click="SwitchToTrainsPage"/>
+                <Button Name="LinesBtn" FontSize="15" FontWeight="Bold" Margin="2" Background="{x:Null}" Foreground="Black" BorderThickness="0" Content="LINES" Click="SwitchToLinesPage"/>
+                <Button Name="TimetableBtn" FontSize="15" FontWeight="Bold" Margin="2" Foreground="Black" BorderThickness="0" Content="TIMETABLE" Click="SwitchToTimetablePage" Background="{x:Null}"/>
+                <Button Name="TicketsReportBtn" FontSize="15" FontWeight="Bold" Margin="2" Background="{x:Null}" Foreground="Black" BorderThickness="0" Content="TICKETS REPORT" Click="SwitchToTicketsReportPage"/>
+                <Button FontSize="15" FontWeight="Bold" Margin="2" Background="{x:Null}" Foreground="Black" BorderThickness="0" Content="LOG OUT" Click="LogOut"/>
+            </StackPanel>
+        </Grid>
+        <Frame x:Name="Main" Grid.Row="1" />
     </Grid>
 </Window>
