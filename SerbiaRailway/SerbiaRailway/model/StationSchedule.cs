@@ -14,5 +14,18 @@ namespace SerbiaRailway.model
         public TimeSpan Departure { get; set; }
         public TimeSpan Arrival { get; set; }
         public double TravelTime { get; set; }
+
+        public StationSchedule()
+        {
+        }
+
+        public StationSchedule(Station startingStation, Station endStation, TimeSpan departure, TimeSpan arrival)
+        {
+            StartingStation = startingStation;
+            EndStation = endStation;
+            Departure = departure;
+            Arrival = arrival;
+            TravelTime = (Arrival - Departure).TotalMinutes;
+        }
     }
 }

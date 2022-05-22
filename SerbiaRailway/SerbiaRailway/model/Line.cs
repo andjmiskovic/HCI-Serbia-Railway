@@ -29,5 +29,17 @@ namespace SerbiaRailway.model
         {
             return StationSchedule.Sum(item => item.TravelTime);
         }
+
+        public Line()
+        {
+        }
+
+        public Line(int id, string name, List<StationSchedule> stationSchedule, Train train)
+        {
+            Id = id;
+            Name = name;
+            StationSchedule = stationSchedule;
+            Train = train;
+        }
     }
 }
