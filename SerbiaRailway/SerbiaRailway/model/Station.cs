@@ -11,5 +11,15 @@ namespace SerbiaRailway.model
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public Station()
+        {
+        }
+
+        public Station(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 }

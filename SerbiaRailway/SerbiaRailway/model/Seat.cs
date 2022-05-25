@@ -17,5 +17,16 @@ namespace SerbiaRailway.model
         public int SeatNumber { get; set; }
         public SeatType Type { get; set; }
         public double Price { get; set; }
+
+        public Seat()
+        {
+        }
+
+        public Seat(int seatNumber, SeatType type, double price)
+        {
+            SeatNumber = seatNumber;
+            Type = type;
+            Price = price;
+        }
     }
 }

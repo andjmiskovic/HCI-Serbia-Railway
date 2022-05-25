@@ -1,0 +1,2880 @@
+{
+  "Lines": [
+    {
+      "Id": 1,
+      "Name": "Belgrade-Novi Sad",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 1,
+            "Name": "Belgrade center"
+          },
+          "EndStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "Departure": "10:15:00",
+          "Arrival": "10:20:00",
+          "TravelTime": 5
+        },
+        {
+          "StartingStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "EndStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "Departure": "10:25:00",
+          "Arrival": "10:55:00",
+          "TravelTime": 30
+        }
+      ],
+      "Train": {
+        "Id": 2,
+        "Manufacturer": "Serbia trains",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 2,
+      "Name": "Novi Sad-Belgrade",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "EndStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "Departure": "11:05:00",
+          "Arrival": "11:25:00",
+          "TravelTime": 20
+        },
+        {
+          "StartingStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "EndStation": {
+            "Id": 1,
+            "Name": "Belgrade center"
+          },
+          "Departure": "11:30:00",
+          "Arrival": "11:35:00",
+          "TravelTime": 5
+        }
+      ],
+      "Train": {
+        "Id": 2,
+        "Manufacturer": "Serbia trains",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 3,
+      "Name": "Belgrade-Subotica",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 1,
+            "Name": "Belgrade center"
+          },
+          "EndStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "Departure": "11:00:00",
+          "Arrival": "11:05:00",
+          "TravelTime": 5
+        },
+        {
+          "StartingStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "EndStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "Departure": "11:10:00",
+          "Arrival": "11:40:00",
+          "TravelTime": 30
+        },
+        {
+          "StartingStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "EndStation": {
+            "Id": 4,
+            "Name": "Subotica center"
+          },
+          "Departure": "11:45:00",
+          "Arrival": "12:25:00",
+          "TravelTime": 40
+        }
+      ],
+      "Train": {
+        "Id": 2,
+        "Manufacturer": "Serbia trains",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 4,
+      "Name": "Subotica-Belgrade",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 4,
+            "Name": "Subotica center"
+          },
+          "EndStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "Departure": "12:35:00",
+          "Arrival": "13:15:00",
+          "TravelTime": 40
+        },
+        {
+          "StartingStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "EndStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "Departure": "13:20:00",
+          "Arrival": "13:50:00",
+          "TravelTime": 30
+        },
+        {
+          "StartingStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "EndStation": {
+            "Id": 1,
+            "Name": "Belgrade center"
+          },
+          "Departure": "13:55:00",
+          "Arrival": "14:00:00",
+          "TravelTime": 5
+        }
+      ],
+      "Train": {
+        "Id": 2,
+        "Manufacturer": "Serbia trains",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 5,
+      "Name": "Novi Sad-Subotica",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "EndStation": {
+            "Id": 4,
+            "Name": "Subotica center"
+          },
+          "Departure": "08:45:00",
+          "Arrival": "09:25:00",
+          "TravelTime": 40
+        }
+      ],
+      "Train": {
+        "Id": 1,
+        "Manufacturer": "Speedy Gonzales",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 6,
+      "Name": "Subotica-Novi Sad",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 4,
+            "Name": "Subotica center"
+          },
+          "EndStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "Departure": "09:40:00",
+          "Arrival": "10:20:00",
+          "TravelTime": 40
+        }
+      ],
+      "Train": {
+        "Id": 1,
+        "Manufacturer": "Speedy Gonzales",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 7,
+      "Name": "Novi Sad-Sombor",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "EndStation": {
+            "Id": 6,
+            "Name": "Sombor center"
+          },
+          "Departure": "12:00:00",
+          "Arrival": "12:30:00",
+          "TravelTime": 30
+        }
+      ],
+      "Train": {
+        "Id": 1,
+        "Manufacturer": "Speedy Gonzales",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 8,
+      "Name": "Sombor-Novi Sad",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 6,
+            "Name": "Sombor center"
+          },
+          "EndStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "Departure": "12:50:00",
+          "Arrival": "13:20:00",
+          "TravelTime": 30
+        }
+      ],
+      "Train": {
+        "Id": 1,
+        "Manufacturer": "Speedy Gonzales",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 9,
+      "Name": "Subotica-Sombor",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 4,
+            "Name": "Subotica center"
+          },
+          "EndStation": {
+            "Id": 6,
+            "Name": "Sombor center"
+          },
+          "Departure": "07:30:00",
+          "Arrival": "07:40:00",
+          "TravelTime": 10
+        }
+      ],
+      "Train": {
+        "Id": 1,
+        "Manufacturer": "Speedy Gonzales",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 10,
+      "Name": "Sombor-Subotica",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 6,
+            "Name": "Sombor center"
+          },
+          "EndStation": {
+            "Id": 4,
+            "Name": "Subotica center"
+          },
+          "Departure": "07:50:00",
+          "Arrival": "08:00:00",
+          "TravelTime": 10
+        }
+      ],
+      "Train": {
+        "Id": 1,
+        "Manufacturer": "Speedy Gonzales",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 11,
+      "Name": "Belgrade-Sremska Mitrovica",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 1,
+            "Name": "Belgrade center"
+          },
+          "EndStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "Departure": "11:00:00",
+          "Arrival": "11:05:00",
+          "TravelTime": 5
+        },
+        {
+          "StartingStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "EndStation": {
+            "Id": 5,
+            "Name": "Sremska Mitrovica - railway station"
+          },
+          "Departure": "11:10:00",
+          "Arrival": "11:25:00",
+          "TravelTime": 15
+        }
+      ],
+      "Train": {
+        "Id": 3,
+        "Manufacturer": "SirmiumTrains",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 12,
+      "Name": "Sremska Mitrovica-Belgrade",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 5,
+            "Name": "Sremska Mitrovica - railway station"
+          },
+          "EndStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "Departure": "11:30:00",
+          "Arrival": "11:45:00",
+          "TravelTime": 15
+        },
+        {
+          "StartingStation": {
+            "Id": 2,
+            "Name": "New Belgrade"
+          },
+          "EndStation": {
+            "Id": 1,
+            "Name": "Belgrade center"
+          },
+          "Departure": "11:50:00",
+          "Arrival": "11:55:00",
+          "TravelTime": 5
+        }
+      ],
+      "Train": {
+        "Id": 3,
+        "Manufacturer": "SirmiumTrains",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 13,
+      "Name": "Novi Sad-Sremska Mitrovica",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "EndStation": {
+            "Id": 5,
+            "Name": "Sremska Mitrovica - railway station"
+          },
+          "Departure": "15:25:00",
+          "Arrival": "15:50:00",
+          "TravelTime": 25
+        }
+      ],
+      "Train": {
+        "Id": 3,
+        "Manufacturer": "SirmiumTrains",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 14,
+      "Name": "Sremska Mitrovica-Novi Sad",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 5,
+            "Name": "Sremska Mitrovica - railway station"
+          },
+          "EndStation": {
+            "Id": 3,
+            "Name": "Novi Sad - railway station"
+          },
+          "Departure": "16:00:00",
+          "Arrival": "16:25:00",
+          "TravelTime": 25
+        }
+      ],
+      "Train": {
+        "Id": 3,
+        "Manufacturer": "SirmiumTrains",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 15,
+      "Name": "Belgrade-Kragujevac",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 1,
+            "Name": "Belgrade center"
+          },
+          "EndStation": {
+            "Id": 8,
+            "Name": "Kragujevac center"
+          },
+          "Departure": "13:35:00",
+          "Arrival": "14:25:00",
+          "TravelTime": 50
+        }
+      ],
+      "Train": {
+        "Id": 2,
+        "Manufacturer": "Serbia trains",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 16,
+      "Name": "Kragujevac-Belgrade",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 8,
+            "Name": "Kragujevac center"
+          },
+          "EndStation": {
+            "Id": 1,
+            "Name": "Belgrade center"
+          },
+          "Departure": "14:35:00",
+          "Arrival": "15:25:00",
+          "TravelTime": 50
+        }
+      ],
+      "Train": {
+        "Id": 2,
+        "Manufacturer": "Serbia trains",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 17,
+      "Name": "Kragujevac-Kraljevo",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 8,
+            "Name": "Kragujevac center"
+          },
+          "EndStation": {
+            "Id": 7,
+            "Name": "Kraljevo center"
+          },
+          "Departure": "15:00:00",
+          "Arrival": "15:30:00",
+          "TravelTime": 30
+        }
+      ],
+      "Train": {
+        "Id": 5,
+        "Manufacturer": "KraljevoTransport",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 18,
+      "Name": "Kraljevo-Kragujevac",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 7,
+            "Name": "Kraljevo center"
+          },
+          "EndStation": {
+            "Id": 8,
+            "Name": "Kragujevac center"
+          },
+          "Departure": "15:40:00",
+          "Arrival": "16:10:00",
+          "TravelTime": 30
+        }
+      ],
+      "Train": {
+        "Id": 5,
+        "Manufacturer": "KraljevoTransport",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 19,
+      "Name": "Kraljevo-Vranje",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 7,
+            "Name": "Kraljevo center"
+          },
+          "EndStation": {
+            "Id": 9,
+            "Name": "Vranje center"
+          },
+          "Departure": "16:00:00",
+          "Arrival": "17:55:00",
+          "TravelTime": 115
+        }
+      ],
+      "Train": {
+        "Id": 4,
+        "Manufacturer": "VranjeTrans",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 20,
+      "Name": "Vranje-Kraljevo",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 9,
+            "Name": "Vranje center"
+          },
+          "EndStation": {
+            "Id": 7,
+            "Name": "Kraljevo center"
+          },
+          "Departure": "18:05:00",
+          "Arrival": "20:00:00",
+          "TravelTime": 115
+        }
+      ],
+      "Train": {
+        "Id": 4,
+        "Manufacturer": "VranjeTrans",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 21,
+      "Name": "Kraljevo-Kosovska Mitrovica",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 7,
+            "Name": "Kraljevo center"
+          },
+          "EndStation": {
+            "Id": 10,
+            "Name": "Kosovska Mitrovica center"
+          },
+          "Departure": "15:50:00",
+          "Arrival": "18:30:00",
+          "TravelTime": 160
+        }
+      ],
+      "Train": {
+        "Id": 5,
+        "Manufacturer": "KraljevoTransport",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    },
+    {
+      "Id": 22,
+      "Name": "Kosovska Mitrovica-Kraljevo",
+      "StationSchedule": [
+        {
+          "StartingStation": {
+            "Id": 10,
+            "Name": "Kosovska Mitrovica center"
+          },
+          "EndStation": {
+            "Id": 7,
+            "Name": "Kraljevo center"
+          },
+          "Departure": "18:40:00",
+          "Arrival": "21:20:00",
+          "TravelTime": 160
+        }
+      ],
+      "Train": {
+        "Id": 5,
+        "Manufacturer": "KraljevoTransport",
+        "Seats": [
+          {
+            "SeatNumber": 1,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 2,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 3,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 4,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 5,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 6,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 7,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 8,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 9,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 10,
+            "Type": 0,
+            "Price": 750
+          },
+          {
+            "SeatNumber": 11,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 12,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 13,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 14,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 15,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 16,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 17,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 18,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 19,
+            "Type": 1,
+            "Price": 250
+          },
+          {
+            "SeatNumber": 20,
+            "Type": 1,
+            "Price": 250
+          }
+        ],
+        "IsActive": true
+      }
+    }
+  ]
+}

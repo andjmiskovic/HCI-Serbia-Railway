@@ -1,0 +1,394 @@
+{
+  "Schedules": [
+    {
+      "StartingStation": {
+        "Id": 1,
+        "Name": "Belgrade center"
+      },
+      "EndStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "Departure": "10:15:00",
+      "Arrival": "10:20:00",
+      "TravelTime": 5
+    },
+    {
+      "StartingStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "EndStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "Departure": "10:25:00",
+      "Arrival": "10:55:00",
+      "TravelTime": 30
+    },
+    {
+      "StartingStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "EndStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "Departure": "11:05:00",
+      "Arrival": "11:25:00",
+      "TravelTime": 20
+    },
+    {
+      "StartingStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "EndStation": {
+        "Id": 1,
+        "Name": "Belgrade center"
+      },
+      "Departure": "11:30:00",
+      "Arrival": "11:35:00",
+      "TravelTime": 5
+    },
+    {
+      "StartingStation": {
+        "Id": 1,
+        "Name": "Belgrade center"
+      },
+      "EndStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "Departure": "11:00:00",
+      "Arrival": "11:05:00",
+      "TravelTime": 5
+    },
+    {
+      "StartingStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "EndStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "Departure": "11:10:00",
+      "Arrival": "11:40:00",
+      "TravelTime": 30
+    },
+    {
+      "StartingStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "EndStation": {
+        "Id": 4,
+        "Name": "Subotica center"
+      },
+      "Departure": "11:45:00",
+      "Arrival": "12:25:00",
+      "TravelTime": 40
+    },
+    {
+      "StartingStation": {
+        "Id": 4,
+        "Name": "Subotica center"
+      },
+      "EndStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "Departure": "12:35:00",
+      "Arrival": "13:15:00",
+      "TravelTime": 40
+    },
+    {
+      "StartingStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "EndStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "Departure": "13:20:00",
+      "Arrival": "13:50:00",
+      "TravelTime": 30
+    },
+    {
+      "StartingStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "EndStation": {
+        "Id": 1,
+        "Name": "Belgrade center"
+      },
+      "Departure": "13:55:00",
+      "Arrival": "14:00:00",
+      "TravelTime": 5
+    },
+    {
+      "StartingStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "EndStation": {
+        "Id": 4,
+        "Name": "Subotica center"
+      },
+      "Departure": "08:45:00",
+      "Arrival": "09:25:00",
+      "TravelTime": 40
+    },
+    {
+      "StartingStation": {
+        "Id": 4,
+        "Name": "Subotica center"
+      },
+      "EndStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "Departure": "09:40:00",
+      "Arrival": "10:20:00",
+      "TravelTime": 40
+    },
+    {
+      "StartingStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "EndStation": {
+        "Id": 6,
+        "Name": "Sombor center"
+      },
+      "Departure": "12:00:00",
+      "Arrival": "12:30:00",
+      "TravelTime": 30
+    },
+    {
+      "StartingStation": {
+        "Id": 6,
+        "Name": "Sombor center"
+      },
+      "EndStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "Departure": "12:50:00",
+      "Arrival": "13:20:00",
+      "TravelTime": 30
+    },
+    {
+      "StartingStation": {
+        "Id": 4,
+        "Name": "Subotica center"
+      },
+      "EndStation": {
+        "Id": 6,
+        "Name": "Sombor center"
+      },
+      "Departure": "07:30:00",
+      "Arrival": "07:40:00",
+      "TravelTime": 10
+    },
+    {
+      "StartingStation": {
+        "Id": 6,
+        "Name": "Sombor center"
+      },
+      "EndStation": {
+        "Id": 4,
+        "Name": "Subotica center"
+      },
+      "Departure": "07:50:00",
+      "Arrival": "08:00:00",
+      "TravelTime": 10
+    },
+    {
+      "StartingStation": {
+        "Id": 1,
+        "Name": "Belgrade center"
+      },
+      "EndStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "Departure": "11:00:00",
+      "Arrival": "11:05:00",
+      "TravelTime": 5
+    },
+    {
+      "StartingStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "EndStation": {
+        "Id": 5,
+        "Name": "Sremska Mitrovica - railway station"
+      },
+      "Departure": "11:10:00",
+      "Arrival": "11:25:00",
+      "TravelTime": 15
+    },
+    {
+      "StartingStation": {
+        "Id": 5,
+        "Name": "Sremska Mitrovica - railway station"
+      },
+      "EndStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "Departure": "11:30:00",
+      "Arrival": "11:45:00",
+      "TravelTime": 15
+    },
+    {
+      "StartingStation": {
+        "Id": 2,
+        "Name": "New Belgrade"
+      },
+      "EndStation": {
+        "Id": 1,
+        "Name": "Belgrade center"
+      },
+      "Departure": "11:50:00",
+      "Arrival": "11:55:00",
+      "TravelTime": 5
+    },
+    {
+      "StartingStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "EndStation": {
+        "Id": 5,
+        "Name": "Sremska Mitrovica - railway station"
+      },
+      "Departure": "15:25:00",
+      "Arrival": "15:50:00",
+      "TravelTime": 25
+    },
+    {
+      "StartingStation": {
+        "Id": 5,
+        "Name": "Sremska Mitrovica - railway station"
+      },
+      "EndStation": {
+        "Id": 3,
+        "Name": "Novi Sad - railway station"
+      },
+      "Departure": "16:00:00",
+      "Arrival": "16:25:00",
+      "TravelTime": 25
+    },
+    {
+      "StartingStation": {
+        "Id": 1,
+        "Name": "Belgrade center"
+      },
+      "EndStation": {
+        "Id": 8,
+        "Name": "Kragujevac center"
+      },
+      "Departure": "13:35:00",
+      "Arrival": "14:25:00",
+      "TravelTime": 50
+    },
+    {
+      "StartingStation": {
+        "Id": 8,
+        "Name": "Kragujevac center"
+      },
+      "EndStation": {
+        "Id": 1,
+        "Name": "Belgrade center"
+      },
+      "Departure": "14:35:00",
+      "Arrival": "15:25:00",
+      "TravelTime": 50
+    },
+    {
+      "StartingStation": {
+        "Id": 8,
+        "Name": "Kragujevac center"
+      },
+      "EndStation": {
+        "Id": 7,
+        "Name": "Kraljevo center"
+      },
+      "Departure": "15:00:00",
+      "Arrival": "15:30:00",
+      "TravelTime": 30
+    },
+    {
+      "StartingStation": {
+        "Id": 7,
+        "Name": "Kraljevo center"
+      },
+      "EndStation": {
+        "Id": 8,
+        "Name": "Kragujevac center"
+      },
+      "Departure": "15:40:00",
+      "Arrival": "16:10:00",
+      "TravelTime": 30
+    },
+    {
+      "StartingStation": {
+        "Id": 7,
+        "Name": "Kraljevo center"
+      },
+      "EndStation": {
+        "Id": 9,
+        "Name": "Vranje center"
+      },
+      "Departure": "16:00:00",
+      "Arrival": "17:55:00",
+      "TravelTime": 115
+    },
+    {
+      "StartingStation": {
+        "Id": 9,
+        "Name": "Vranje center"
+      },
+      "EndStation": {
+        "Id": 7,
+        "Name": "Kraljevo center"
+      },
+      "Departure": "18:05:00",
+      "Arrival": "20:00:00",
+      "TravelTime": 115
+    },
+    {
+      "StartingStation": {
+        "Id": 7,
+        "Name": "Kraljevo center"
+      },
+      "EndStation": {
+        "Id": 10,
+        "Name": "Kosovska Mitrovica center"
+      },
+      "Departure": "15:50:00",
+      "Arrival": "18:30:00",
+      "TravelTime": 160
+    },
+    {
+      "StartingStation": {
+        "Id": 10,
+        "Name": "Kosovska Mitrovica center"
+      },
+      "EndStation": {
+        "Id": 7,
+        "Name": "Kraljevo center"
+      },
+      "Departure": "18:40:00",
+      "Arrival": "21:20:00",
+      "TravelTime": 160
+    }
+  ]
+}

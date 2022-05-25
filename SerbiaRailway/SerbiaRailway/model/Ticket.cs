@@ -9,6 +9,5 @@ namespace SerbiaRailway.model
     public class Ticket
     {
         public Client Client { get; set; }
-        
     }
 }
