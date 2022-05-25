@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="SerbiaRailway.TicketCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SerbiaRailway" Margin="10"
+             mc:Ignorable="d" MaxHeight="150" MinWidth="500">
+    <Border Background="White" BorderThickness="0 0 0 1" BorderBrush="Gray">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <Label Content="13:00" ToolTip="Departure Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="30"/>
+                <Label Content="Novi Sad" ToolTip="Departure Station" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            </StackPanel>
+            <Label Grid.Column="1" Content="- 0:30 -" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="#fca311" FontSize="20"/>
+            <StackPanel Grid.Column="2" Orientation="Vertical">
+                <Label Content="13:30" ToolTip="Arrival Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="30"/>
+                <Label Content="Belgrade" ToolTip="Arrival Station" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            </StackPanel>
+            <StackPanel Grid.Column="3" Orientation="Vertical">
+                <Label Content="Seat: 15" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#e5e5e5" FontSize="15"/>
+                <Label Content="Train: 4" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#e5e5e5" FontSize="15"/>
+            </StackPanel>
+            <StackPanel Grid.Column="4" Orientation="Vertical">
+                <Label Content="01.03.2000." ToolTip="Ticket Date" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                <Label Content="Price: 300din" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Background="#fca311" Margin="5" FontSize="20"/>
+            </StackPanel>
+            </Grid>
+    </Border>
+</UserControl>

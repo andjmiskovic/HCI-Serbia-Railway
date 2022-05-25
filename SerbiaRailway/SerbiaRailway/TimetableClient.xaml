@@ -8,32 +8,34 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TimetableClient">
-
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="12*" />
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
         <Grid Grid.Row="0" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <hc:ComboBox Text="Starting station" ToolTip="Choose your starting point." Name="FromSelect" Margin="2" Grid.Row="1" Grid.Column="0" Background="White" VerticalAlignment="Center" FontSize="20"/>
-            <hc:ComboBox Text="Ending station" ToolTip="Choose your ending point." Name="ToSelect" Margin="2" Grid.Row="1" Grid.Column="1" Background="White" VerticalAlignment="Center" FontSize="20"/>
-            <hc:DatePicker ToolTip="Choose the date of your travel." Name="Date" Margin="2" Grid.Column="2" VerticalAlignment="Center" Background="White" Grid.Row="1" FontSize="20"/>
-            <Button ToolTip="Click to search available timelines." Grid.Column="3" Grid.Row="1">SEARCH</Button>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ComboBox Text="Starting station" IsEditable="True" ToolTip="Choose your starting point." Margin="5" Name="FromSelect" Grid.Row="0" Background="White" VerticalAlignment="Center" FontSize="15"/>
+            <ComboBox Text="Ending station" IsEditable="True" ToolTip="Choose your ending point." Name="ToSelect" Margin="5" Grid.Row="1" Background="White" VerticalAlignment="Center" FontSize="15"/>
+            <Calendar Margin="10" Grid.Row="2"/>
+            <Button ToolTip="Click to search available timelines." Grid.Column="3" Margin="5" Grid.Row="3" VerticalAlignment="Center">SEARCH</Button>
         </Grid>
-        <DataGrid Grid.Row="1" x:Name="TimetableTable" BorderThickness="0" GridLinesVisibility="Horizontal" HeadersVisibility="Column" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding timeTableCollection, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Margin="10" Background="White">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="START TIME" Width="*" Binding="{Binding StartTime}"/>
-                <DataGridTextColumn Header="END TIME" Width="*" Binding="{Binding EndTime}"/>
-                <DataGridTextColumn Header="LINE ID" Width="*" Binding="{Binding LineId}"/>
-                <DataGridTextColumn Header="LINE NAME" Width="*" Binding="{Binding LineName}"/>
-                <DataGridTextColumn Header="PRICE" Width="*" Binding="{Binding Price}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+
+        <ScrollViewer Grid.Column="1">
+            <StackPanel Orientation="Vertical">
+                <local:TimetableCard/>
+                <local:TimetableCard/>
+                <local:TimetableCard/>
+                <local:TimetableCard/>
+                <local:TimetableCard/>
+                <local:TimetableCard/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

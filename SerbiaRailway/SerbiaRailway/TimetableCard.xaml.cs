@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace SerbiaRailway
 {
     /// <summary>
-    /// Interaction logic for TimetableClient.xaml
+    /// Interaction logic for TicketCard.xaml
     /// </summary>
-    public partial class TimetableClient : Page
+    public partial class TimetableCard : UserControl
     {
-        public TimetableClient()
+        public TimetableCard()
         {
             InitializeComponent();
-            // FromSelect.ItemsSource = 
         }
     }
 }
