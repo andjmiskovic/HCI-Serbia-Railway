@@ -27,6 +27,6 @@
                 <Button FontSize="15" FontWeight="Bold" Margin="2" Background="{x:Null}" Foreground="Black" BorderThickness="0" Content="LOG OUT" Click="LogOut"/>
             </StackPanel>
         </Grid>
-        <Frame x:Name="Main" Grid.Row="1" />
+        <Frame x:Name="Main" Grid.Row="1" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

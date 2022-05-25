@@ -1,0 +1,44 @@
+{
+  "Stations": [
+    {
+      "Id": 1,
+      "Name": "Belgrade center"
+    },
+    {
+      "Id": 2,
+      "Name": "New Belgrade"
+    },
+    {
+      "Id": 3,
+      "Name": "Novi Sad - railway station"
+    },
+    {
+      "Id": 4,
+      "Name": "Subotica center"
+    },
+    {
+      "Id": 5,
+      "Name": "Sremska Mitrovica - railway station"
+    },
+    {
+      "Id": 6,
+      "Name": "Sombor center"
+    },
+    {
+      "Id": 7,
+      "Name": "Kraljevo center"
+    },
+    {
+      "Id": 8,
+      "Name": "Kragujevac center"
+    },
+    {
+      "Id": 9,
+      "Name": "Vranje center"
+    },
+    {
+      "Id": 10,
+      "Name": "Kosovska Mitrovica center"
+    }
+  ]
+}
