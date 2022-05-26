@@ -30,6 +30,8 @@ namespace SerbiaRailway
             Lines = new Lines();
             TimetableManager = new TimetableManager();
             TicketsReport = new TicketsReport();
+            Main.Content = this.TimetableManager;
+            TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
         }
 
         private void SwitchToTrainsPage(object sender, RoutedEventArgs e)

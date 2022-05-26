@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SerbiaRailway.model;
 
 namespace SerbiaRailway
 {
     /// <summary>
-    /// Interaction logic for Trains.xaml
+    /// Interaction logic for TicketCard.xaml
     /// </summary>
-    public partial class Trains : Page
+    public partial class TimetableCard : UserControl
     {
-        public Trains()
+        public TimetableCard()
         {
             InitializeComponent();
         }

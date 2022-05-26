@@ -9,6 +9,33 @@
       Title="TrainNetwork">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ComboBox Text="Starting station" IsEditable="True" ToolTip="Choose your starting point." Margin="5" Name="FromSelect" Grid.Row="0" Background="White" VerticalAlignment="Center" FontSize="15"/>
+            <ComboBox Text="Ending station" IsEditable="True" ToolTip="Choose your ending point." Name="ToSelect" Margin="5" Grid.Row="1" Background="White" VerticalAlignment="Center" FontSize="15"/>
+            <Calendar Margin="10" Grid.Row="2"/>
+            <Button ToolTip="Click to search available timelines." Grid.Column="3" Margin="5" Grid.Row="3" VerticalAlignment="Center">SEARCH</Button>
+        </Grid>
+
+        <ScrollViewer Grid.Column="1">
+            <StackPanel Orientation="Vertical">
+                <local:TimetableCard/>
+                <local:TimetableCard/>
+                <local:TimetableCard/>
+                <local:TimetableCard/>
+                <local:TimetableCard/>
+                <local:TimetableCard/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

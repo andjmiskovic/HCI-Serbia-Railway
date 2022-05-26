@@ -28,6 +28,8 @@ namespace SerbiaRailway
             MyTickets = new MyTickets();
             TimetableClient = new TimetableClient();
             TrainNetwork = new TrainNetwork();
+            Main.Content = this.MyTickets;
+            MyTicketsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
         }
 
         private void SwitchToMyTickets(object sender, RoutedEventArgs e)

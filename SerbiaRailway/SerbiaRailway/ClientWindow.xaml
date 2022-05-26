@@ -7,7 +7,7 @@
         xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="SerbiaRailway.ClientWindow"
         mc:Ignorable="d"
         Icon="resources/icon.png"
-        Title="Serbia Railway - Client" MinHeight="600" MinWidth="650">
+        Title="Serbia Railway - Client" MinHeight="600" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -26,6 +26,6 @@
                 <Button FontSize="15" Background="{x:Null}" Foreground="Black" BorderThickness="0" FontWeight="Bold" Margin="2" Click="LogOut">LOG OUT</Button>
             </StackPanel>
         </Grid>
-        <Frame x:Name="Main" Grid.Row="1" />
+        <Frame x:Name="Main" Grid.Row="1" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
