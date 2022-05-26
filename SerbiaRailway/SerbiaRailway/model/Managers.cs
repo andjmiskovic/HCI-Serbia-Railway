@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SerbiaRailway.model
 {
-    class Managers
+    public class Managers
     {
         public List<Manager> ManagerUsers { get; set; }
 

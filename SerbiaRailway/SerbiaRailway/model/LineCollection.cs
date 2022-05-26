@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SerbiaRailway.model
 {
-    class LineCollection
+    public class LineCollection
     {
         public List<Line> Lines { get; set; }
 

@@ -11,20 +11,9 @@ namespace SerbiaRailway.services
 
     class LoginService
     {
-        private List<Client> Clients { get; set; }
-        private List<Manager> Managers { get; set; }
 
         public LoginService()
         {
-            Clients = new List<Client>
-            {
-                new Client("pera", "123", "Pera", "Peric")
-            };
-
-            Managers = new List<Manager>
-            {
-               new Manager("ana", "123", "Ana", "Anicic")
-            };
         }
 
         public UserType Login(string username, string password)
@@ -40,12 +29,12 @@ namespace SerbiaRailway.services
 
         public UserType GetUserType(string username)
         {
-            foreach (Client c in Clients)
+            foreach (Client c in DataService.Data.GetClients())
             {
                 if (c.Username.Equals(username))
                     return UserType.CLIENT;
             }
-            foreach (Manager m in Managers)
+            foreach (Manager m in DataService.Data.GetManagers())
             {
                 if (m.Username.Equals(username))
                     return UserType.MANAGER;
@@ -57,7 +46,7 @@ namespace SerbiaRailway.services
         {
             if (UserType.CLIENT == type)
             {
-                foreach (Client c in Clients)
+                foreach (Client c in DataService.Data.GetClients())
                 {
                     if (c.Username.Equals(username))
                         return c.Password;
@@ -65,7 +54,7 @@ namespace SerbiaRailway.services
             }
             if (UserType.MANAGER == type)
             {
-                foreach (Manager m in Managers)
+                foreach (Manager m in DataService.Data.GetManagers())
                 {
                     if (m.Username.Equals(username))
                         return m.Password;

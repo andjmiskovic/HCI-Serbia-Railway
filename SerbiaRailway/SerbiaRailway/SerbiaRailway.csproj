@@ -116,6 +116,8 @@
     <Compile Include="MyTickets.xaml.cs">
       <DependentUpon>MyTickets.xaml</DependentUpon>
     </Compile>
+    <Compile Include="services\Data.cs" />
+    <Compile Include="services\DataService.cs" />
     <Compile Include="services\LoginService.cs" />
     <Compile Include="TicketsReport.xaml.cs">
       <DependentUpon>TicketsReport.xaml</DependentUpon>
@@ -207,6 +209,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="data\clients.json" />
+    <None Include="data\lines.json" />
+    <None Include="data\managers.json" />
+    <None Include="data\stations.json" />
+    <None Include="data\stationSchedules.json" />
+    <None Include="data\trains.json" />
+    <None Include="data\trainSchedules.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

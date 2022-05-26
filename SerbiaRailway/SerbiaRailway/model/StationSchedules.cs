@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SerbiaRailway.model
 {
-    class StationSchedules
+    public class StationSchedules
     {
         public List<StationSchedule> Schedules { get; set; }
 

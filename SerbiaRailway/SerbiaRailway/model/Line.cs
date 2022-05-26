@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SerbiaRailway.model
 {
     // linija ima svoje ime, voz koji ide i listu svih među stanica zajedno sa satnicom
-    class Line
+    public class Line
     {
         public int Id { get; set; }
         public string Name { get; set; }

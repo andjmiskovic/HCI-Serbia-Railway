@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace SerbiaRailway.model
 {
-    class Clients
+    public class Clients
     {
         public List<Client> ClientUsers { get; set; }
 
         public Clients()
         {
+
         }
 
         public Clients(List<Client> clientUsers)

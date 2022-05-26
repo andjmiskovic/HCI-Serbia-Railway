@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SerbiaRailway.model
 {
     // vožnja od jedne do druge stanice, u koliko sati svakog dana se kreće i odakle i stigne i gde
-    class StationSchedule
+    public class StationSchedule
     {
         public Station StartingStation { get; set; }
         public Station EndStation { get; set; }
