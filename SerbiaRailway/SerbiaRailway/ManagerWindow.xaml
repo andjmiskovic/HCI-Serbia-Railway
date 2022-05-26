@@ -7,7 +7,7 @@
         xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="SerbiaRailway.ManagerWindow"
         mc:Ignorable="d"
         Icon="resources/icon.png"
-        Title="Serbia Railway - Manager" MinHeight="500" MinWidth="700">
+        Title="Serbia Railway - Manager" MinHeight="600" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />

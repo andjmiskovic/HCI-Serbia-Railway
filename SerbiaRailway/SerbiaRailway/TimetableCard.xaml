@@ -4,22 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SerbiaRailway" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="SerbiaRailway.TimetableCard"
-             Margin="10"
-             mc:Ignorable="d" MaxHeight="150" MinWidth="500">
+             Margin="5"
+             mc:Ignorable="d" MaxHeight="150">
     <Border Background="White" BorderThickness="0 0 0 1" BorderBrush="Gray">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Content="13:00" ToolTip="Departure Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="5 0 0 0" FontSize="30"/>
-            <Label Grid.Column="1" Content="- 0:30 -" ToolTip="Travel Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="#fca311" FontSize="20"/>
-            <Label Grid.Column="2" Content="13:30" ToolTip="Arrival Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="30"/>
-            <Label Grid.Column="3" Content="Lasta" ToolTip="Line Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            <Label Grid.Column="0" Content="13:00" ToolTip="Departure Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="5 0 0 0" FontSize="25"/>
+            <Label Grid.Column="1" Content="00:30" ToolTip="Travel Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="#fca311" FontSize="12"/>
+            <Label Grid.Column="2" Content="13:30" ToolTip="Arrival Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="25"/>
+            <Label Grid.Column="3" Content="Lasta" ToolTip="Line Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
 
             <StackPanel Grid.Column="4" Orientation="Vertical" Margin="5">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

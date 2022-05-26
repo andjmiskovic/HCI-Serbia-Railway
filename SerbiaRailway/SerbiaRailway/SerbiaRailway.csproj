@@ -254,6 +254,17 @@
   <ItemGroup>
     <Resource Include="resources\maps-and-flags.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\bin.png" />
+    <Resource Include="resources\edit.png" />
+    <Resource Include="resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\search-interface-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\search.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
