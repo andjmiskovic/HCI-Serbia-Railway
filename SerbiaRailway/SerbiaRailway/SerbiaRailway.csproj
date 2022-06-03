@@ -119,6 +119,7 @@
     <Compile Include="model\StationSchedules.cs" />
     <Compile Include="model\ModelTrains.cs" />
     <Compile Include="model\TrainStations.cs" />
+    <Compile Include="model\Wagon.cs" />
     <Compile Include="MyTickets.xaml.cs">
       <DependentUpon>MyTickets.xaml</DependentUpon>
     </Compile>

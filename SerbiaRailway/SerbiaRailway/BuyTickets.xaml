@@ -58,11 +58,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label VerticalAlignment="Center" Grid.Column="0" Margin="10 0 0 0">Please select the wagon:</Label>
-            <StackPanel Name="PanelRadioButtons" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <RadioButton Name="BtnClose" GroupName="RadioButtons" Content="1" IsChecked="True" />
-                <RadioButton Name="BtnOpen" GroupName="RadioButtons" Content="2"/>
-                <RadioButton Name="BtnHigh" GroupName="RadioButtons" Content="3"/>
-                <RadioButton Name="BtnLow" GroupName="RadioButtons" Content="4" />
+            <StackPanel Name="WagonStack" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             </StackPanel>
             <!--<ComboBox Grid.Column="1" x:Name="selectRide" Margin="0 0 10 0" ToolTip="Select Wagon number" Text="Wagon number" IsEditable="True" FontSize="15" />-->
         </Grid>
