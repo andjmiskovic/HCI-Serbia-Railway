@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SerbiaRailway.model;
+using SerbiaRailway.services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,26 @@ namespace SerbiaRailway
     /// </summary>
     public partial class MyTickets : Page
     {
+        public Client Client { get; set; }
         public MyTickets()
         {
+            this.Client = LoginService.CurrentlyLoggedClient;
             InitializeComponent();
+            FillTickets();
+        }
+
+        private void FillTickets()
+        {
+            Tickets.Children.RemoveRange(0, Tickets.Children.Count);
+            List<Ticket> tickets;
+            if ((bool)Reserved.IsChecked)
+                tickets = Client.Reserved;
+            else
+                tickets = Client.Bought;
+            foreach (Ticket ticket in tickets)
+            {
+                Tickets.Children.Add(new TicketCard(ticket));
+            }
         }
     }
 }

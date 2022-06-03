@@ -4,46 +4,42 @@ namespace SerbiaRailway.services
 {
     class TicketService
     {
-        public void BuyTicket(Client client, double price, Seat seat, Ride ride, Station startStation, Station endStation, int wagon)
+        public static void BuyTicket(Client client, Seat seat, PartialLine partial, int wagon)
         {
             Ticket ticket = new Ticket
             {
                 Seat = seat,
-                Ride = ride,
+                PartialLine = partial,
                 State = TicketState.BOUGHT,
                 Client = client,
-                EndStation = endStation,
-                StartStation = startStation,
                 Wagon = wagon,
-                Price = CalculateTicketPrice(ride, startStation, endStation, seat)
+                Price = CalculateTicketPrice(partial, seat)
             };
             client.Bought.Add(ticket);
         }
 
-        public void ReserveTicket(Client client, double price, Seat seat, Ride ride, Station startStation, Station endStation, int wagon)
+        public static void ReserveTicket(Client client, Seat seat, PartialLine partial, int wagon)
         {
             Ticket ticket = new Ticket
             {
                 Seat = seat,
-                Ride = ride,
                 State = TicketState.RESERVED,
                 Client = client,
-                EndStation = endStation,
-                StartStation = startStation,
+                PartialLine = partial,
                 Wagon = wagon,
-                Price = CalculateTicketPrice(ride, startStation, endStation, seat)
+                Price = CalculateTicketPrice(partial, seat)
             };
             client.Reserved.Add(ticket);
         }
 
-        private double CalculateTicketPrice(Ride ride, Station startStation, Station endStation, Seat seat)
+        private static double CalculateTicketPrice(PartialLine partial, Seat seat)
         {
             double price = 0;
             price += seat.ExtraPrice;
             bool riding = false;
-            foreach(StationSchedule station in ride.Line.StationSchedule)
+            foreach(StationSchedule station in partial.Line.StationSchedule)
             {
-                if(station.StartingStation == startStation)
+                if(station.StartingStation.Name.Equals(partial.Start.Name))
                 {
                     riding = true;
                 }
@@ -51,7 +47,7 @@ namespace SerbiaRailway.services
                 {
                     price += station.Price;
                 }
-                if (station.StartingStation == endStation)
+                if (station.StartingStation.Name.Equals(partial.End.Name))
                 {
                     riding = false;
                     break;

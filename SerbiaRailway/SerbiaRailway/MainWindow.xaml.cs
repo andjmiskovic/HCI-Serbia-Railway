@@ -30,19 +30,18 @@ namespace SerbiaRailway
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            LoginService login = new LoginService();
-            UserType type = login.Login(Username.Text, Password.Password);
+            UserType type = LoginService.Login(Username.Text, Password.Password);
             if (type == UserType.MANAGER)
             {
                 ManagerWindow managerWindow = new ManagerWindow();
                 managerWindow.Show();
-                this.Close();
+                Close();
             }
             else if (type == UserType.CLIENT)
             {
                 ClientWindow clientWindow = new ClientWindow();
                 clientWindow.Show();
-                this.Close();
+                Close();
             }
             else
             {

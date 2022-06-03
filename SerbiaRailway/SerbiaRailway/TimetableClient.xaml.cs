@@ -23,7 +23,7 @@ namespace SerbiaRailway
         {
             Station from = DataService.Data.GetStationByName(FromSelect.Text);
             Station to = DataService.Data.GetStationByName(ToSelect.Text);
-            DateTime date = new DateTime();
+            DateTime date = DateTime.Now;
             if (Calendar.SelectedDate != null)
                 date = (DateTime)Calendar.SelectedDate;
             CardStack.Children.RemoveRange(0, CardStack.Children.Count);
@@ -31,7 +31,9 @@ namespace SerbiaRailway
             foreach (PartialLine line in lines)
             {
                 TimeSpan duration = DateTime.Parse(line.EndTime.ToString()).Subtract(DateTime.Parse(line.StartTime.ToString()));
-                CardStack.Children.Add(new TimetableCard(line.StartTime.ToString(), line.EndTime.ToString(), duration.ToString(), line, line.Line.Train.Manufacturer));
+                // ovde treba da se dobavlja iz fajla ride
+                Ride ride = new Ride(date, line.Line);
+                CardStack.Children.Add(new TimetableCard(line.StartTime.ToString(), line.EndTime.ToString(), duration.ToString(), line, line.Line.Train.Manufacturer, ride));
             }
             if (lines.Count() == 0)
             {
@@ -58,8 +60,6 @@ namespace SerbiaRailway
                         hasStart = true;
                         startTime = s.Departure;
                     }
-                    Console.WriteLine(s.EndStation.Name);
-                    Console.WriteLine(to.Name);
                     if (hasStart && s.EndStation.Name.Equals(to.Name))
                     {
                         hasEnd = true;

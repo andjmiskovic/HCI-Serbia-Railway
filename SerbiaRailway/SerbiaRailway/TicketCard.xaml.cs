@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SerbiaRailway.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,26 @@ namespace SerbiaRailway
     /// </summary>
     public partial class TicketCard : UserControl
     {
-        public TicketCard()
+        public Ticket ticket { get; set; }
+        public TicketCard(Ticket ticket)
         {
             InitializeComponent();
+            this.ticket = ticket;
+            FillData();
+        }
+
+        private void FillData()
+        {
+            StartTime.Content = ticket.PartialLine.StartTime.ToString().Substring(5);
+            EndTime.Content = ticket.PartialLine.EndTime.ToString().Substring(5);
+            StartStation.Content = ticket.PartialLine.Start.Name;
+            EndStation.Content = ticket.PartialLine.End.Name;
+            TimeSpan duration = DateTime.Parse(ticket.PartialLine.StartTime.ToString()).Subtract(DateTime.Parse(ticket.PartialLine.EndTime.ToString()));
+            TravelTime.Content = duration.ToString().Substring(5);
+            SeatNumber.Content = "Seat: " + ticket.Seat.SeatNumber;
+            WagonNumber.Content = "Wagon: " + ticket.Wagon;
+            Price.Content = "Price: " + ticket.Price.ToString() + "din";
+            Date.Content = ticket.Date.ToString();
         }
     }
 }

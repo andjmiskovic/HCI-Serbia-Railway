@@ -30,13 +30,13 @@ namespace SerbiaRailway
             Lines = new Lines();
             TimetableManager = new TimetableManager();
             TicketsReport = new TicketsReport();
-            Main.Content = this.TimetableManager;
+            Main.Content = TimetableManager;
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
         }
 
         private void SwitchToTrainsPage(object sender, RoutedEventArgs e)
         {
-            Main.Content = this.Trains;
+            Main.Content = Trains;
             TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
             LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
@@ -45,7 +45,7 @@ namespace SerbiaRailway
 
         private void SwitchToLinesPage(object sender, RoutedEventArgs e)
         {
-            Main.Content = this.Lines;
+            Main.Content = Lines;
             TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
@@ -54,7 +54,7 @@ namespace SerbiaRailway
 
         private void SwitchToTimetablePage(object sender, RoutedEventArgs e)
         {
-            Main.Content = this.TimetableManager;
+            Main.Content = TimetableManager;
             TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
@@ -63,7 +63,7 @@ namespace SerbiaRailway
 
         private void SwitchToTicketsReportPage(object sender, RoutedEventArgs e)
         {
-            Main.Content = this.TicketsReport;
+            Main.Content = TicketsReport;
             TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
@@ -74,7 +74,7 @@ namespace SerbiaRailway
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            this.Close();
+            Close();
         }
     }
 }

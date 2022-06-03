@@ -28,13 +28,13 @@ namespace SerbiaRailway
             MyTickets = new MyTickets();
             TimetableClient = new TimetableClient();
             TrainNetwork = new TrainNetwork();
-            Main.Content = this.MyTickets;
+            Main.Content = MyTickets;
             MyTicketsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
         }
 
         private void SwitchToMyTickets(object sender, RoutedEventArgs e)
         {
-            Main.Content = this.MyTickets;
+            Main.Content = MyTickets;
             MyTicketsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TrainNetworkBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
@@ -42,7 +42,7 @@ namespace SerbiaRailway
 
         private void SwitchToTimetableClient(object sender, RoutedEventArgs e)
         {
-            Main.Content = this.TimetableClient;
+            Main.Content = TimetableClient;
             MyTicketsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
             TrainNetworkBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
@@ -50,7 +50,7 @@ namespace SerbiaRailway
 
         private void SwitchToTrainNetwork(object sender, RoutedEventArgs e)
         {
-            Main.Content = this.TrainNetwork;
+            Main.Content = TrainNetwork;
             MyTicketsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TrainNetworkBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
@@ -60,7 +60,7 @@ namespace SerbiaRailway
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            this.Close();
+            Close();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace SerbiaRailway.model
 
         public StationSchedules(List<StationSchedule> schedules)
         {
-            this.Schedules = schedules;
+            Schedules = schedules;
         }
     }
 }
