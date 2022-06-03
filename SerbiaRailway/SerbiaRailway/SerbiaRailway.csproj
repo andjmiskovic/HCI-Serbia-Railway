@@ -99,6 +99,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BuyTickets.xaml.cs">
+      <DependentUpon>BuyTickets.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,7 @@
     <Compile Include="model\Clients.cs" />
     <Compile Include="model\LineCollection.cs" />
     <Compile Include="model\Managers.cs" />
+    <Compile Include="model\Ride.cs" />
     <Compile Include="model\Schedules.cs" />
     <Compile Include="model\StationSchedules.cs" />
     <Compile Include="model\ModelTrains.cs" />
@@ -121,6 +125,7 @@
     <Compile Include="services\Data.cs" />
     <Compile Include="services\DataService.cs" />
     <Compile Include="services\LoginService.cs" />
+    <Compile Include="services\TicketService.cs" />
     <Compile Include="TimetableCard.xaml.cs">
       <DependentUpon>TimetableCard.xaml</DependentUpon>
     </Compile>
@@ -142,6 +147,10 @@
     <Compile Include="Trains.xaml.cs">
       <DependentUpon>Trains.xaml</DependentUpon>
     </Compile>
+    <Page Include="BuyTickets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

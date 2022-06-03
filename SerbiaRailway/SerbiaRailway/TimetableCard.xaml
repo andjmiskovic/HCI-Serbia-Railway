@@ -16,17 +16,17 @@
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Content="13:00" ToolTip="Departure Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="5 0 0 0" FontSize="25"/>
-            <Label Grid.Column="1" Content="00:30" ToolTip="Travel Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="#fca311" FontSize="12"/>
-            <Label Grid.Column="2" Content="13:30" ToolTip="Arrival Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="25"/>
-            <Label Grid.Column="3" Content="Lasta" ToolTip="Line Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+            <Label Name="StartTime" Grid.Column="0" Content="13:00" ToolTip="Departure Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="5 0 0 0" FontSize="25"/>
+            <Label Name="TravelTime" Grid.Column="1" Content="00:30" ToolTip="Travel Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="#fca311" FontSize="12"/>
+            <Label Name="EndTime" Grid.Column="2" Content="13:30" ToolTip="Arrival Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="25"/>
+            <Label Name="Manufacturer" Grid.Column="3" Content="Lasta" ToolTip="Manufacturer" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
 
             <StackPanel Grid.Column="4" Orientation="Vertical" Margin="5">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Image Source="resources/maps-and-flags.png" Height="15" Margin="2 0 0 0" />
                     <Label Content="View On Map" FontSize="15" VerticalAlignment="Center" FontWeight="Bold" />
                 </StackPanel>
-                <Button Content="Reserve/Buy" BorderBrush="#FFFCA311" Background="#FFFCA311" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="5" FontSize="15"/>
+                <Button Content="Reserve/Buy" Click="BuyTicket" BorderBrush="#FFFCA311" Background="#FFFCA311" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="5" FontSize="15"/>
             </StackPanel>
         </Grid>
     </Border>

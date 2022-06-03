@@ -19,6 +19,9 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="ToolTip">
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
         <Image x:Key="Delete" Source="resources/bin.png"/>
         <Image x:Key="Edit" Source="resources/edit.png"/>
         <Image x:Key="Add" Source="resources/plus.png"/>

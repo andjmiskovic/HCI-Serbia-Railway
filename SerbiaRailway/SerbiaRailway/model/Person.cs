@@ -33,6 +33,7 @@ namespace SerbiaRailway.model
             Reserved = new List<Ticket>();
             Bought = new List<Ticket>();
         }
+
     }
 
     public class Manager : Person

@@ -16,7 +16,7 @@ namespace SerbiaRailway.model
     {
         public int SeatNumber { get; set; }
         public SeatType Type { get; set; }
-        public double Price { get; set; }
+        public double ExtraPrice { get; set; }
 
         public Seat()
         {
@@ -26,7 +26,7 @@ namespace SerbiaRailway.model
         {
             SeatNumber = seatNumber;
             Type = type;
-            Price = price;
+            ExtraPrice = price;
         }
     }
 }

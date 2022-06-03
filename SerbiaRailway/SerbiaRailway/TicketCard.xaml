@@ -5,6 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SerbiaRailway" Margin="10"
              mc:Ignorable="d" MaxHeight="150" MinWidth="500">
+
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="#FFFCA311"/>
+            <Setter Property="BorderBrush" Value="#FFFCA311"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFFCA300"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="ToolTip">
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
+    </UserControl.Resources>
+    
     <Border Background="White" BorderThickness="0 0 0 1" BorderBrush="Gray">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -19,7 +36,7 @@
                 <Label Content="13:00" ToolTip="Departure Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="30"/>
                 <Label Content="Novi Sad" ToolTip="Departure Station" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
             </StackPanel>
-            <Label Grid.Column="1" Content="- 0:30 -" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="#fca311" FontSize="20"/>
+            <Label Grid.Column="1" Content="- 0:30 -" HorizontalAlignment="Center" ToolTip="Travel time" VerticalAlignment="Center" FontWeight="Bold" Foreground="#fca311" FontSize="25"/>
             <StackPanel Grid.Column="2" Orientation="Vertical">
                 <Label Content="13:30" ToolTip="Arrival Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="30"/>
                 <Label Content="Belgrade" ToolTip="Arrival Station" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
@@ -32,6 +49,6 @@
                 <Label Content="01.03.2000." ToolTip="Ticket Date" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                 <Label Content="Price: 300din" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Background="#fca311" Margin="5" FontSize="20"/>
             </StackPanel>
-            </Grid>
+        </Grid>
     </Border>
 </UserControl>

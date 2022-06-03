@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="0"  Margin="10 0 0 0" Orientation="Horizontal" Grid.Row="0" ToolTip="Search all lines...">
-            <ComboBox x:Name="selectMonth" Grid.Column="0" Margin="10" Text="Select Month" ToolTip="Select month" IsEditable="True" FontSize="20">
+            <ComboBox x:Name="selectMonth" Grid.Column="0" Margin="10" Text="Select Month" IsEditable="True" FontSize="20">
                 <ComboBoxItem Content="January"/>
                 <ComboBoxItem Content="February"/>
                 <ComboBoxItem Content="March"/>
@@ -29,9 +29,26 @@
                 <ComboBoxItem Content="October"/>
                 <ComboBoxItem Content="November"/>
                 <ComboBoxItem Content="December"/>
+                <ToolTipService.ToolTip>
+                    <TextBlock FontSize="30" Text="Select Month" />
+                </ToolTipService.ToolTip>
             </ComboBox>
-            <ComboBox x:Name="selectYear" Margin="10" Text="Select Year" ToolTip="Select year" IsEditable="True" FontSize="20"/>
-            <ComboBox x:Name="selectRide" Margin="10" Text="Select Ride ID" ToolTip="Select ride" IsEditable="True" FontSize="20"/>
+            <ComboBox x:Name="selectYear" Margin="10" Text="Select Year" IsEditable="True" FontSize="20">
+                <ComboBoxItem Content="2022"/>
+                <ComboBoxItem Content="2021"/>
+                <ComboBoxItem Content="2020"/>
+                <ComboBoxItem Content="2019"/>
+                <ComboBoxItem Content="2018"/>
+                <ToolTipService.ToolTip>
+                    <TextBlock FontSize="30" Text="Select year"/>
+                </ToolTipService.ToolTip>
+            </ComboBox>
+
+            <ComboBox x:Name="selectRide" Margin="10" Text="Select Ride ID" IsEditable="True" FontSize="20">
+                <ToolTipService.ToolTip>
+                    <TextBlock FontSize="30" Text="Select ride ID"/>
+                </ToolTipService.ToolTip>
+            </ComboBox>
             <Button Content="Show Tickets"/>
         </StackPanel>
 

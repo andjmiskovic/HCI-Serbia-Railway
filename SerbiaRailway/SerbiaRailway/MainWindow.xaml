@@ -34,7 +34,7 @@
 
                 <TextBlock HorizontalAlignment="Left" Name="ErrorMessage" Opacity="0" Margin="60,440,0,0" VerticalAlignment="Top" FontSize="15" Height="40" Width="270"><Run Text="Wrong username or password. "/><LineBreak/><Run Text="Please try again."/></TextBlock>
 
-                <Button Margin="0,490,0,0.6" Background="#FFFCA311" BorderBrush="#FFFCA311" FontSize="20" Height="Auto" Click="Button_Click_1">Login</Button>
+                <Button Margin="0,490,0,0.6" IsDefault="True"  Background="#FFFCA311" BorderBrush="#FFFCA311" FontSize="20" Height="Auto" Click="Button_Click_1">Login</Button>
             </Grid>
         </materialDesign:Card>
     </Grid>

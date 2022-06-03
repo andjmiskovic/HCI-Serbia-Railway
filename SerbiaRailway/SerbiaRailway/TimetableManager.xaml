@@ -14,6 +14,9 @@
             <Setter Property="Background" Value="#FFFCA311"/>
             <Setter Property="BorderBrush" Value="#FFFCA311"/>
         </Style>
+        <Style TargetType="ToolTip">
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
         <Image x:Key="Delete" Source="resources/bin.png"/>
         <Image x:Key="Remove" Source="resources/bin.png"/>
         <Image x:Key="Edit" Source="resources/edit.png"/>

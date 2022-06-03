@@ -45,6 +45,22 @@ namespace SerbiaRailway.services
             return TrainStations.Stations;
         }
 
+        public List<string> GetStationNames()
+        {
+            List<string> stations = new List<string>();
+            foreach (Station s in TrainStations.Stations)
+                stations.Add(s.Name);
+            return stations;
+        }
+
+        public Station GetStationByName(string name)
+        {
+            foreach (Station s in TrainStations.Stations)
+                if (s.Name.Equals(name))
+                    return s;
+            return null;
+        }
+
         public List<StationSchedule> GetStationSchedules()
         {
             return StationSchedules.Schedules;
