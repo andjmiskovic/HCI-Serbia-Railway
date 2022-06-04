@@ -3,16 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace SerbiaRailway.model
 {
-    // linija ima svoje ime, voz koji ide i listu svih među stanica zajedno sa satnicom i cenom
+    // linija ima svoje ime, voz koji ide i listu svih među stanica zajedno sa satnicom
     public class Line
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public List<StationSchedule> StationSchedule { get; set; }
         public Train Train { get; set; }
+        public string Location { get; set; }
+
+        // naredne ne ulaze u konstruktor ali su korisni u zadacima
+
+        public string StationStr { get; set; }
+        public string TrainName { get; set; }
+        public double Traveling { get; set; }
 
         public Station FirstStation()
         {
@@ -34,12 +42,32 @@ namespace SerbiaRailway.model
         {
         }
 
-        public Line(int id, string name, List<StationSchedule> stationSchedule, Train train)
+        public Line(int id, string name, List<StationSchedule> stationSchedule, Train train, string location)
         {
             Id = id;
             Name = name;
             StationSchedule = stationSchedule;
             Train = train;
+            Location = location;
         }
+
+        public string GetStationString()
+        {
+            if (StationSchedule.Count() == 1) // ima samo jedna stanica
+            {
+                return StationSchedule.ElementAt(0).StartingStation.Name + "," + StationSchedule.ElementAt(0).EndStation.Name;
+            }
+
+            int i = 1;
+            string retVal = FirstStation().Name + ",";
+            while (i < StationSchedule.Count())
+            {
+                retVal += StationSchedule.ElementAt(i).StartingStation.Name + "," + StationSchedule.ElementAt(i).EndStation.Name;
+                i++;
+            }
+
+            return retVal;
+        }
+
     }
 }

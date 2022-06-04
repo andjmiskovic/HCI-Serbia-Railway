@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SerbiaRailway.model;
 
 namespace SerbiaRailway
 {
@@ -22,6 +24,7 @@ namespace SerbiaRailway
         MyTickets MyTickets;
         TimetableClient TimetableClient;
         TrainNetwork TrainNetwork;
+        Map Map;
         public ClientWindow()
         {
             InitializeComponent();
@@ -54,6 +57,49 @@ namespace SerbiaRailway
             MyTicketsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TrainNetworkBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
+
+            // u svrhu testiranja:
+            //List<SerbiaRailway.model.Line> lines = services.Data.Instance.GetLines();
+
+            //List<Location> Locations = SerbiaRailway.services.DataService.getAllLocationsFromLine(lines[3]);
+
+            //foreach (Location loc in Locations)
+            //{
+            //    addMarker(loc);
+            //}
+
+            //for (int i = 0; i < Locations.Count; i++)
+            //{
+            //    if (Locations.ElementAtOrDefault(i + 1) != null)
+            //    {
+            //        addNewPolyline(Locations[i], Locations[i + 1]);
+            //    }
+            //    else
+            //    {
+            //        break;
+            //    }
+            //}
+
+            // ovo treba premestiti samo ne znam gde jos uvek
+            void addMarker(Location lok)
+            {
+                Pushpin pushpin = new Pushpin();
+                pushpin.Location = lok;
+                this.TrainNetwork.mapa.Children.Add(pushpin);
+            }
+
+            void addNewPolyline(Location Lok1, Location Lok2)
+            {
+                MapPolyline polyline = new MapPolyline();
+                polyline.Stroke = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Black);
+                polyline.StrokeThickness = 3;
+                polyline.Opacity = 0.7;
+                polyline.Locations = new LocationCollection() {
+                Lok1, Lok2
+            };
+
+                this.TrainNetwork.mapa.Children.Add(polyline);
+            }
         }
 
         private void LogOut(object sender, RoutedEventArgs e)
@@ -62,5 +108,7 @@ namespace SerbiaRailway
             mainWindow.Show();
             this.Close();
         }
+
+
     }
 }

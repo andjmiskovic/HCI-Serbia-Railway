@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SerbiaRailway.services;
 
 namespace SerbiaRailway.model
 {
@@ -10,8 +11,9 @@ namespace SerbiaRailway.model
     {
         public int Id { get; set; }
         public string Manufacturer { get; set; }
-        public List<Wagon> Wagons { get; set; }
+        public List<Wagon> Wagon { get; set; }
         public bool IsActive { get; set; }
+        public int NumberOfSeats { get; set; }
 
         public Train()
         {
@@ -21,7 +23,7 @@ namespace SerbiaRailway.model
         {
             Id = id;
             Manufacturer = manufacturer;
-            Wagons = wagons;
+            Wagon = wagons;
             IsActive = isActive;
         }
     }
