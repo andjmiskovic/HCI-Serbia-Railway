@@ -53,7 +53,7 @@ namespace SerbiaRailway
 
         private void SwitchToTrainNetwork(object sender, RoutedEventArgs e)
         {
-            Main.Content = TrainNetwork;
+            Main.Content = this.TrainNetwork;
             MyTicketsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TrainNetworkBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
