@@ -22,11 +22,11 @@ namespace SerbiaRailway.model
         {
         }
 
-        public Seat(int seatNumber, SeatType type, double price)
+        public Seat(int seatNumber, SeatType type, double extraPrice)
         {
             SeatNumber = seatNumber;
             Type = type;
-            ExtraPrice = price;
+            ExtraPrice = extraPrice;
         }
     }
 }

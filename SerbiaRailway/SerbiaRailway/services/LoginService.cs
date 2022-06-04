@@ -29,12 +29,12 @@ namespace SerbiaRailway.services
 
         public UserType GetUserType(string username)
         {
-            foreach (Client c in DataService.Data.GetClients())
+            foreach (Client c in DataService.Data.Clients)
             {
                 if (c.Username.Equals(username))
                     return UserType.CLIENT;
             }
-            foreach (Manager m in DataService.Data.GetManagers())
+            foreach (Manager m in DataService.Data.Managers)
             {
                 if (m.Username.Equals(username))
                     return UserType.MANAGER;
@@ -46,7 +46,7 @@ namespace SerbiaRailway.services
         {
             if (UserType.CLIENT == type)
             {
-                foreach (Client c in DataService.Data.GetClients())
+                foreach (Client c in DataService.Data.Clients)
                 {
                     if (c.Username.Equals(username))
                         return c.Password;
@@ -54,7 +54,7 @@ namespace SerbiaRailway.services
             }
             if (UserType.MANAGER == type)
             {
-                foreach (Manager m in DataService.Data.GetManagers())
+                foreach (Manager m in DataService.Data.Managers)
                 {
                     if (m.Username.Equals(username))
                         return m.Password;

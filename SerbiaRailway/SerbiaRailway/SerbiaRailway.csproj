@@ -111,14 +111,8 @@
     <Compile Include="ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="model\Clients.cs" />
-    <Compile Include="model\LineCollection.cs" />
-    <Compile Include="model\Managers.cs" />
     <Compile Include="model\Ride.cs" />
-    <Compile Include="model\Schedules.cs" />
-    <Compile Include="model\StationSchedules.cs" />
-    <Compile Include="model\ModelTrains.cs" />
-    <Compile Include="model\TrainStations.cs" />
+    <Compile Include="model\Wagon.cs" />
     <Compile Include="MyTickets.xaml.cs">
       <DependentUpon>MyTickets.xaml</DependentUpon>
     </Compile>
@@ -238,13 +232,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="data\clients.json" />
-    <None Include="data\lines.json" />
-    <None Include="data\managers.json" />
-    <None Include="data\stations.json" />
-    <None Include="data\stationSchedules.json" />
-    <None Include="data\trains.json" />
-    <None Include="data\trainSchedules.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
