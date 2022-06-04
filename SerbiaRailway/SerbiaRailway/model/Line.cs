@@ -16,7 +16,7 @@ namespace SerbiaRailway.model
         public Train Train { get; set; }
         public string Location { get; set; }
 
-        // naredne ne ulaze u konstruktor ali su korisni u zadatku
+        // naredne ne ulaze u konstruktor ali su korisni u zadacima
 
         public string StationStr { get; set; }
         public string TrainName { get; set; }
@@ -68,38 +68,6 @@ namespace SerbiaRailway.model
 
             return retVal;
         }
-
-        public List<Location> getAllLocationsFromLine(Line line)
-        {
-            List<string> locationsStrings = new List<string>();
-            foreach (var station in line.StationSchedule)
-            {
-                if (!locationsStrings.Contains(station.StartingStation.Location))
-                {
-                    locationsStrings.Add(station.StartingStation.Location);
-                }
-
-                if (!locationsStrings.Contains(station.EndStation.Location))
-                {
-                    locationsStrings.Add(station.EndStation.Location);
-                }
-            }
-
-            List<Location> locations = new List<Location>();
-            foreach (string lok in locationsStrings)
-            {
-                locations.Add(createLocationFromString(lok));
-            }
-
-            return locations;
-        }
-
-        public Location createLocationFromString(string location)
-        {
-            Location Location = new Location(Convert.ToDouble(location.Split(',')[0]), Convert.ToDouble(location.Split(',')[1]));
-            return Location;        
-        }
-
 
     }
 }

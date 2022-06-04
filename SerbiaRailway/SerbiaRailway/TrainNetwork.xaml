@@ -4,38 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SerbiaRailway"
+      xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TrainNetwork">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="7*"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid Grid.Row="0" Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <ComboBox Text="Starting station" IsEditable="True" ToolTip="Choose your starting point." Margin="5" Name="FromSelect" Grid.Row="0" Background="White" VerticalAlignment="Center" FontSize="15"/>
-            <ComboBox Text="Ending station" IsEditable="True" ToolTip="Choose your ending point." Name="ToSelect" Margin="5" Grid.Row="1" Background="White" VerticalAlignment="Center" FontSize="15"/>
-            <Calendar Margin="10" Grid.Row="2"/>
-            <Button ToolTip="Click to search available timelines." Grid.Column="3" Margin="5" Grid.Row="3" VerticalAlignment="Center">SEARCH</Button>
-        </Grid>
-
-        <ScrollViewer Grid.Column="1">
-            <StackPanel Orientation="Vertical">
-                <local:TimetableCard/>
-                <local:TimetableCard/>
-                <local:TimetableCard/>
-                <local:TimetableCard/>
-                <local:TimetableCard/>
-                <local:TimetableCard/>
-            </StackPanel>
-        </ScrollViewer>
+        <m:Map x:Name="mapa" CredentialsProvider="AsKIG-MNydoiEtp21zWd2wx8t--Fj_9mpZpd9ctrJa_QEwvn4GmcppOGoObxmHQo" Mode="Road" Grid.Row="1" Grid.Column="4" Grid.RowSpan="6" Margin="10" ZoomLevel="7" Center="44.20063419956926, 20.887693370636566"/>
     </Grid>
 </Page>
