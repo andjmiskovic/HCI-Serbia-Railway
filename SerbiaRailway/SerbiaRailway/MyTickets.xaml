@@ -13,6 +13,8 @@
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="#000" />
             <Setter Property="FontWeight" Value="DemiBold" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="10" />
             <Setter Property="FontSize" Value="20" />
             <Setter Property="Margin" Value="20 0 0 0" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -20,7 +22,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="0">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
@@ -44,12 +46,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <RadioButton Content="Reserved Tickets" Name="Reserved" IsChecked="True" GroupName="TicketType" Margin="10 0 0 0"/>
-            <RadioButton Content="Bought Tickets" Name="Bought" IsChecked="False" GroupName="TicketType" Margin="10 0 0 0"/>
+            <RadioButton Content="  Reserved Tickets  " Name="Reserved" IsChecked="True" GroupName="TicketType" Margin="10 0 0 0" Checked="Reserved_Checked"/>
+            <RadioButton Content="  Bought Tickets  " Name="Bought" IsChecked="False" GroupName="TicketType" Margin="10 0 0 0" Checked="Bought_Checked"/>
         </StackPanel>
 
         <ScrollViewer Grid.Row="1">

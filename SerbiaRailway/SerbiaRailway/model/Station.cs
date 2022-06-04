@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SerbiaRailway.model
+﻿namespace SerbiaRailway.model
 {
     // ima stanice, na primer Beograd Centar
     public class Station

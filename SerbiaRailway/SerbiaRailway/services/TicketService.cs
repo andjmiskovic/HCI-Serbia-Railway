@@ -1,10 +1,11 @@
 ﻿using SerbiaRailway.model;
+using System;
 
 namespace SerbiaRailway.services
 {
     class TicketService
     {
-        public static void BuyTicket(Client client, Seat seat, PartialLine partial, int wagon)
+        public static void BuyTicket(Client client, Seat seat, PartialLine partial, int wagon, DateTime date)
         {
             Ticket ticket = new Ticket
             {
@@ -13,12 +14,13 @@ namespace SerbiaRailway.services
                 State = TicketState.BOUGHT,
                 Client = client,
                 Wagon = wagon,
-                Price = CalculateTicketPrice(partial, seat)
+                Date = date,
+                Price = CalculateTicketPrice(partial) + seat.ExtraPrice
             };
-            client.Bought.Add(ticket);
+            LoginService.AddTicket(ticket);
         }
 
-        public static void ReserveTicket(Client client, Seat seat, PartialLine partial, int wagon)
+        public static void ReserveTicket(Client client, Seat seat, PartialLine partial, int wagon, DateTime date)
         {
             Ticket ticket = new Ticket
             {
@@ -27,15 +29,15 @@ namespace SerbiaRailway.services
                 Client = client,
                 PartialLine = partial,
                 Wagon = wagon,
-                Price = CalculateTicketPrice(partial, seat)
+                Date = date,
+                Price = CalculateTicketPrice(partial) + seat.ExtraPrice
             };
-            client.Reserved.Add(ticket);
+            LoginService.AddTicket(ticket);
         }
 
-        private static double CalculateTicketPrice(PartialLine partial, Seat seat)
+        public static double CalculateTicketPrice(PartialLine partial)
         {
             double price = 0;
-            price += seat.ExtraPrice;
             bool riding = false;
             foreach(StationSchedule station in partial.Line.StationSchedule)
             {

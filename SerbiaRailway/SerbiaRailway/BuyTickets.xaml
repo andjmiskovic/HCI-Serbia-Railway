@@ -63,10 +63,18 @@
             </StackPanel>
         </Grid>
         <Separator Grid.Row="1" Margin="10"/>
-        <Label Grid.Row="2" FontSize="15" Margin="10 0 0 0">Please select the seats you would like to reserve/buy the tickets for.</Label>
-        
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Label FontSize="15" Margin="10 0 0 0">Chosen seat number: </Label>
+            <Label FontSize="15" FontWeight="Bold" Margin="10 0 0 0" Name="SelectedSeatNumber"></Label>
+        </StackPanel>
         <!--Sedista-->
-        <Grid Grid.Row="3" Margin="10">
+        <Grid Grid.Row="3" Margin="10" Name="SeatsMap">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
         </Grid>
         
         <Separator Grid.Row="4" Margin="10"/>
@@ -112,9 +120,9 @@
                 <Label Grid.Row="1" FontSize="15" Grid.Column="0">Extra cost for seat: </Label>
                 <Label Grid.Row="3" FontSize="15" Grid.Column="0">Total price: </Label>
                 <Separator Grid.Row="2" Grid.ColumnSpan="2" Margin="0 0 10 0"/>
-                <Label Grid.Row="0" FontSize="15" Grid.Column="1" FontWeight="Bold">500din</Label>
-                <Label Grid.Row="1" FontSize="15" Grid.Column="1" FontWeight="Bold">50din</Label>
-                <Label Grid.Row="3" FontSize="15" Grid.Column="1" FontWeight="Bold">550din</Label>
+                <Label Name="RidePrice" Grid.Row="0" FontSize="15" Grid.Column="1" FontWeight="Bold"></Label>
+                <Label Name="SeatPrice" Grid.Row="1" FontSize="15" Grid.Column="1" FontWeight="Bold">0din</Label>
+                <Label Name="TotalPrice" Grid.Row="3" FontSize="15" Grid.Column="1" FontWeight="Bold"></Label>
             </Grid>
         </Grid>
 

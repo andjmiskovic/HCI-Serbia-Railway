@@ -1,9 +1,4 @@
 ﻿using SerbiaRailway.model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SerbiaRailway.services
 {
@@ -36,6 +31,14 @@ namespace SerbiaRailway.services
                     return c;
             }
             return null;
+        }
+
+        internal static void AddTicket(Ticket ticket)
+        {
+            if(ticket.State == TicketState.RESERVED)
+                CurrentlyLoggedClient.Reserved.Add(ticket);
+            if (ticket.State == TicketState.BOUGHT)
+                CurrentlyLoggedClient.Bought.Add(ticket);
         }
 
         public static UserType GetUserType(string username)

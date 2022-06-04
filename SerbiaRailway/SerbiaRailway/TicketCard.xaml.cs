@@ -1,18 +1,6 @@
 ﻿using SerbiaRailway.model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SerbiaRailway
 {
@@ -31,16 +19,16 @@ namespace SerbiaRailway
 
         private void FillData()
         {
-            StartTime.Content = ticket.PartialLine.StartTime.ToString().Substring(5);
-            EndTime.Content = ticket.PartialLine.EndTime.ToString().Substring(5);
+            StartTime.Content = ticket.PartialLine.StartTime.ToString().Substring(0, 5);
+            EndTime.Content = ticket.PartialLine.EndTime.ToString().Substring(0, 5);
             StartStation.Content = ticket.PartialLine.Start.Name;
             EndStation.Content = ticket.PartialLine.End.Name;
-            TimeSpan duration = DateTime.Parse(ticket.PartialLine.StartTime.ToString()).Subtract(DateTime.Parse(ticket.PartialLine.EndTime.ToString()));
-            TravelTime.Content = duration.ToString().Substring(5);
+            TimeSpan duration = DateTime.Parse(ticket.PartialLine.EndTime.ToString()).Subtract(DateTime.Parse(ticket.PartialLine.StartTime.ToString()));
+            TravelTime.Content = duration.ToString().Substring(0, 5);
             SeatNumber.Content = "Seat: " + ticket.Seat.SeatNumber;
             WagonNumber.Content = "Wagon: " + ticket.Wagon;
             Price.Content = "Price: " + ticket.Price.ToString() + "din";
-            Date.Content = ticket.Date.ToString();
+            Date.Content = ticket.Date.ToString("MM/dd/yyyy");
         }
     }
 }
