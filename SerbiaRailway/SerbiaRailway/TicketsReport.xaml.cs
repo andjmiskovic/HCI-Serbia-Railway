@@ -19,11 +19,21 @@ namespace SerbiaRailway
 
         private void FillMonthlyTickets(int month, int year)
         {
-            List<Ticket> tickets;
-            foreach (Ticket ticket in DataService.Data.GetTickets())
+            bool zeroTickets = true;
+            foreach (Ticket ticket in DataService.Data.Tickets)
             {
-                if(correctMonth(ticket.Date, month, year))
+                if (correctMonth(ticket.Date, month, year))
+                {
                     Tickets.Children.Add(new TicketCardManager(ticket));
+                    zeroTickets = false;
+                }
+            }
+            if (zeroTickets)
+            {
+                Label label = new Label();
+                label.FontSize = 20;
+                label.Content = "No tickets for this month.";
+                Tickets.Children.Add(label);
             }
         }
 
@@ -34,11 +44,22 @@ namespace SerbiaRailway
 
         private void FillRideTickets(int lineId, DateTime date)
         {
-            List<Ticket> tickets;
-            foreach (Ticket ticket in DataService.Data.GetTickets())
+            bool zeroTickets = true;
+            foreach (Ticket ticket in DataService.Data.Tickets)
             {
+                Console.WriteLine(ticket.PartialLine.Line.Id);
                 if (checkRide(ticket, lineId, date))
+                {
                     Tickets.Children.Add(new TicketCardManager(ticket));
+                    zeroTickets = false;
+                }
+            }
+            if(zeroTickets)
+            {
+                Label label = new Label();
+                label.FontSize = 20;
+                label.Content = "No tickets for this ride.";
+                Tickets.Children.Add(label);
             }
         }
 
@@ -50,7 +71,7 @@ namespace SerbiaRailway
         private void FillLines()
         {
             Line.Items.Clear();
-            foreach(Line line in DataService.Data.GetLines()) 
+            foreach(Line line in DataService.Data.Lines) 
             {
                 Line.Items.Add(line.Id + " (" + line.Name + ")");
             }
@@ -80,16 +101,19 @@ namespace SerbiaRailway
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            DateTime date = Date.SelectedDate.Value;
-            int year = int.Parse(Year.SelectedItem.ToString());
-            int month = Month.SelectedIndex + 1;
-            int lineId = int.Parse(Line.SelectedItem.ToString().Split('(')[0]);
-
-            Tickets.Children.RemoveRange(0, Tickets.Children.Count);
+            Tickets.Children.Clear();
             if ((bool)MonthlyTickets.IsChecked)
+            {
+                int year = int.Parse(Year.SelectedValue.ToString());
+                int month = Month.SelectedIndex + 1;
                 FillMonthlyTickets(month, year);
+            }
             else
+            {
+                DateTime date = Date.SelectedDate.Value;
+                int lineId = int.Parse(Line.SelectedItem.ToString().Split('(')[0]);
                 FillRideTickets(lineId, date);
+            }
         }
     }
 }

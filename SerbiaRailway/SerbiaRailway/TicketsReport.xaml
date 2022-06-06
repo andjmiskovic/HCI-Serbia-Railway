@@ -65,7 +65,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ComboBox Name="Month" Grid.Column="0" Margin="10 0 10 0" Text="Select Month" IsEditable="True" FontSize="20">
+            <ComboBox Name="Month" Grid.Column="0" Margin="10 0 10 0" SelectedValuePath="Content" Text="Select Month" IsEditable="True" FontSize="20">
                 <ComboBoxItem Content="January"/>
                 <ComboBoxItem Content="February"/>
                 <ComboBoxItem Content="March"/>
@@ -82,7 +82,7 @@
                     <TextBlock FontSize="30" Text="Select Month" />
                 </ToolTipService.ToolTip>
             </ComboBox>
-            <ComboBox Name="Year" Margin="10 0 10 0" Grid.Column="1" Text="Select Year" IsEditable="True" FontSize="20">
+            <ComboBox Name="Year" Margin="10 0 10 0" Grid.Column="1" Text="Select Year" IsEditable="True" SelectedValuePath="Content" FontSize="20">
                 <ComboBoxItem Content="2022"/>
                 <ComboBoxItem Content="2021"/>
                 <ComboBoxItem Content="2020"/>
@@ -93,7 +93,7 @@
                 </ToolTipService.ToolTip>
             </ComboBox>
 
-            <ComboBox Name="Line" Grid.Column="0" Margin="10 0 10 0" Visibility="Hidden" Text="Select Line ID" IsEditable="True" FontSize="20">
+            <ComboBox Name="Line" Grid.Column="0" Margin="10 0 10 0" Visibility="Hidden" SelectedValuePath="Content" Text="Select Line ID" IsEditable="True" FontSize="20">
                 <ToolTipService.ToolTip>
                     <TextBlock FontSize="30" Text="Select ride ID"/>
                 </ToolTipService.ToolTip>
@@ -101,7 +101,7 @@
             <DatePicker Name="Date" Grid.Column="1" Margin="10 0 10 0" Visibility="Hidden" FontSize="20" Text="Select Date" ToolTip="Select Date"></DatePicker>
             <Button Grid.Column="2" Margin="0 0 10 0" Content="Show Tickets" Click="Button_Click"/>
         </Grid>
-        <ScrollViewer Grid.Row="2">
+        <ScrollViewer Grid.Row="2" Background="#f5f5f5">
             <StackPanel Name="Tickets" Orientation="Vertical">
             </StackPanel>
         </ScrollViewer>
