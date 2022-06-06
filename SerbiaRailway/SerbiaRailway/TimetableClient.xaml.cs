@@ -47,7 +47,7 @@ namespace SerbiaRailway
         {
             List<PartialLine> lines = new List<PartialLine>();
 
-            foreach(Line line in DataService.Data.GetLines())
+            foreach(Line line in DataService.Data.Lines)
             {
                 bool hasStart = false;
                 bool hasEnd = false;
