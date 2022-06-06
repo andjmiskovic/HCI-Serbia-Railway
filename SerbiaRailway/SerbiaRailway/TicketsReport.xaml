@@ -99,7 +99,7 @@
                 </ToolTipService.ToolTip>
             </ComboBox>
             <DatePicker Name="Date" Grid.Column="1" Margin="10 0 10 0" Visibility="Hidden" FontSize="20" Text="Select Date" ToolTip="Select Date"></DatePicker>
-            <Button Grid.Column="2" Margin="0 0 10 0" Content="Show Tickets"/>
+            <Button Grid.Column="2" Click="Button_Click" Margin="0 0 10 0" Content="Show Tickets"/>
         </Grid>
         <ScrollViewer Grid.Row="2">
             <StackPanel Name="Tickets" Orientation="Vertical">

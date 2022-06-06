@@ -20,7 +20,7 @@ namespace SerbiaRailway
         private void FillMonthlyTickets(int month, int year)
         {
             List<Ticket> tickets;
-            foreach (Ticket ticket in DataService.Data.GetTickets())
+            foreach (Ticket ticket in DataService.Data.Tickets)
             {
                 if(correctMonth(ticket.Date, month, year))
                     Tickets.Children.Add(new TicketCardManager(ticket));
@@ -35,7 +35,7 @@ namespace SerbiaRailway
         private void FillRideTickets(int lineId, DateTime date)
         {
             List<Ticket> tickets;
-            foreach (Ticket ticket in DataService.Data.GetTickets())
+            foreach (Ticket ticket in DataService.Data.Tickets)
             {
                 if (checkRide(ticket, lineId, date))
                     Tickets.Children.Add(new TicketCardManager(ticket));
@@ -50,7 +50,7 @@ namespace SerbiaRailway
         private void FillLines()
         {
             Line.Items.Clear();
-            foreach(Line line in DataService.Data.GetLines()) 
+            foreach(Line line in DataService.Data.Lines) 
             {
                 Line.Items.Add(line.Id + " (" + line.Name + ")");
             }

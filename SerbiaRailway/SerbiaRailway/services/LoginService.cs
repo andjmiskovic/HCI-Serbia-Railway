@@ -25,7 +25,7 @@ namespace SerbiaRailway.services
 
         private static Client GetClientByUsername(string username)
         {
-            foreach (Client c in DataService.Data.GetClients())
+            foreach (Client c in DataService.Data.Clients)
             {
                 if (c.Username.Equals(username))
                     return c;
