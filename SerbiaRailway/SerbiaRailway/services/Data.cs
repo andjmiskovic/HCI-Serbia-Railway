@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace SerbiaRailway.services
 {
@@ -48,16 +49,16 @@ namespace SerbiaRailway.services
 
         private void AddStations()
         {
-            Stations.Add(new Station(1, "Belgrade center"));
-            Stations.Add(new Station(2, "New Belgrade"));
-            Stations.Add(new Station(3, "Novi Sad - railway station"));
-            Stations.Add(new Station(4, "Subotica center"));
-            Stations.Add(new Station(5, "Sremska Mitrovica - railway station"));
-            Stations.Add(new Station(6, "Sombor center"));
-            Stations.Add(new Station(7, "Kraljevo center"));
-            Stations.Add(new Station(8, "Kragujevac center"));
-            Stations.Add(new Station(9, "Vranje center"));
-            Stations.Add(new Station(10, "Kosovska Mitrovica center"));
+            Stations.Add(new Station(1, "Belgrade center", new Location(44.79804986986281, 20.469038993624373)));
+            Stations.Add(new Station(2, "New Belgrade", new Location(44.807148878217795, 20.418676428361984)));
+            Stations.Add(new Station(3, "Novi Sad - railway station", new Location(45.26574551158948, 19.82776423525647)));
+            Stations.Add(new Station(4, "Subotica center", new Location(46.097736208068675, 19.66535268470493)));
+            Stations.Add(new Station(5, "Sremska Mitrovica - railway station", new Location(44.982591767221535, 19.61372849905475)));
+            Stations.Add(new Station(6, "Sombor center", new Location(45.77289565685169, 19.114974219610215)));
+            Stations.Add(new Station(7, "Kraljevo center", new Location(43.72394895953815, 20.68597718576761)));
+            Stations.Add(new Station(8, "Kragujevac center", new Location(44.01306948716552, 20.91634370652272)));
+            Stations.Add(new Station(9, "Vranje center", new Location(42.552404405533665, 21.900640818808117)));
+            Stations.Add(new Station(10, "Kosovska Mitrovica center", new Location(42.89615490730306, 20.868055000038066)));
         }
 
         private void AddTrains() 
