@@ -9,14 +9,63 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TicketsReport">
 
+    <Page.Resources>
+        <Style TargetType="RadioButton">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="#000" />
+            <Setter Property="FontWeight" Value="DemiBold" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Margin" Value="20 0 0 0" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FBA311"></Setter>
+                    <Setter Property="Foreground" Value="#ffffff"></Setter>
+                </Trigger>
+
+                <Trigger Property="IsChecked" Value="true">
+                    <Setter Property="Background" Value="#FBA311" />
+                    <Setter Property="Foreground" Value="#ffffff" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="ToolTip">
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
+    </Page.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0"  Margin="10 0 0 0" Orientation="Horizontal" Grid.Row="0" ToolTip="Search all lines...">
-            <ComboBox x:Name="selectMonth" Grid.Column="0" Margin="10" Text="Select Month" IsEditable="True" FontSize="20">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <RadioButton Content="  Monthly Tickets  " Name="MonthlyTickets" IsChecked="True" GroupName="TicketType" Margin="10 0 0 0" Checked="Monthly_Checked"/>
+            <RadioButton Content="  Tickets for the ride  " Name="RideTickets" IsChecked="False" GroupName="TicketType" Margin="10 0 0 0" Checked="Ride_Checked"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Name="Month" Grid.Column="0" Margin="10 0 10 0" Text="Select Month" IsEditable="True" FontSize="20">
                 <ComboBoxItem Content="January"/>
                 <ComboBoxItem Content="February"/>
                 <ComboBoxItem Content="March"/>
@@ -33,7 +82,7 @@
                     <TextBlock FontSize="30" Text="Select Month" />
                 </ToolTipService.ToolTip>
             </ComboBox>
-            <ComboBox x:Name="selectYear" Margin="10" Text="Select Year" IsEditable="True" FontSize="20">
+            <ComboBox Name="Year" Margin="10 0 10 0" Grid.Column="1" Text="Select Year" IsEditable="True" FontSize="20">
                 <ComboBoxItem Content="2022"/>
                 <ComboBoxItem Content="2021"/>
                 <ComboBoxItem Content="2020"/>
@@ -44,23 +93,17 @@
                 </ToolTipService.ToolTip>
             </ComboBox>
 
-            <ComboBox x:Name="selectRide" Margin="10" Text="Select Ride ID" IsEditable="True" FontSize="20">
+            <ComboBox Name="Line" Grid.Column="0" Margin="10 0 10 0" Visibility="Hidden" Text="Select Line ID" IsEditable="True" FontSize="20">
                 <ToolTipService.ToolTip>
                     <TextBlock FontSize="30" Text="Select ride ID"/>
                 </ToolTipService.ToolTip>
             </ComboBox>
-            <Button Content="Show Tickets"/>
-        </StackPanel>
-
-        <DataGrid x:Name="DataGridXAML" Grid.Row="1" Margin="10" FontSize="15">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Ticket ID" Binding="{Binding TicketId}" Width="2*"/>
-                <DataGridTextColumn Header="Client" Binding="{Binding Client}" Width="4*"/>
-                <DataGridTextColumn Header="Ride ID" Binding="{Binding RideId}" Width="2*"/>
-                <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="2*"/>
-                <DataGridTextColumn Header="Seat" Binding="{Binding Seat}" Width="2*"/>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="2*"/>
-            </DataGrid.Columns>
-        </DataGrid>
+            <DatePicker Name="Date" Grid.Column="1" Margin="10 0 10 0" Visibility="Hidden" FontSize="20" Text="Select Date" ToolTip="Select Date"></DatePicker>
+            <Button Grid.Column="2" Margin="0 0 10 0" Content="Show Tickets"/>
+        </Grid>
+        <ScrollViewer Grid.Row="2">
+            <StackPanel Name="Tickets" Orientation="Vertical">
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
