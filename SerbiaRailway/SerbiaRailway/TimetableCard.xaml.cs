@@ -15,13 +15,14 @@ namespace SerbiaRailway
             InitializeComponent();
         }
 
-        public TimetableCard(string startTime, string endTime, string travelTime, PartialLine line, string manufacturer)
+        public TimetableCard(string startTime, string endTime, string travelTime, PartialLine line, string manufacturer, double price)
         {
             InitializeComponent();
             StartTime.Content = startTime.Substring(0, 5);
             EndTime.Content = endTime.Substring(0, 5);
             TravelTime.Content = travelTime.Substring(0, 5);
             Manufacturer.Content = manufacturer;
+            Price.Content = price;
             this.line = line;
         }
 
@@ -29,6 +30,12 @@ namespace SerbiaRailway
         {
             BuyTickets buyTickets = new BuyTickets(line);
             buyTickets.Show();
+        }
+
+        private void viewOnMapClicked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var ttc = sender as TimetableCard;
+            MessageBox.Show(line.Line.Id.ToString());
         }
     }
 }

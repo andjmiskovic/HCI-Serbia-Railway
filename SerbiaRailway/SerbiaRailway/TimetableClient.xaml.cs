@@ -31,7 +31,7 @@ namespace SerbiaRailway
             foreach (PartialLine line in lines)
             {
                 TimeSpan duration = DateTime.Parse(line.EndTime.ToString()).Subtract(DateTime.Parse(line.StartTime.ToString()));
-                CardStack.Children.Add(new TimetableCard(line.StartTime.ToString(), line.EndTime.ToString(), duration.ToString(), line, line.Line.Train.Manufacturer));
+                CardStack.Children.Add(new TimetableCard(line.StartTime.ToString(), line.EndTime.ToString(), duration.ToString(), line, line.Line.Train.Manufacturer, 0)); // ovde sam stavio nulu, to treba videti sta cemo sa ovim
             }
             if (lines.Count() == 0)
             {

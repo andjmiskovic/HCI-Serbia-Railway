@@ -54,6 +54,32 @@ namespace SerbiaRailway.model
             return retVal;
         }
 
+        public TimeSpan GetStartingTimeByStation(Station station)
+        {
+            foreach (StationSchedule stationSchedule in StationSchedule)
+            {
+                if (station == stationSchedule.StartingStation)
+                {
+                    return stationSchedule.Departure;
+                }
+            }
+            TimeSpan ts = new TimeSpan(0, 0, 0);
+            return ts;
+        }
+
+        public TimeSpan GetEndingTimeByStation(Station station)
+        {
+            foreach (StationSchedule stationSchedule in StationSchedule)
+            {
+                if (station == stationSchedule.EndStation)
+                {
+                    return stationSchedule.Arrival;
+                }
+            }
+            TimeSpan ts = new TimeSpan(0, 0, 0);
+            return ts;
+        }
+
         public Line()
         {
         }
@@ -64,6 +90,36 @@ namespace SerbiaRailway.model
             Name = name;
             StationSchedule = stationSchedule;
             Train = train;
+        }
+
+        internal double calculatePriceByTwoStation(Station startingStation, Station endingStation)
+        {
+            double price = 0;
+            bool startingFound = false;
+            foreach(StationSchedule stationSchedule in StationSchedule)
+            {
+                if (stationSchedule.StartingStation == startingStation & stationSchedule.EndStation == endingStation)
+                {
+                    return stationSchedule.Price;
+                }
+
+                if (stationSchedule.StartingStation == startingStation & startingFound == false)
+                {
+                    price = stationSchedule.Price;
+                    startingFound = true;
+                }
+
+                if (stationSchedule.EndStation == endingStation & startingFound == true)
+                {
+                    price += stationSchedule.Price;
+                    break;
+                }
+                else
+                {
+                    price += stationSchedule.Price;
+                }
+            }
+            return price;
         }
     }
 }
