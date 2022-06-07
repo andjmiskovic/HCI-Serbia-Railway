@@ -14,6 +14,12 @@ namespace SerbiaRailway.model
         public List<StationSchedule> StationSchedule { get; set; }
         public Train Train { get; set; }
 
+        /////////////////////////////////
+
+        public string StationStr { get; set; }
+        public string TrainName { get; set; }
+        public double Traveling { get; set; }
+
         public Station FirstStation()
         {
             return StationSchedule.ElementAt(0).StartingStation;
@@ -28,6 +34,24 @@ namespace SerbiaRailway.model
         public double TravelTime()
         {
             return StationSchedule.Sum(item => item.TravelTime);
+        }
+
+        public string GetStationString()
+        {
+            if (StationSchedule.Count() == 1) // ima samo jedna stanica
+            {
+                return StationSchedule.ElementAt(0).StartingStation.Name + "," + StationSchedule.ElementAt(0).EndStation.Name;
+            }
+
+            int i = 1;
+            string retVal = FirstStation().Name + ",";
+            while (i < StationSchedule.Count())
+            {
+                retVal += StationSchedule.ElementAt(i).StartingStation.Name + "," + StationSchedule.ElementAt(i).EndStation.Name;
+                i++;
+            }
+
+            return retVal;
         }
 
         public Line()

@@ -50,6 +50,15 @@ namespace SerbiaRailway
             LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TicketsReportBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+
+            List<SerbiaRailway.model.Line> lines = services.Data.Instance.Lines;
+            foreach(SerbiaRailway.model.Line line in lines)
+            {
+                line.StationStr = line.GetStationString();
+                line.TrainName = line.Train.Manufacturer;
+                line.Traveling = line.TravelTime();
+                Lines.DataGridXAML.Items.Add(line);
+            }
         }
 
         private void SwitchToTimetablePage(object sender, RoutedEventArgs e)
