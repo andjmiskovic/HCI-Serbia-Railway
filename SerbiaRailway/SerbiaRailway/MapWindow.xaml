@@ -1,0 +1,19 @@
+﻿<Window x:Class="SerbiaRailway.MapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SerbiaRailway"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Map" Height="600" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <m:Map x:Name="mapa" Margin="5" Grid.Column="0" CredentialsProvider="AsKIG-MNydoiEtp21zWd2wx8t--Fj_9mpZpd9ctrJa_QEwvn4GmcppOGoObxmHQo" Mode="Road" ZoomLevel="7" Center="44.091070379479454, 20.79005741822166"/>
+
+    </Grid>
+</Window>

@@ -35,7 +35,8 @@ namespace SerbiaRailway
         private void viewOnMapClicked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             var ttc = sender as TimetableCard;
-            MessageBox.Show(line.Line.Id.ToString());
+            MapWindow mapWindow = new MapWindow(line);
+            mapWindow.Show();
         }
     }
 }
