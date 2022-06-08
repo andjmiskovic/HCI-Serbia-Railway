@@ -24,5 +24,11 @@ namespace SerbiaRailway
         {
             InitializeComponent();
         }
+
+        private void btnAddNewLine_Click(object sender, RoutedEventArgs e)
+        {
+            AddLine addLine = new AddLine();
+            addLine.ShowDialog();
+        }
     }
 }

@@ -44,7 +44,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="2">
-            <Button x:Name="btnAddNewLine" Content="{StaticResource Add}" ToolTip="Add new lines" Height="30" Padding="5"/>
+            <Button x:Name="btnAddNewLine" Click="btnAddNewLine_Click" Content="{StaticResource Add}" ToolTip="Add new lines" Height="30" Padding="5"/>
             <Button x:Name="btnDeleteLine" Content="{StaticResource Delete}" ToolTip="Delete selected line" Height="30" Padding="5"/>
             <Button x:Name="btnEditLine" Content="{StaticResource Edit}" ToolTip="Edit selected line" Height="30" Padding="5"/>
         </StackPanel>
