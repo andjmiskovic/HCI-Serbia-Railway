@@ -1,6 +1,9 @@
+using Microsoft.Maps.MapControl.WPF;
 using SerbiaRailway.model;
+using SerbiaRailway.services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -11,94 +14,70 @@ namespace SerbiaRailway
     /// </summary>
     public partial class TrainNetwork : Page
     {
-        public List<Station> stations = services.Data.Instance.Stations;
+        public string Line_ID { get; set; }
+        public string Line_Name { get; set; }
+        public List<Line> Lines = Data.Instance.Lines;
         public TrainNetwork()
         {
             InitializeComponent();
-            foreach (var station in stations)
+            myComboBox.ItemsSource = Lines;
+        }
+
+        private void myComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var cbo = sender as ComboBox;
+            Line selectedLine = (Line)cbo.SelectedItem;
+            //this.myComboBox.Text = "LINE - " + selectedLine.Id + " - " + selectedLine.Name;
+            changeTextBlockData(selectedLine);
+            showLineOnMap(selectedLine);
+        }
+
+        private void changeTextBlockData(Line line)
+        {
+            string outputString = "\n\tStation-Time list: \n\n";
+            int order = 1;
+            foreach (StationSchedule ss in line.StationSchedule)
             {
-                startingStationComboBox.Items.Add(station);
-                endingStationComboBox.Items.Add(station);
+                outputString += order.ToString() + ".  " + ss.StartingStation.ToString() + "\n";
+                outputString += "\t" + ss.Departure.ToString(@"hh\:mm") + "\n\n";
+                order++;
+            }
+            outputString += order.ToString() + ".  " + line.StationSchedule.Last().EndStation.ToString() + "\n";
+            outputString += "\t" + line.StationSchedule.Last().Arrival.ToString(@"hh\:mm");
+            textblock.Text = outputString;
+        }
+
+        private void showLineOnMap(Line line)
+        {
+            this.mapa.Children.Clear();
+
+            foreach (StationSchedule ss in line.StationSchedule)
+            {
+                addMarker(ss.StartingStation.Location);
+                addMarker(ss.EndStation.Location);
+                addNewPolyline(ss.StartingStation.Location, ss.EndStation.Location);
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        void addMarker(Location location)
         {
-            if (startingStationComboBox.SelectedItem == null)
-            {
-                if (endingStationComboBox.SelectedItem == null)
-                {
-                    MessageBox.Show("You must select starting station and ending station!");
-                }
-                else
-                {
-                    MessageBox.Show("You must select starting station!");
-                }
-                
-            } else if (endingStationComboBox.SelectedItem == null)
-            {
-                MessageBox.Show("You must select ending station!");
-            }
-            else
-            {
-                Station startingStation = (Station)startingStationComboBox.SelectedItem;
-                Station endingStation = (Station)endingStationComboBox.SelectedItem;
+            Pushpin pushpin = new Pushpin();
+            pushpin.Location = location;
+            this.mapa.Children.Add(pushpin);
+        }
 
-                if (startingStation == endingStation)
-                {
-                    MessageBox.Show("You cannot chose same station for starting and ending!");
-                }
-                else
-                {
-                    timetableCardPanel.Children.Clear();
-                    //Line line = new Line();
-                    //Station start = new Station();
-                    //System.TimeSpan ts = new System.TimeSpan();
-                    //PartialLine pl = new PartialLine(start, start, ts, ts, line);
-                    //TimetableCard ttc = new TimetableCard("13.00", "14.00", "60 mins", pl, "autoprevoz");
-                    //timetableCardPanel.Children.Add(ttc);
+        void addNewPolyline(Location location1, Location location2)
+        {
+            MapPolyline polyline = new MapPolyline();
+            polyline.Stroke = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Black);
+            polyline.StrokeThickness = 3;
+            polyline.Opacity = 0.7;
+            polyline.Locations = new LocationCollection() {
+                location1, location2
+            };
 
-
-
-                    List<Line> lines = services.Data.Instance.Lines;
-                    List<Line> foundLines = new List<Line>();
-                    bool startingFound = false;
-                    foreach (Line line in lines)
-                    {
-                        foreach (StationSchedule ss in line.StationSchedule)
-                        {
-                            if (ss.StartingStation == startingStation && startingFound == false)
-                            {
-                                startingFound = true;
-                            }
-
-                            if (ss.EndStation == endingStation & startingFound == true)
-                            {
-                                foundLines.Add(line);
-                                break;
-                            }
-                        }
-                        startingFound = false;
-                    }
-
-                    if (foundLines.Count == 0)
-                    {
-                        MessageBox.Show("Neither line is going from your starting to your ending station");
-                    }
-                    else
-                    {
-                        foreach (Line foundLine in foundLines)
-                        {
-                            TimeSpan departure = foundLine.GetStartingTimeByStation(startingStation);
-                            TimeSpan arrival = foundLine.GetEndingTimeByStation(endingStation);
-                            double price = foundLine.calculatePriceByTwoStation(startingStation, endingStation);
-                            PartialLine partialLine = new PartialLine(startingStation, endingStation, departure, arrival, foundLine);
-                            TimetableCard ttc = new TimetableCard(departure.ToString(), arrival.ToString(), (arrival - departure).ToString(), partialLine, foundLine.Train.Manufacturer, null);
-                            timetableCardPanel.Children.Add(ttc);
-                        }
-                    }
-                }
-            }
+            this.mapa.Children.Add(polyline);
         }
     }
+
 }

@@ -1,60 +1,45 @@
-﻿<Page x:Class="SerbiaRailway.TrainNetwork"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SerbiaRailway"
+      xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="SerbiaRailway.TrainNetwork"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TrainNetwork">
-
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <ComboBox x:Name="startingStationComboBox" Grid.Row="0" Text="Starting station" 
-                      ToolTip="Choose your starting point." IsEditable="False" FontSize="15"
-                      Margin="5" Background="White" VerticalAlignment="Center"
-                      IsReadOnly="True" Focusable="False" ItemsSource="{Binding stations}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+        <ComboBox x:Name="myComboBox" Grid.Column="0" Grid.Row="0"
+                  Margin="2" Text="Select line" IsEditable="True"
+                  SelectionChanged="myComboBox_SelectionChanged" 
+                  IsReadOnly="True" Focusable="False" FontSize="20" ItemsSource="{Binding Lines}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Id}"/>
+                        <TextBlock Text=" - "/>
+                        <TextBlock Text="{Binding Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
-            <ComboBox x:Name="endingStationComboBox" Grid.Row="1" Text="Ending station" 
-                      ToolTip="Choose your ending point." IsEditable="False" FontSize="15"
-                      Margin="5" Background="White" VerticalAlignment="Center"
-                      IsReadOnly="True" Focusable="False" ItemsSource="{Binding stations}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-
-            <Calendar Margin="10" Grid.Row="2"/>
-            <Button x:Name="Button" ToolTip="Click to search available timelines." Grid.Column="3" Margin="5" Grid.Row="3" VerticalAlignment="Center" Click="Button_Click">SEARCH</Button>
-        </Grid>
-
-        <ScrollViewer Grid.Column="1">
-            <StackPanel x:Name="timetableCardPanel" Orientation="Vertical">
-            </StackPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Column="0" Margin="0,5,5,5" Grid.Row="1">
+            <TextBlock x:Name="textblock"  Background="White" FontSize="20" TextAlignment="Left" FontWeight="Bold"/>
         </ScrollViewer>
+
+        <m:Map x:Name="mapa" CredentialsProvider="AsKIG-MNydoiEtp21zWd2wx8t--Fj_9mpZpd9ctrJa_QEwvn4GmcppOGoObxmHQo" Mode="Road" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="1" ZoomLevel="6.7" Center="44.091070379479454, 20.79005741822166"/>
     </Grid>
 </Page>

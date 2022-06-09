@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maps.MapControl.WPF;
+using SerbiaRailway.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,21 +30,30 @@ namespace SerbiaRailway
         {
             InitializeComponent();
             this.Title = partialLine.Start.Name + " - " + partialLine.End.Name;
-            addMarker(partialLine.Start.Location);
-            addMarker(partialLine.End.Location);
-            addNewPolyline(partialLine.Start.Location, partialLine.End.Location);
+            showLineOnMap(partialLine.Line);
 
         }
 
-        void addMarker(Location location)
+        private void showLineOnMap(model.Line line)
+        {
+            this.mapa.Children.Clear();
+
+            foreach (StationSchedule ss in line.StationSchedule)
+            {
+                addMarker(ss.StartingStation.Location);
+                addMarker(ss.EndStation.Location);
+                addNewPolyline(ss.StartingStation.Location, ss.EndStation.Location);
+            }
+        }
+
+        private void addMarker(Location location)
         {
             Pushpin pushpin = new Pushpin();
             pushpin.Location = location;
             this.mapa.Children.Add(pushpin);
         }
 
-        void addNewPolyline(Location location1, Location location2
-            )
+        private void addNewPolyline(Location location1, Location location2)
         {
             MapPolyline polyline = new MapPolyline();
             polyline.Stroke = new SolidColorBrush(Colors.Black);

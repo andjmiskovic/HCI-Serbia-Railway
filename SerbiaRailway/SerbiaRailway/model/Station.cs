@@ -25,5 +25,10 @@ namespace SerbiaRailway.model
             Name = name;
             Location = location;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
