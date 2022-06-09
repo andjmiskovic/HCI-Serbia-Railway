@@ -29,6 +29,7 @@
                  DragLeave="AllStations_DragLeave"
                  MouseMove="AllStations_MouseMove">
         </ListBox>
+        <Button Click="btn_Next_Click" x:Name="btn_Next">Next step</Button>
         <Label HorizontalAlignment="Right" Height="350" Width="350" Margin="0, 0, 10, 0">New Line stations</Label>
         <ListBox x:Name="LineStations" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Bottom" Height="340" 
                  HorizontalAlignment="Right" Margin="0,10,10,10" Width="350" FontSize="20"
@@ -37,5 +38,6 @@
                  DragLeave="LineStations_DragLeave"
                  MouseMove="LineStations_MouseMove">
         </ListBox>
+        <Frame x:Name="Main" Grid.Row="1" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

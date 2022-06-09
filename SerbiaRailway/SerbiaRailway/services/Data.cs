@@ -25,6 +25,18 @@ namespace SerbiaRailway.services
 
         }
 
+        public Train GetTrainByManufacturer(string manufacturer)
+        {
+            foreach (Train train in Trains)
+            {
+                if (train.Manufacturer.Equals(manufacturer))
+                {
+                    return train;
+                }
+            }
+            return null;
+        }
+
         public List<string> GetStationNames()
         {
             List<string> stations = new List<string>();

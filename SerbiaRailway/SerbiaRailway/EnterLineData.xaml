@@ -1,0 +1,29 @@
+﻿<Page x:Class="SerbiaRailway.EnterLineData"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SerbiaRailway"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EnterLineData">
+
+    <Grid>
+        <DataGrid Name = "dataGrid" AlternatingRowBackground = "LightBlue"  
+         AlternationCount = "1" AutoGenerateColumns = "False">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Header = "Starting station" Binding = "{Binding StartingStation}" />
+                <DataGridTextColumn IsReadOnly="True" Header = "End station" Binding = "{Binding EndStation}" />
+                <DataGridTextColumn Header = "Departure" Binding = "{Binding Departure}"/>
+                <DataGridTextColumn Header = "Arrival" Binding = "{Binding Arrival}"/>
+                <DataGridTextColumn Header = "Price" Binding = "{Binding Price}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <ComboBox x:Name="trainComboBox"></ComboBox>
+
+        <Button Click="saveLine_Click" VerticalAlignment="Bottom" x:Name="saveLine">Save Line</Button>
+    </Grid>
+</Page>

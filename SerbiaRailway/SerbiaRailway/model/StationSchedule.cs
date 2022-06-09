@@ -29,5 +29,11 @@ namespace SerbiaRailway.model
             TravelTime = (Arrival - Departure).TotalMinutes;
             Price = price;
         }
+
+        public StationSchedule(Station startingStation, Station endStation)
+        {
+            StartingStation = startingStation;
+            EndStation = endStation;
+        }
     }
 }

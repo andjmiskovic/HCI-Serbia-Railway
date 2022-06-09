@@ -125,5 +125,29 @@ namespace SerbiaRailway
                 catch { }
             }
         }
+
+        private void btn_Next_Click(object sender, RoutedEventArgs e)
+        {
+            if (LineStations.Items.Count < 2)
+            {
+                MessageBox.Show("You need to have at least 2 stations in your New line stations listbox.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                List<Station> stations = new List<Station>();
+                foreach (ListBoxItem listBoxItem in LineStations.Items)
+                {
+                    stations.Add(DataService.Data.GetStationByName((string)listBoxItem.Content));
+                }
+                List<StationSchedule> stationSchedules = new List<StationSchedule>();
+                int i = 0;
+                while (i + 1 < stations.Count)
+                {
+                    stationSchedules.Add(new StationSchedule(stations[i], stations[i + 1]));
+                    i++;
+                }
+                Main.Content = new EnterLineData(stationSchedules);
+            }
+        }
     }
 }
