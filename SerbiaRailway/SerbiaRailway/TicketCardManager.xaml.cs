@@ -25,7 +25,7 @@ namespace SerbiaRailway
             EndStation.Content = ticket.PartialLine.End.Name;
             TimeSpan duration = DateTime.Parse(ticket.PartialLine.EndTime.ToString()).Subtract(DateTime.Parse(ticket.PartialLine.StartTime.ToString()));
             WagonNumber.Content = "Wagon: " + ticket.Wagon + ", Seat: " + ticket.Seat.SeatNumber;
-            Price.Content = "Price: " + ticket.Price.ToString() + "din";
+            Price.Content = "Price: " + ticket.Price.ToString() + "rsd";
             Date.Content = ticket.Date.ToString("MM/dd/yyyy");
             Client.Content = ticket.Client.Name + " " + ticket.Client.LastName;
         }

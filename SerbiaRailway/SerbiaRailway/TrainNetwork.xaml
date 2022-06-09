@@ -21,20 +21,39 @@
                 <RowDefinition Height="7*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ComboBox Text="Starting station" IsEditable="True" ToolTip="Choose your starting point." Margin="5" Name="FromSelect" Grid.Row="0" Background="White" VerticalAlignment="Center" FontSize="15"/>
-            <ComboBox Text="Ending station" IsEditable="True" ToolTip="Choose your ending point." Name="ToSelect" Margin="5" Grid.Row="1" Background="White" VerticalAlignment="Center" FontSize="15"/>
+
+            <ComboBox x:Name="startingStationComboBox" Grid.Row="0" Text="Starting station" 
+                      ToolTip="Choose your starting point." IsEditable="False" FontSize="15"
+                      Margin="5" Background="White" VerticalAlignment="Center"
+                      IsReadOnly="True" Focusable="False" ItemsSource="{Binding stations}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <ComboBox x:Name="endingStationComboBox" Grid.Row="1" Text="Ending station" 
+                      ToolTip="Choose your ending point." IsEditable="False" FontSize="15"
+                      Margin="5" Background="White" VerticalAlignment="Center"
+                      IsReadOnly="True" Focusable="False" ItemsSource="{Binding stations}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
             <Calendar Margin="10" Grid.Row="2"/>
-            <Button ToolTip="Click to search available timelines." Grid.Column="3" Margin="5" Grid.Row="3" VerticalAlignment="Center">SEARCH</Button>
+            <Button x:Name="Button" ToolTip="Click to search available timelines." Grid.Column="3" Margin="5" Grid.Row="3" VerticalAlignment="Center" Click="Button_Click">SEARCH</Button>
         </Grid>
 
         <ScrollViewer Grid.Column="1">
-            <StackPanel Orientation="Vertical">
-                <local:TimetableCard/>
-                <local:TimetableCard/>
-                <local:TimetableCard/>
-                <local:TimetableCard/>
-                <local:TimetableCard/>
-                <local:TimetableCard/>
+            <StackPanel x:Name="timetableCardPanel" Orientation="Vertical">
             </StackPanel>
         </ScrollViewer>
     </Grid>

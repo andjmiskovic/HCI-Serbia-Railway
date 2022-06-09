@@ -44,7 +44,7 @@
             </StackPanel>
             <StackPanel Grid.Column="4" Orientation="Vertical">
                 <Label Name="Date" Content="01.03.2000." ToolTip="Ticket Date" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-                <Label Name="Price" Content="Price: 300din" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Background="#fca311" Margin="5" FontSize="20"/>
+                <Label Name="Price" Content="Price: 300rsd" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Background="#fca311" Margin="5" FontSize="20"/>
             </StackPanel>
         </Grid>
     </Border>

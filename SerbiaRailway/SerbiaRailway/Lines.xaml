@@ -48,12 +48,13 @@
             <Button x:Name="btnDeleteLine" Content="{StaticResource Delete}" ToolTip="Delete selected line" Height="30" Padding="5"/>
             <Button x:Name="btnEditLine" Content="{StaticResource Edit}" ToolTip="Edit selected line" Height="30" Padding="5"/>
         </StackPanel>
-
-        <DataGrid x:Name="DataGridXAML" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Margin="10" FontSize="15">
+        <DataGrid x:Name="DataGridXAML" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Margin="10" FontSize="15" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding LineID}" Width="*"/>
-                <DataGridTextColumn Header="Stations" Binding="{Binding Stations}" Width="4*"/>
-                <DataGridTextColumn Header="Train" Binding="{Binding Train}" Width="2*"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
+                <DataGridTextColumn Header="Line name" Binding="{Binding Name}" Width="2*"/>
+                <DataGridTextColumn Header="Station Schedule" Binding="{Binding StationStr}" Width="2.5*"/>
+                <DataGridTextColumn Header="Train" Binding="{Binding TrainName}" Width="auto"/>
+                <DataGridTextColumn Header="Travel time" Binding="{Binding Traveling}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

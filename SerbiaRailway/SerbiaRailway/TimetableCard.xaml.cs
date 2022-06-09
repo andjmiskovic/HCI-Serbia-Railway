@@ -32,5 +32,12 @@ namespace SerbiaRailway
             BuyTickets buyTickets = new BuyTickets(Line, Ride);
             buyTickets.Show();
         }
+
+        private void viewOnMapClicked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var ttc = sender as TimetableCard;
+            MapWindow mapWindow = new MapWindow(Line);
+            mapWindow.Show();
+        }
     }
 }

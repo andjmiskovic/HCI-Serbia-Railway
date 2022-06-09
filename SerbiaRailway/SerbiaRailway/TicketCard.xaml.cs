@@ -27,7 +27,7 @@ namespace SerbiaRailway
             TravelTime.Content = duration.ToString().Substring(0, 5);
             SeatNumber.Content = "Seat: " + ticket.Seat.SeatNumber;
             WagonNumber.Content = "Wagon: " + ticket.Wagon;
-            Price.Content = "Price: " + ticket.Price.ToString() + "din";
+            Price.Content = "Price: " + ticket.Price.ToString() + "rsd";
             Date.Content = ticket.Date.ToString("MM/dd/yyyy");
         }
     }

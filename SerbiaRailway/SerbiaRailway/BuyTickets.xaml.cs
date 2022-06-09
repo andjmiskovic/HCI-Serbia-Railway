@@ -19,6 +19,8 @@ namespace SerbiaRailway
         private PartialLine line { get; set; }
         private Ride ride { get; set; }
         private Seat SelectedSeat { get; set; }
+        private System.Windows.Controls.RadioButton PreviousSelectedSeat { get; set; }
+        private String PreviousSelectedSeatColor { get; set; }
         private double RidePriceValue { get; set; }
         public BuyTickets()
         {
@@ -38,8 +40,8 @@ namespace SerbiaRailway
             this.ride = ride;
             DrawSeats();
             RidePriceValue = TicketService.CalculateTicketPrice(line);
-            RidePrice.Content = RidePriceValue + "din";
-            TotalPrice.Content = RidePriceValue + "din";
+            RidePrice.Content = RidePriceValue + "rsd";
+            TotalPrice.Content = RidePriceValue + "rsd";
         }
 
         private void AddWagons(int number)
@@ -115,10 +117,14 @@ namespace SerbiaRailway
         void SetSeatNumber(object sender, RoutedEventArgs e)
         {
             SelectedSeat = (Seat)((System.Windows.Controls.RadioButton)sender).Tag;
-            SeatPrice.Content = SelectedSeat.ExtraPrice + "din";
-            TotalPrice.Content = RidePriceValue + SelectedSeat.ExtraPrice + "din";
+            SeatPrice.Content = SelectedSeat.ExtraPrice + "rsd";
+            TotalPrice.Content = RidePriceValue + SelectedSeat.ExtraPrice + "rsd";
             SelectedSeatNumber.Content = SelectedSeat.SeatNumber;
-            // ((System.Windows.Controls.RadioButton)sender).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#069A8E"));
+            if(PreviousSelectedSeat != null)
+                PreviousSelectedSeat.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(this.PreviousSelectedSeatColor)); 
+            ((System.Windows.Controls.RadioButton)sender).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#069A8E"));
+            PreviousSelectedSeat = (System.Windows.Controls.RadioButton)sender;
+            PreviousSelectedSeatColor = SelectedSeat.Type == SeatType.FIRST_CLASS ? "#FBA311" : "#F8CB2E";
         }
 
         private int GetSelectedWagon()
