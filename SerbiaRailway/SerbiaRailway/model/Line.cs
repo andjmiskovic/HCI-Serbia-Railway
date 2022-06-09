@@ -11,6 +11,7 @@ namespace SerbiaRailway.model
         public string Name { get; set; }
         public List<StationSchedule> StationSchedule { get; set; }
         public Train Train { get; set; }
+        public Dictionary<string, bool> WeekDays { get; set; }
 
         /////////////////////////////////
 
@@ -88,6 +89,16 @@ namespace SerbiaRailway.model
             Name = name;
             StationSchedule = stationSchedule;
             Train = train;
+            WeekDays = new Dictionary<string, bool>();
+        }
+
+        public Line(int id, string name, List<StationSchedule> stationSchedule, Train train, Dictionary<string, bool> weekDays)
+        {
+            Id = id;
+            Name = name;
+            StationSchedule = stationSchedule;
+            Train = train;
+            WeekDays = weekDays;
         }
 
         internal double calculatePriceByTwoStation(Station startingStation, Station endingStation)

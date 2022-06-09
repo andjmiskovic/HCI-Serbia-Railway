@@ -9,68 +9,36 @@
       Title="TimetableManager">
 
     <Page.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Background" Value="#FFFCA311"/>
-            <Setter Property="BorderBrush" Value="#FFFCA311"/>
-        </Style>
         <Style TargetType="ToolTip">
             <Setter Property="FontSize" Value="30"/>
         </Style>
-        <Image x:Key="Delete" Source="resources/bin.png"/>
-        <Image x:Key="Remove" Source="resources/bin.png"/>
-        <Image x:Key="Edit" Source="resources/edit.png"/>
-        <Image x:Key="Add" Source="resources/plus.png"/>
-        <Image x:Key="Append" Source="resources/plus.png"/>
-        <Image x:Key="Search" Source="resources/search.png"/>
     </Page.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <Grid Margin="0 0 10 0" Grid.Column="0" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="40"/>
-            </Grid.ColumnDefinitions>
-            <ComboBox x:Name="selectLine" Grid.Column="0" Margin="10" Text="Select line" ToolTip="Select line" IsEditable="True" FontSize="20"/>
-            <Button x:Name="btnAddNewRide" Grid.Column="1" Content="{StaticResource Add}" ToolTip="Add new ride" Height="30" Padding="5"/>
-            <Button x:Name="btnDeleteRide" Grid.Column="2" Content="{StaticResource Delete}" ToolTip="Delete selected ride" Height="30" Padding="5"/>
-        </Grid>
-
-        <Grid Margin="0 0 10 0" Grid.Column="1" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="40"/>
-            </Grid.ColumnDefinitions>
-            <ComboBox x:Name="selectStation" Grid.Column="0" Margin="10" Text="Select station" ToolTip="Select station" IsEditable="True" FontSize="20"/>
-            <Button x:Name="btnAppendStation" Grid.Column="1" Content="{StaticResource Append}" ToolTip="Append station list" Height="30" Padding="5"/>
-            <Button x:Name="btnRemoveStation" Grid.Column="2" Content="{StaticResource Remove}" ToolTip="Remove station from list" Height="30" Padding="5"/>
-        </Grid>
-
-        <DataGrid x:Name="RideTable" IsReadOnly="True" Grid.Row="1" Grid.Column="0" Margin="10" FontSize="15">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding trainID}" Width="*"/>
-                <DataGridTextColumn Header="Departure" Binding="{Binding departureTime}" Width="4*"/>
-                <DataGridTextColumn Header="Arrival" Binding="{Binding arrivalTime}" Width="2*"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
-        <DataGrid x:Name="StationsTable" IsReadOnly="False" Grid.Row="1" Grid.Column="1" Margin="10" FontSize="15">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Station" Binding="{Binding Station}" Width="3*"/>
-                <DataGridTextColumn Header="Departure" Binding="{Binding DepartureTime}" Width="2*"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox Name="Line" Grid.ColumnSpan="2" Grid.Row="0" Margin="10 0 0 0" Text="Select line" ToolTip="Select line" IsEditable="True" FontSize="20"/>
+        <Label Grid.Row="1" Margin="10 0 0 0" FontSize="20">Riding days on weekly:</Label>
+        <StackPanel Name="WeekDays" Grid.Row="2" Margin="10 0 0 0" Background="#f5f5f5">
+            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Monday</CheckBox>
+            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Tuesday</CheckBox>
+            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Wednesday</CheckBox>
+            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Thursday</CheckBox>
+            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Friday</CheckBox>
+            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Saturday</CheckBox>
+            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Sunday</CheckBox>
+            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Select all</CheckBox>
+        </StackPanel>
+        <Label Grid.Row="1" Grid.Column="1" Margin="10 0 0 0" FontSize="20">Station schedule:</Label>
+        <!--BUBIJEVA TABELA-->
+        <Button Grid.Row="3" Grid.ColumnSpan="2" Margin="10" Click="SaveChanges">Save changes</Button>
     </Grid>
 </Page>
