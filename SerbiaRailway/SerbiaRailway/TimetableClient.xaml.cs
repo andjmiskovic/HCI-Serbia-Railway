@@ -33,7 +33,7 @@ namespace SerbiaRailway
                 TimeSpan duration = DateTime.Parse(line.EndTime.ToString()).Subtract(DateTime.Parse(line.StartTime.ToString()));
                 // ovde treba da se dobavlja iz fajla ride
                 Ride ride = new Ride(date, line.Line);
-                CardStack.Children.Add(new TimetableCard(line.StartTime.ToString(), line.EndTime.ToString(), duration.ToString(), line, line.Line.Train.Manufacturer, ride));
+                CardStack.Children.Add(new TimetableCard(line.StartTime.ToString(), line.EndTime.ToString(), duration.ToString(), line, line.Line.Route.Train.Manufacturer, ride));
             }
             if (lines.Count() == 0)
             {
@@ -75,22 +75,4 @@ namespace SerbiaRailway
 
     }
 
-    // deo linije, od jedne stranice do druge
-    public class PartialLine
-    {
-        public Station Start { get; set; }
-        public Station End { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
-        public Line Line { get; set; }
-
-        public PartialLine(Station start, Station end, TimeSpan startTime, TimeSpan endTime, Line line)
-        {
-            Start = start;
-            End = end;
-            StartTime = startTime;
-            EndTime = endTime;
-            Line = line;
-        }
-    }
 }

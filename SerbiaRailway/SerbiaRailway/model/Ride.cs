@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SerbiaRailway.model
 {
@@ -20,7 +21,7 @@ namespace SerbiaRailway.model
         public Dictionary<int, List<TakenSeat>> GetAvailableSeats(Station start, Station end)
         {
             Dictionary<int, List<TakenSeat>> seats = new Dictionary<int, List<TakenSeat>>();
-            foreach(Wagon wagon in Line.Train.Wagons)
+            foreach(Wagon wagon in Line.Route.Train.Wagons)
             {
                 List<TakenSeat> takenSeats = new List<TakenSeat>();
                 foreach (Seat seat in wagon.Seats)
@@ -56,15 +57,4 @@ namespace SerbiaRailway.model
         }
     }
 
-    public class TakenSeat
-    {
-        public Seat seat { get; set; }
-        public bool isAvailable { get; set; }
-
-        public TakenSeat(Seat seat, bool isAvailable)
-        {
-            this.seat = seat;
-            this.isAvailable = isAvailable;
-        }
-    }
 }

@@ -31,7 +31,7 @@ namespace SerbiaRailway
         {
             this.line = line;
             InitializeComponent();
-            AddWagons(line.Line.Train.Wagons.Count());
+            AddWagons(line.Line.Route.Train.Wagons.Count());
             Date.Content = ride.Date.ToString("MM/dd/yyyy");
             StartingStation.Content = line.Start.Name;
             StartingTime.Content = line.StartTime.ToString().Substring(0, 5);

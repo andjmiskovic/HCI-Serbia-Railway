@@ -119,7 +119,10 @@
     <Compile Include="ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="model\PartialLine.cs" />
     <Compile Include="model\Ride.cs" />
+    <Compile Include="model\Route.cs" />
+    <Compile Include="model\TakenSeat.cs" />
     <Compile Include="model\Wagon.cs" />
     <Compile Include="MyTickets.xaml.cs">
       <DependentUpon>MyTickets.xaml</DependentUpon>

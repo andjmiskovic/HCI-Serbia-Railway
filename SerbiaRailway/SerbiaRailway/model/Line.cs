@@ -8,10 +8,9 @@ namespace SerbiaRailway.model
     public class Line
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public List<StationSchedule> StationSchedule { get; set; }
-        public Train Train { get; set; }
+        public Route Route { get; set; }
         public Dictionary<string, bool> WeekDays { get; set; }
+        public List<StationSchedule> StationSchedule { get; set; }
 
         /////////////////////////////////
 
@@ -21,12 +20,7 @@ namespace SerbiaRailway.model
 
         public Station FirstStation()
         {
-            return StationSchedule.ElementAt(0).StartingStation;
-        }
-
-        public Station LastStation()
-        {
-            return StationSchedule.ElementAt(-1).EndStation;
+            return Route.Stations.ElementAt(0);
         }
 
         // ukupno vreme koliko voz putuje od prve do poslednje stanice
@@ -35,21 +29,26 @@ namespace SerbiaRailway.model
             return StationSchedule.Sum(item => item.TravelTime);
         }
 
+        public Station LastStation()
+        {
+            return Route.Stations.ElementAt(-1);
+        }
+
+
         public string GetStationString()
         {
-            if (StationSchedule.Count() == 1) // ima samo jedna stanica
+            if (Route.Stations.Count() == 1) // ima samo jedna stanica
             {
-                return StationSchedule.ElementAt(0).StartingStation.Name + "," + StationSchedule.ElementAt(0).EndStation.Name;
+                return Route.Stations.ElementAt(0).Name + "," + Route.Stations.ElementAt(0).Name;
             }
 
             int i = 1;
             string retVal = FirstStation().Name + ",";
-            while (i < StationSchedule.Count())
+            while (i < Route.Stations.Count())
             {
-                retVal += StationSchedule.ElementAt(i).StartingStation.Name + "," + StationSchedule.ElementAt(i).EndStation.Name;
+                retVal += Route.Stations.ElementAt(i).Name + "," + Route.Stations.ElementAt(i).Name;
                 i++;
             }
-
             return retVal;
         }
 
@@ -83,22 +82,12 @@ namespace SerbiaRailway.model
         {
         }
 
-        public Line(int id, string name, List<StationSchedule> stationSchedule, Train train)
+        public Line(int id, Route route, Dictionary<string, bool> weekDays, List<StationSchedule> stationSchedule)
         {
             Id = id;
-            Name = name;
-            StationSchedule = stationSchedule;
-            Train = train;
-            WeekDays = new Dictionary<string, bool>();
-        }
-
-        public Line(int id, string name, List<StationSchedule> stationSchedule, Train train, Dictionary<string, bool> weekDays)
-        {
-            Id = id;
-            Name = name;
-            StationSchedule = stationSchedule;
-            Train = train;
+            Route = route;
             WeekDays = weekDays;
+            StationSchedule = stationSchedule;
         }
 
         internal double calculatePriceByTwoStation(Station startingStation, Station endingStation)
