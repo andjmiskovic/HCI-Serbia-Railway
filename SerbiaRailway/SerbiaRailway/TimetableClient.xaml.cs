@@ -53,7 +53,7 @@ namespace SerbiaRailway
                 bool hasEnd = false;
                 TimeSpan startTime = new TimeSpan();
                 TimeSpan endTime = new TimeSpan();
-                foreach (StationSchedule s in line.StationSchedule)
+                foreach (StationSchedule s in line.StationSchedules)
                 {
                     if (!hasStart && s.StartingStation.Name.Equals(from.Name))
                     {

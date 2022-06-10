@@ -37,7 +37,7 @@ namespace SerbiaRailway
             foreach(SerbiaRailway.model.Line line in lines)
             {
                 line.StationStr = line.GetStationString();
-                line.TrainName = line.Train.Manufacturer;
+                line.TrainName = line.Route.Train.Manufacturer;
                 line.Traveling = line.TravelTime();
                 //Lines.DataGridXAML.Items.Add(line);
             }

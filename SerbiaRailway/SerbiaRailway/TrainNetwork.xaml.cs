@@ -65,7 +65,7 @@ namespace SerbiaRailway
                     bool startingFound = false;
                     foreach (Line line in lines)
                     {
-                        foreach (StationSchedule ss in line.StationSchedule)
+                        foreach (StationSchedule ss in line.StationSchedules)
                         {
                             if (ss.StartingStation == startingStation && startingFound == false)
                             {
@@ -93,7 +93,7 @@ namespace SerbiaRailway
                             TimeSpan arrival = foundLine.GetEndingTimeByStation(endingStation);
                             double price = foundLine.calculatePriceByTwoStation(startingStation, endingStation);
                             PartialLine partialLine = new PartialLine(startingStation, endingStation, departure, arrival, foundLine);
-                            TimetableCard ttc = new TimetableCard(departure.ToString(), arrival.ToString(), (arrival - departure).ToString(), partialLine, foundLine.Train.Manufacturer, null);
+                            TimetableCard ttc = new TimetableCard(departure.ToString(), arrival.ToString(), (arrival - departure).ToString(), partialLine, foundLine.Route.Train.Manufacturer, null);
                             timetableCardPanel.Children.Add(ttc);
                         }
                     }

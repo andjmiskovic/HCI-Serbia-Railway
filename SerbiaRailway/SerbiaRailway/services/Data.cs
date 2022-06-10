@@ -16,6 +16,7 @@ namespace SerbiaRailway.services
         public List<Station> Stations { get; set; }
         public List<Train> Trains { get; set; }
         private List<StationSchedule> _stationSchedules;
+        public List<Route> Routes { get; set; }
         public List<Line> Lines { get; set; }
         public List<Schedule> Schedules { get; set; }
         public List<Ticket> Tickets { get; set; }
@@ -187,161 +188,546 @@ namespace SerbiaRailway.services
             };
         }
 
+        private void AddRoutes()
+        {
+            List<Station> stations1 = new List<Station>
+            {
+                Stations[0],
+                Stations[1],
+                Stations[2]
+            };
+            Routes.Add(new Route(1, "Belgrade-Novi Sad", stations1, Trains[1]));
+
+            List<Station> stations2 = new List<Station>
+            {
+                Stations[2],
+                Stations[1],
+                Stations[0]
+            };
+            Routes.Add(new Route(2, "Novi Sad-Belgrade", stations2, Trains[1]));
+
+            List<Station> stations3 = new List<Station>
+            {
+                Stations[0],
+                Stations[1],
+                Stations[2],
+                Stations[3],
+            };
+            Routes.Add(new Route(3, "Belgrade-Subotica", stations3, Trains[1]));
+
+            List<Station> stations4 = new List<Station>
+            {
+                Stations[3],
+                Stations[2],
+                Stations[1],
+                Stations[0],
+            };
+            Routes.Add(new Route(4, "Subotica-Belgrade", stations4, Trains[1]));
+
+            List<Station> stations5 = new List<Station>
+            {
+                Stations[2],
+                Stations[3]
+            };
+            Routes.Add(new Route(5, "Novi Sad-Subotica", stations5, Trains[0]));
+
+            List<Station> stations6 = new List<Station>
+            {
+                Stations[3],
+                Stations[2]
+            };
+            Routes.Add(new Route(6, "Subotica-Novi Sad", stations6, Trains[0]));
+
+            List<Station> stations7 = new List<Station>
+            {
+                Stations[2],
+                Stations[5]
+            };
+            Routes.Add(new Route(7, "Novi Sad-Sombor", stations7, Trains[0]));
+
+            List<Station> stations8 = new List<Station>
+            {
+                Stations[5],
+                Stations[2]
+            };
+            Routes.Add(new Route(8, "Sombor-Novi Sad", stations8, Trains[0]));
+
+            List<Station> stations9 = new List<Station>
+            {
+                Stations[3],
+                Stations[5],
+            };
+            Routes.Add(new Route(9, "Subotica-Sombor", stations9, Trains[0]));
+
+            List<Station> stations10 = new List<Station>
+            {
+                Stations[5],
+                Stations[3],
+            };
+            Routes.Add(new Route(10, "Sombor-Subotica", stations10, Trains[0]));
+
+            List<Station> stations11 = new List<Station>
+            {
+                Stations[0],
+                Stations[1],
+                Stations[4]
+            };
+            Routes.Add(new Route(11, "Belgrade-Sremska Mitrovica", stations11, Trains[2]));
+
+            List<Station> stations12 = new List<Station>
+            {
+                Stations[4],
+                Stations[1],
+                Stations[0]
+            };
+            Routes.Add(new Route(12, "Sremska Mitrovica-Belgrade", stations12, Trains[2]));
+
+            List<Station> stations13 = new List<Station>
+            {
+                Stations[2],
+                Stations[4],
+            };
+            Routes.Add(new Route(13, "Novi Sad-Sremska Mitrovica", stations13, Trains[2]));
+
+            List<Station> stations14 = new List<Station>
+            {
+                Stations[4],
+                Stations[2],
+            };
+            Routes.Add(new Route(14, "Sremska Mitrovica-Novi Sad", stations14, Trains[2]));
+
+            List<Station> stations15 = new List<Station>
+            {
+                Stations[0],
+                Stations[7],
+            };
+            Routes.Add(new Route(15, "Belgrade-Kragujevac", stations15, Trains[1]));
+
+            List<Station> stations16 = new List<Station>
+            {
+                Stations[7],
+                Stations[0],
+            };
+            Routes.Add(new Route(16, "Kragujevac-Belgrade", stations16, Trains[1]));
+
+            List<Station> stations17 = new List<Station>
+            {
+                Stations[7],
+                Stations[6],
+            };
+            Routes.Add(new Route(17, "Kragujevac-Kraljevo", stations17, Trains[1]));
+
+            List<Station> stations18 = new List<Station>
+            {
+                Stations[6],
+                Stations[7],
+            };
+            Routes.Add(new Route(18, "Kraljevo-Kragujevac", stations18, Trains[1]));
+
+            List<Station> stations19 = new List<Station>
+            {
+                Stations[6],
+                Stations[8],
+            };
+            Routes.Add(new Route(19, "Kraljevo-Vranje", stations19, Trains[1]));
+
+            List<Station> stations20 = new List<Station>
+            {
+                Stations[8],
+                Stations[6],
+            };
+            Routes.Add(new Route(20, "Vranje-Kraljevo", stations20, Trains[1]));
+
+            List<Station> stations21 = new List<Station>
+            {
+                Stations[6],
+                Stations[9],
+            };
+            Routes.Add(new Route(21, "Kraljevo-Kosovska Mitrovica", stations21, Trains[1]));
+
+            List<Station> stations22 = new List<Station>
+            {
+                Stations[9],
+                Stations[6],
+            };
+            Routes.Add(new Route(22, "Kosovska Mitrovica-Kraljevo", stations22, Trains[1]));
+        }
+
         private void AddLines()
         {
+            Dictionary<string, bool> weekDays1 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules1 = new List<StationSchedule>();
             for (int i = 0; i < 2; i++)
             {
                 stationSchedules1.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(1, "Belgrade-Novi Sad", stationSchedules1, Trains[1]));
+            Lines.Add(new Line(1, Routes[0], weekDays1, stationSchedules1));
 
+            Dictionary<string, bool> weekDays2 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules2 = new List<StationSchedule>();
             for (int i = 2; i < 4; i++)
             {
                 stationSchedules2.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(2, "Novi Sad-Belgrade", stationSchedules2, Trains[1]));
+            Lines.Add(new Line(2, Routes[1], weekDays2, stationSchedules2));
 
+            Dictionary<string, bool> weekDays3 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules3 = new List<StationSchedule>();
             for (int i = 4; i < 7; i++)
             {
                 stationSchedules3.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(3, "Belgrade-Subotica", stationSchedules3, Trains[1]));
+            Lines.Add(new Line(3, Routes[2], weekDays3, stationSchedules3));
 
+            Dictionary<string, bool> weekDays4 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules4 = new List<StationSchedule>();
             for (int i = 7; i < 10; i++)
             {
                 stationSchedules4.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(4, "Subotica-Belgrade", stationSchedules4, Trains[1]));
+            Lines.Add(new Line(4, Routes[3], weekDays4, stationSchedules4));
 
+            Dictionary<string, bool> weekDays5 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules5 = new List<StationSchedule>();
             for (int i = 10; i < 11; i++)
             {
                 stationSchedules5.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(5, "Novi Sad-Subotica", stationSchedules5, Trains[0]));
+            Lines.Add(new Line(5, Routes[4], weekDays5, stationSchedules5));
 
+            Dictionary<string, bool> weekDays6 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules6 = new List<StationSchedule>();
             for (int i = 11; i < 12; i++)
             {
                 stationSchedules6.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(6, "Subotica-Novi Sad", stationSchedules6, Trains[0]));
+            Lines.Add(new Line(6, Routes[5], weekDays6, stationSchedules6));
 
+            Dictionary<string, bool> weekDays7 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules7 = new List<StationSchedule>();
             for (int i = 12; i < 13; i++)
             {
                 stationSchedules7.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(7, "Novi Sad-Sombor", stationSchedules7, Trains[0]));
+            Lines.Add(new Line(7, Routes[6], weekDays7, stationSchedules7));
 
+            Dictionary<string, bool> weekDays8 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules8 = new List<StationSchedule>();
             for (int i = 13; i < 14; i++)
             {
                 stationSchedules8.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(8, "Sombor-Novi Sad", stationSchedules8, Trains[0]));
+            Lines.Add(new Line(8, Routes[7], weekDays8, stationSchedules8));
 
+            Dictionary<string, bool> weekDays9 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules9 = new List<StationSchedule>();
             for (int i = 14; i < 15; i++)
             {
                 stationSchedules9.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(9, "Subotica-Sombor", stationSchedules9, Trains[0]));
+            Lines.Add(new Line(9, Routes[8], weekDays9, stationSchedules9));
 
+            Dictionary<string, bool> weekDays10 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules10 = new List<StationSchedule>();
             for (int i = 15; i < 16; i++)
             {
                 stationSchedules10.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(10, "Sombor-Subotica", stationSchedules10, Trains[0]));
+            Lines.Add(new Line(10, Routes[9], weekDays10, stationSchedules10));
 
+            Dictionary<string, bool> weekDays11 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules11 = new List<StationSchedule>();
             for (int i = 16; i < 18; i++)
             {
                 stationSchedules11.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(11, "Belgrade-Sremska Mitrovica", stationSchedules11, Trains[2]));
+            Lines.Add(new Line(11, Routes[10], weekDays11, stationSchedules11));
 
+            Dictionary<string, bool> weekDays12 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules12 = new List<StationSchedule>();
             for (int i = 18; i < 20; i++)
             {
                 stationSchedules12.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(12, "Sremska Mitrovica-Belgrade", stationSchedules12, Trains[2]));
+            Lines.Add(new Line(12, Routes[11], weekDays12, stationSchedules12));
 
+            Dictionary<string, bool> weekDays13 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules13 = new List<StationSchedule>();
             for (int i = 20; i < 21; i++)
             {
                 stationSchedules13.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(13, "Novi Sad-Sremska Mitrovica", stationSchedules13, Trains[2]));
+            Lines.Add(new Line(13, Routes[12], weekDays13, stationSchedules13));
 
+            Dictionary<string, bool> weekDays14 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules14 = new List<StationSchedule>();
             for (int i = 21; i < 22; i++)
             {
                 stationSchedules14.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(14, "Sremska Mitrovica-Novi Sad", stationSchedules14, Trains[2]));
+            Lines.Add(new Line(14, Routes[13], weekDays14, stationSchedules14));
 
+            Dictionary<string, bool> weekDays15 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules15 = new List<StationSchedule>();
             for (int i = 22; i < 23; i++)
             {
                 stationSchedules15.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(15, "Belgrade-Kragujevac", stationSchedules15, Trains[1]));
+            Lines.Add(new Line(15, Routes[14], weekDays15, stationSchedules15));
 
+            Dictionary<string, bool> weekDays16 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules16 = new List<StationSchedule>();
             for (int i = 23; i < 24; i++)
             {
                 stationSchedules16.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(16, "Kragujevac-Belgrade", stationSchedules16, Trains[1]));
+            Lines.Add(new Line(16, Routes[15], weekDays16, stationSchedules16));
 
+            Dictionary<string, bool> weekDays17 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules17 = new List<StationSchedule>();
             for (int i = 24; i < 25; i++)
             {
                 stationSchedules17.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(17, "Kragujevac-Kraljevo", stationSchedules17, Trains[1]));
+            Lines.Add(new Line(17, Routes[16], weekDays17, stationSchedules17));
 
+            Dictionary<string, bool> weekDays18 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules18 = new List<StationSchedule>();
             for (int i = 25; i < 26; i++)
             {
                 stationSchedules18.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(18, "Kraljevo-Kragujevac", stationSchedules18, Trains[1]));
+            Lines.Add(new Line(18, Routes[17], weekDays18, stationSchedules18));
 
+            Dictionary<string, bool> weekDays19 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules19 = new List<StationSchedule>();
             for (int i = 26; i < 27; i++)
             {
                 stationSchedules19.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(19, "Kraljevo-Vranje", stationSchedules19, Trains[1]));
+            Lines.Add(new Line(19, Routes[18], weekDays19, stationSchedules19));
 
+            Dictionary<string, bool> weekDays20 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules20 = new List<StationSchedule>();
             for (int i = 27; i < 28; i++)
             {
                 stationSchedules20.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(20, "Vranje-Kraljevo", stationSchedules20, Trains[1]));
+            Lines.Add(new Line(20, Routes[19], weekDays20, stationSchedules20));
 
+            Dictionary<string, bool> weekDays21 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules21 = new List<StationSchedule>();
             for (int i = 28; i < 29; i++)
             {
                 stationSchedules21.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(21, "Kraljevo-Kosovska Mitrovica", stationSchedules21, Trains[1]));
+            Lines.Add(new Line(21, Routes[20], weekDays21, stationSchedules21));
 
+            Dictionary<string, bool> weekDays22 = new Dictionary<string, bool>
+            {
+                { "Monday", true },
+                { "Tuesday", true },
+                { "Wednesday", true },
+                { "Thursday", true },
+                { "Friday", true },
+                { "Saturday", true },
+                { "Sunday", true }
+            };
             List<StationSchedule> stationSchedules22 = new List<StationSchedule>();
             for (int i = 29; i < 30; i++)
             {
                 stationSchedules22.Add(_stationSchedules[i]);
             }
-            Lines.Add(new Line(22, "Kosovska Mitrovica-Kraljevo", stationSchedules22, Trains[1]));
+            Lines.Add(new Line(22, Routes[21], weekDays22, stationSchedules22));
             
         }
 
@@ -437,10 +823,12 @@ namespace SerbiaRailway.services
             Schedules = new List<Schedule>();
             Tickets = new List<Ticket>();
             Rides = new List<Ride>();
+            Routes = new List<Route>();
             AddUsers();
             AddStations();
             AddTrains();
             AddStationSchedules();
+            AddRoutes();
             AddLines();
             AddSchedules();
             AddRides();

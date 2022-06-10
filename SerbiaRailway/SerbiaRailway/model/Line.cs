@@ -10,7 +10,7 @@ namespace SerbiaRailway.model
         public int Id { get; set; }
         public Route Route { get; set; }
         public Dictionary<string, bool> WeekDays { get; set; }
-        public List<StationSchedule> StationSchedule { get; set; }
+        public List<StationSchedule> StationSchedules { get; set; }
 
         /////////////////////////////////
 
@@ -26,7 +26,7 @@ namespace SerbiaRailway.model
         // ukupno vreme koliko voz putuje od prve do poslednje stanice
         public double TravelTime()
         {
-            return StationSchedule.Sum(item => item.TravelTime);
+            return StationSchedules.Sum(item => item.TravelTime);
         }
 
         public Station LastStation()
@@ -54,7 +54,7 @@ namespace SerbiaRailway.model
 
         public TimeSpan GetStartingTimeByStation(Station station)
         {
-            foreach (StationSchedule stationSchedule in StationSchedule)
+            foreach (StationSchedule stationSchedule in StationSchedules)
             {
                 if (station == stationSchedule.StartingStation)
                 {
@@ -67,7 +67,7 @@ namespace SerbiaRailway.model
 
         public TimeSpan GetEndingTimeByStation(Station station)
         {
-            foreach (StationSchedule stationSchedule in StationSchedule)
+            foreach (StationSchedule stationSchedule in StationSchedules)
             {
                 if (station == stationSchedule.EndStation)
                 {
@@ -87,14 +87,14 @@ namespace SerbiaRailway.model
             Id = id;
             Route = route;
             WeekDays = weekDays;
-            StationSchedule = stationSchedule;
+            StationSchedules = stationSchedule;
         }
 
         internal double calculatePriceByTwoStation(Station startingStation, Station endingStation)
         {
             double price = 0;
             bool startingFound = false;
-            foreach(StationSchedule stationSchedule in StationSchedule)
+            foreach(StationSchedule stationSchedule in StationSchedules)
             {
                 if (stationSchedule.StartingStation == startingStation & stationSchedule.EndStation == endingStation)
                 {

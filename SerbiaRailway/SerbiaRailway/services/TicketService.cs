@@ -39,7 +39,7 @@ namespace SerbiaRailway.services
         {
             double price = 0;
             bool riding = false;
-            foreach(StationSchedule station in partial.Line.StationSchedule)
+            foreach(StationSchedule station in partial.Line.StationSchedules)
             {
                 if(station.StartingStation.Name.Equals(partial.Start.Name))
                 {

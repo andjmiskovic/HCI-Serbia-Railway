@@ -41,7 +41,7 @@ namespace SerbiaRailway.model
         public bool IsSeatAvailable(Station start, Station end, Ticket ticket)
         {
             bool available = false;
-            foreach(StationSchedule stationSchedule in Line.StationSchedule)
+            foreach(StationSchedule stationSchedule in Line.StationSchedules)
             {
                 // na pocetku putovanja gledamo da je slobodno sediste, posle nas boli uvo
                 if(start.Name.Equals(stationSchedule.StartingStation.Name))

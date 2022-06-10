@@ -13,6 +13,10 @@ namespace SerbiaRailway.model
         public List<Station> Stations { get; set; }
         public Train Train { get; set; }
 
+        public Route()
+        {
+        }
+
         public Route(int id, string name, List<Station> stations, Train train)
         {
             Id = id;

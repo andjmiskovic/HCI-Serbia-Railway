@@ -20,7 +20,7 @@ namespace SerbiaRailway
             Line.Items.Clear();
             foreach (Line line in DataService.Data.Lines)
             {
-                Line.Items.Add(line.Id + " (" + line.Name + ")");
+                Line.Items.Add(line.Id + " (" + line.Route.Name + ")");
             }
         }
 
