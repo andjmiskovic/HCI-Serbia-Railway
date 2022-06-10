@@ -2,7 +2,9 @@
 using SerbiaRailway.services;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SerbiaRailway
 {
@@ -113,6 +115,20 @@ namespace SerbiaRailway
                 DateTime date = Date.SelectedDate.Value;
                 int lineId = int.Parse(Line.SelectedItem.ToString().Split('(')[0]);
                 FillRideTickets(lineId, date);
+            }
+        }
+
+        private void Help(object sender, RoutedEventArgs e)
+        {
+            HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                HelpProvider.SetHelpKey((DependencyObject)sender, "ticketsReport");
+                HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
         }
     }

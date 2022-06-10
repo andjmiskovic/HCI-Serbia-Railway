@@ -152,5 +152,19 @@ namespace SerbiaRailway
         {
             TicketService.BuyTicket(LoginService.CurrentlyLoggedClient, ride.GetAvailableSeats(this.line.Start, this.line.End)[this.GetSelectedWagon()][1].seat, this.line, this.GetSelectedWagon(), ride.Date);
         }
+
+        private void Help(object sender, RoutedEventArgs e)
+        {
+            HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+        }
+
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                HelpProvider.SetHelpKey((DependencyObject)sender, "buyTickets");
+                HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+            }
+        }
     }
 }

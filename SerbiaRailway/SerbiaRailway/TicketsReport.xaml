@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SerbiaRailway"
       xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="SerbiaRailway.TicketsReport"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" KeyDown="Window_KeyDown"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TicketsReport">
 
@@ -54,10 +54,17 @@
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <RadioButton Content="  Monthly Tickets  " Name="MonthlyTickets" IsChecked="True" GroupName="TicketType" Margin="10 0 0 0" Checked="Monthly_Checked"/>
-            <RadioButton Content="  Tickets for the ride  " Name="RideTickets" IsChecked="False" GroupName="TicketType" Margin="10 0 0 0" Checked="Ride_Checked"/>
-        </StackPanel>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <RadioButton Content="  Monthly Tickets  " Name="MonthlyTickets" IsChecked="True" GroupName="TicketType" Margin="10 0 0 0" Checked="Monthly_Checked"/>
+                <RadioButton Content="  Tickets for the ride  " Name="RideTickets" IsChecked="False" GroupName="TicketType" Margin="10 0 0 0" Checked="Ride_Checked"/>
+            </StackPanel>
+            <Button Grid.Column="1" local:HelpProvider.HelpKey="ticketsReport" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
+        </Grid>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
