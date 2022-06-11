@@ -18,27 +18,37 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="7*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-        <ComboBox Name="Line" Grid.ColumnSpan="2" Grid.Row="0" Margin="10 0 0 0" Text="Select line" ToolTip="Select line" IsEditable="True" FontSize="20"/>
+        
+        <ComboBox Name="Line" SelectionChanged="OnLineSelected" Grid.Row="0" Margin="10 0 10 0" Text="Select line" ToolTip="Select line you want to edit" IsEditable="True" FontSize="20"/>
         <Label Grid.Row="1" Margin="10 0 0 0" FontSize="20">Riding days on weekly:</Label>
-        <StackPanel Name="WeekDays" Grid.Row="2" Margin="10 0 0 0" Background="#f5f5f5">
-            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Monday</CheckBox>
-            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Tuesday</CheckBox>
-            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Wednesday</CheckBox>
-            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Thursday</CheckBox>
-            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Friday</CheckBox>
-            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Saturday</CheckBox>
-            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Sunday</CheckBox>
-            <CheckBox IsChecked="True" Margin="10 0 0 0" FontSize="20">Select all</CheckBox>
+        <StackPanel Name="WeekDays" Orientation="Horizontal" Grid.Row="2" Margin="10 0 10 0" Background="#f5f5f5">
+            <CheckBox Name="Monday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Monday</CheckBox>
+            <CheckBox Name="Tuesday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Tuesday</CheckBox>
+            <CheckBox Name="Wednesday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Wednesday</CheckBox>
+            <CheckBox Name="Thursday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Thursday</CheckBox>
+            <CheckBox Name="Friday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Friday</CheckBox>
+            <CheckBox Name="Saturday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Saturday</CheckBox>
+            <CheckBox Name="Sunday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Sunday</CheckBox>
         </StackPanel>
-        <Label Grid.Row="1" Grid.Column="1" Margin="10 0 0 0" FontSize="20">Station schedule:</Label>
+        <Label Grid.Row="3" Margin="10 0 0 0" FontSize="20">Station schedule:</Label>
         <!--BUBIJEVA TABELA-->
-        <Button Grid.Row="3" Grid.ColumnSpan="2" Margin="10" Click="SaveChanges">Save changes</Button>
+        <ScrollViewer Grid.Row="4" Margin="10 0 10 0">
+            <DataGrid Name = "StationSchedule" FontSize="20" AlternatingRowBackground = "#e5e5e5"  
+            AlternationCount = "1" AutoGenerateColumns = "False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserSortColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" IsReadOnly="True" Header = "Start station" Binding = "{Binding StartingStation.Name}" />
+                    <DataGridTextColumn Width="*" IsReadOnly="True" Header = "End station" Binding = "{Binding EndStation.Name}" />
+                    <DataGridTextColumn Width="*" Header = "Departure" Binding = "{Binding Departure}"/>
+                    <DataGridTextColumn Width="*" Header = "Arrival" Binding = "{Binding Arrival}"/>
+                    <DataGridTextColumn Width="*" Header = "Price" Binding = "{Binding Price}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <Button Grid.Row="5" Margin="10" Click="SaveChanges">Save changes</Button>
     </Grid>
 </Page>

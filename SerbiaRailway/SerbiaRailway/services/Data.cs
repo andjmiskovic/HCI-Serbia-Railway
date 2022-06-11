@@ -34,6 +34,16 @@ namespace SerbiaRailway.services
             return stations;
         }
 
+        internal Line GetLineById(int v)
+        {
+            foreach(Line line in Lines)
+            {
+                if (line.Id == v)
+                    return line;
+            }
+            return null;
+        }
+
         public Station GetStationByName(string name)
         {
             foreach (Station s in Stations)
