@@ -440,8 +440,8 @@ namespace SerbiaRailway.services
                 { "Wednesday", true },
                 { "Thursday", true },
                 { "Friday", true },
-                { "Saturday", true },
-                { "Sunday", true }
+                { "Saturday", false },
+                { "Sunday", false }
             };
             List<StationSchedule> stationSchedules5 = new List<StationSchedule>();
             for (int i = 10; i < 11; i++)
@@ -455,7 +455,7 @@ namespace SerbiaRailway.services
                 { "Monday", true },
                 { "Tuesday", true },
                 { "Wednesday", true },
-                { "Thursday", true },
+                { "Thursday", false },
                 { "Friday", true },
                 { "Saturday", true },
                 { "Sunday", true }
@@ -471,9 +471,9 @@ namespace SerbiaRailway.services
             {
                 { "Monday", true },
                 { "Tuesday", true },
-                { "Wednesday", true },
+                { "Wednesday", false },
                 { "Thursday", true },
-                { "Friday", true },
+                { "Friday", false },
                 { "Saturday", true },
                 { "Sunday", true }
             };
@@ -487,11 +487,11 @@ namespace SerbiaRailway.services
             Dictionary<string, bool> weekDays8 = new Dictionary<string, bool>
             {
                 { "Monday", true },
-                { "Tuesday", true },
+                { "Tuesday", false },
                 { "Wednesday", true },
                 { "Thursday", true },
                 { "Friday", true },
-                { "Saturday", true },
+                { "Saturday", false },
                 { "Sunday", true }
             };
             List<StationSchedule> stationSchedules8 = new List<StationSchedule>();
@@ -505,8 +505,8 @@ namespace SerbiaRailway.services
             {
                 { "Monday", true },
                 { "Tuesday", true },
-                { "Wednesday", true },
-                { "Thursday", true },
+                { "Wednesday", false },
+                { "Thursday", false },
                 { "Friday", true },
                 { "Saturday", true },
                 { "Sunday", true }
@@ -521,9 +521,9 @@ namespace SerbiaRailway.services
             Dictionary<string, bool> weekDays10 = new Dictionary<string, bool>
             {
                 { "Monday", true },
-                { "Tuesday", true },
+                { "Tuesday", false },
                 { "Wednesday", true },
-                { "Thursday", true },
+                { "Thursday", false },
                 { "Friday", true },
                 { "Saturday", true },
                 { "Sunday", true }
@@ -537,13 +537,13 @@ namespace SerbiaRailway.services
 
             Dictionary<string, bool> weekDays11 = new Dictionary<string, bool>
             {
-                { "Monday", true },
+                { "Monday", false },
                 { "Tuesday", true },
                 { "Wednesday", true },
                 { "Thursday", true },
                 { "Friday", true },
                 { "Saturday", true },
-                { "Sunday", true }
+                { "Sunday", false }
             };
             List<StationSchedule> stationSchedules11 = new List<StationSchedule>();
             for (int i = 16; i < 18; i++)
@@ -556,8 +556,8 @@ namespace SerbiaRailway.services
             {
                 { "Monday", true },
                 { "Tuesday", true },
-                { "Wednesday", true },
-                { "Thursday", true },
+                { "Wednesday", false },
+                { "Thursday", false },
                 { "Friday", true },
                 { "Saturday", true },
                 { "Sunday", true }
@@ -591,7 +591,7 @@ namespace SerbiaRailway.services
                 { "Monday", true },
                 { "Tuesday", true },
                 { "Wednesday", true },
-                { "Thursday", true },
+                { "Thursday", false },
                 { "Friday", true },
                 { "Saturday", true },
                 { "Sunday", true }
@@ -610,8 +610,8 @@ namespace SerbiaRailway.services
                 { "Wednesday", true },
                 { "Thursday", true },
                 { "Friday", true },
-                { "Saturday", true },
-                { "Sunday", true }
+                { "Saturday", false },
+                { "Sunday", false }
             };
             List<StationSchedule> stationSchedules15 = new List<StationSchedule>();
             for (int i = 22; i < 23; i++)
@@ -627,8 +627,8 @@ namespace SerbiaRailway.services
                 { "Wednesday", true },
                 { "Thursday", true },
                 { "Friday", true },
-                { "Saturday", true },
-                { "Sunday", true }
+                { "Saturday", false },
+                { "Sunday", false }
             };
             List<StationSchedule> stationSchedules16 = new List<StationSchedule>();
             for (int i = 23; i < 24; i++)
@@ -677,7 +677,7 @@ namespace SerbiaRailway.services
                 { "Tuesday", true },
                 { "Wednesday", true },
                 { "Thursday", true },
-                { "Friday", true },
+                { "Friday", false },
                 { "Saturday", true },
                 { "Sunday", true }
             };
@@ -695,7 +695,7 @@ namespace SerbiaRailway.services
                 { "Wednesday", true },
                 { "Thursday", true },
                 { "Friday", true },
-                { "Saturday", true },
+                { "Saturday", false },
                 { "Sunday", true }
             };
             List<StationSchedule> stationSchedules20 = new List<StationSchedule>();

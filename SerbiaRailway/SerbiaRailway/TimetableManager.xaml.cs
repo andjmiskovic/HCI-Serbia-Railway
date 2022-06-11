@@ -1,7 +1,9 @@
 ﻿using SerbiaRailway.model;
 using SerbiaRailway.services;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SerbiaRailway
 {
@@ -36,7 +38,7 @@ namespace SerbiaRailway
         public void OnLineSelected(object sender, System.Windows.RoutedEventArgs e)
         {
             SelectedLine = DataService.Data.GetLineById(int.Parse(Line.SelectedItem.ToString().Split('(')[0]));
-            _stationSchedules = DataService.Data.Lines[SelectedLine.Id].StationSchedules;
+            _stationSchedules = DataService.Data.GetLineById(SelectedLine.Id).StationSchedules;
             StationSchedule.ItemsSource = _stationSchedules;
             Monday.IsChecked = SelectedLine.WeekDays["Monday"];
             Tuesday.IsChecked = SelectedLine.WeekDays["Tuesday"];
@@ -66,7 +68,8 @@ namespace SerbiaRailway
                 stationSchedules.Add(new StationSchedule(stationSchedule.StartingStation, stationSchedule.EndStation,
                     stationSchedule.Departure, stationSchedule.Arrival, stationSchedule.Price));
             }
-            DataService.Data.Lines[SelectedLine.Id].StationSchedules = stationSchedules;
+            DataService.Data.GetLineById(SelectedLine.Id).StationSchedules = stationSchedules;
+            //DataService.Data.Lines[SelectedLine.Id].StationSchedules = stationSchedules;
 
             Dictionary<string, bool> weekDays = new Dictionary<string, bool>();
             weekDays.Add("Monday", (bool)Monday.IsChecked);
@@ -76,7 +79,21 @@ namespace SerbiaRailway
             weekDays.Add("Friday", (bool)Friday.IsChecked);
             weekDays.Add("Saturday", (bool)Saturday.IsChecked);
             weekDays.Add("Sunday", (bool)Sunday.IsChecked);
-            DataService.Data.Lines[SelectedLine.Id].WeekDays = weekDays;
+            DataService.Data.GetLineById(SelectedLine.Id).WeekDays = weekDays;
+        }
+
+        private void Help(object sender, RoutedEventArgs e)
+        {
+            HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                HelpProvider.SetHelpKey((DependencyObject)sender, "timetableManager");
+                HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+            }
         }
     }
 }
