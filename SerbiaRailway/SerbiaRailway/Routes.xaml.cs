@@ -24,8 +24,14 @@ namespace SerbiaRailway
 
         private void btnDeleteLine_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            observableCollection.Remove((Route)DataGridXAML.SelectedItem);
             DataService.Data.Routes.Remove((Route)DataGridXAML.SelectedItem);
+            observableCollection.Remove((Route)DataGridXAML.SelectedItem);
+        }
+
+        private void btnAddNewLine_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            AddRoute addRoute = new AddRoute(observableCollection);
+            addRoute.ShowDialog();
         }
     }
 }
