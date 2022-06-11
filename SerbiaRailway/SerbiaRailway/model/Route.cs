@@ -13,6 +13,8 @@ namespace SerbiaRailway.model
         public List<Station> Stations { get; set; }
         public Train Train { get; set; }
 
+        public string StationNames { get; set; }
+
         public Route()
         {
         }
@@ -23,6 +25,11 @@ namespace SerbiaRailway.model
             Name = name;
             Stations = stations;
             Train = train;
+            foreach (Station station in Stations)
+            {
+                StationNames += station + ", ";
+            }
+            StationNames = StationNames.Substring(0, StationNames.Length-2);
         }
     }
 }

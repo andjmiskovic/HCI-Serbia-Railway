@@ -113,8 +113,8 @@
       <DependentUpon>HelpViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="JavaScriptControlHelper.cs" />
-    <Compile Include="Lines.xaml.cs">
-      <DependentUpon>Lines.xaml</DependentUpon>
+    <Compile Include="Routes.xaml.cs">
+      <DependentUpon>Routes.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
@@ -170,7 +170,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lines.xaml">
+    <Page Include="Routes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
