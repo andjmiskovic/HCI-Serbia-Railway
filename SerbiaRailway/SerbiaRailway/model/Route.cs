@@ -29,7 +29,7 @@ namespace SerbiaRailway.model
             {
                 StationNames += station + ", ";
             }
-            StationNames = StationNames.Substring(0, StationNames.Length-2);
+            StationNames = StationNames.Substring(0, StationNames.Length - 2);
         }
     }
 }
