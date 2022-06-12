@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Line = SerbiaRailway.model.Line;
 
 namespace SerbiaRailway
 {
@@ -167,7 +168,8 @@ namespace SerbiaRailway
             }
             else
             {
-                MessageBoxResult decision = MessageBox.Show("Are you sure you want to edit this route?",
+                MessageBoxResult decision = MessageBox.Show("Are you sure you want to edit this route?" +
+                    "If you edit this route all lines, rides and tickets connected with this route will be DELETED!",
                     "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (decision == MessageBoxResult.Yes)
                 {
@@ -192,6 +194,24 @@ namespace SerbiaRailway
                         i++;
                     }
                     _observableCollection[i] = _route;
+                    foreach (Ride ride in DataService.Data.Rides.ToList())
+                    {
+                        if (ride.Line.Route.Id == _route.Id)
+                        {
+                            foreach (Ticket ticket in ride.Tickets.ToList())
+                            {
+                                DataService.Data.Tickets.Remove(ticket);
+                            }
+                            DataService.Data.Rides.Remove(ride);
+                        }
+                    }
+                    foreach (Line line in DataService.Data.Lines.ToList())
+                    {
+                        if (line.Route.Id == _route.Id)
+                        {
+                            DataService.Data.Lines.Remove(line);
+                        }
+                    }
                     Application.Current.Windows[2].Close();
                 }
             }
