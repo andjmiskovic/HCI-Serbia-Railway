@@ -11,6 +11,13 @@ namespace SerbiaRailway.services
     public sealed class Data
     {
         private static readonly Data instance = new Data();
+
+        public int Num_managers { get; set; } = 0;
+        public int Num_clients { get; set; } = 0;
+        public int Num_stations { get; set; } = 0;
+        public int Num_trains { get; set; } = 0;
+        public int Num_routes { get; set; } = 0;
+        public int Num_lines { get; set; } = 0;
         public List<Manager> Managers { get; set; }
         public List<Client> Clients { get; set; }
         public List<Station> Stations { get; set; }
@@ -64,10 +71,12 @@ namespace SerbiaRailway.services
         private void AddUsers()
         {
             Managers.Add(new Manager("ana", "123", "Ana", "Avramovski"));
+            Num_managers = Managers.Count;
             Clients.Add(new Client("pera", "123", "Rastko", "Sakal"));
             Clients.Add(new Client("zdera", "123", "Miloje", "Milic"));
             Clients.Add(new Client("lera", "123", "Luka", "Banac"));
             Clients.Add(new Client("tera", "123", "Tomislav", "Stan"));
+            Num_clients = Clients.Count;
         }
 
         private void AddStations()
@@ -82,6 +91,7 @@ namespace SerbiaRailway.services
             Stations.Add(new Station(8, "Kragujevac center", new Location(44.01306948716552, 20.91634370652272)));
             Stations.Add(new Station(9, "Vranje center", new Location(42.552404405533665, 21.900640818808117)));
             Stations.Add(new Station(10, "Kosovska Mitrovica center", new Location(42.89615490730306, 20.868055000038066)));
+            Num_stations = Stations.Count;
         }
 
         private void AddTrains() 
@@ -138,6 +148,7 @@ namespace SerbiaRailway.services
             Trains.Add(new Train(1, "Speedy Gonzales", wagons1, true));
             Trains.Add(new Train(2, "SirmiumTrains", wagons2, true));
             Trains.Add(new Train(3, "Serbia trains", wagons3, true));
+            Num_trains = Trains.Count;
         }
 
         private void AddStationSchedules()
@@ -215,7 +226,7 @@ namespace SerbiaRailway.services
                 Stations[1],
                 Stations[2]
             };
-            Routes.Add(new Route(1, "Belgrade-Novi Sad", stations1, Trains[1]));
+            Routes.Add(new Route(1, "Belgrade-Novi Sad", stations1, Trains[2]));
 
             List<Station> stations2 = new List<Station>
             {
@@ -223,7 +234,7 @@ namespace SerbiaRailway.services
                 Stations[1],
                 Stations[0]
             };
-            Routes.Add(new Route(2, "Novi Sad-Belgrade", stations2, Trains[1]));
+            Routes.Add(new Route(2, "Novi Sad-Belgrade", stations2, Trains[2]));
 
             List<Station> stations3 = new List<Station>
             {
@@ -232,7 +243,7 @@ namespace SerbiaRailway.services
                 Stations[2],
                 Stations[3],
             };
-            Routes.Add(new Route(3, "Belgrade-Subotica", stations3, Trains[1]));
+            Routes.Add(new Route(3, "Belgrade-Subotica", stations3, Trains[2]));
 
             List<Station> stations4 = new List<Station>
             {
@@ -241,7 +252,7 @@ namespace SerbiaRailway.services
                 Stations[1],
                 Stations[0],
             };
-            Routes.Add(new Route(4, "Subotica-Belgrade", stations4, Trains[1]));
+            Routes.Add(new Route(4, "Subotica-Belgrade", stations4, Trains[2]));
 
             List<Station> stations5 = new List<Station>
             {
@@ -291,7 +302,7 @@ namespace SerbiaRailway.services
                 Stations[1],
                 Stations[4]
             };
-            Routes.Add(new Route(11, "Belgrade-Sremska Mitrovica", stations11, Trains[2]));
+            Routes.Add(new Route(11, "Belgrade-Sremska Mitrovica", stations11, Trains[1]));
 
             List<Station> stations12 = new List<Station>
             {
@@ -299,77 +310,78 @@ namespace SerbiaRailway.services
                 Stations[1],
                 Stations[0]
             };
-            Routes.Add(new Route(12, "Sremska Mitrovica-Belgrade", stations12, Trains[2]));
+            Routes.Add(new Route(12, "Sremska Mitrovica-Belgrade", stations12, Trains[1]));
 
             List<Station> stations13 = new List<Station>
             {
                 Stations[2],
                 Stations[4],
             };
-            Routes.Add(new Route(13, "Novi Sad-Sremska Mitrovica", stations13, Trains[2]));
+            Routes.Add(new Route(13, "Novi Sad-Sremska Mitrovica", stations13, Trains[1]));
 
             List<Station> stations14 = new List<Station>
             {
                 Stations[4],
                 Stations[2],
             };
-            Routes.Add(new Route(14, "Sremska Mitrovica-Novi Sad", stations14, Trains[2]));
+            Routes.Add(new Route(14, "Sremska Mitrovica-Novi Sad", stations14, Trains[1]));
 
             List<Station> stations15 = new List<Station>
             {
                 Stations[0],
                 Stations[7],
             };
-            Routes.Add(new Route(15, "Belgrade-Kragujevac", stations15, Trains[1]));
+            Routes.Add(new Route(15, "Belgrade-Kragujevac", stations15, Trains[2]));
 
             List<Station> stations16 = new List<Station>
             {
                 Stations[7],
                 Stations[0],
             };
-            Routes.Add(new Route(16, "Kragujevac-Belgrade", stations16, Trains[1]));
+            Routes.Add(new Route(16, "Kragujevac-Belgrade", stations16, Trains[2]));
 
             List<Station> stations17 = new List<Station>
             {
                 Stations[7],
                 Stations[6],
             };
-            Routes.Add(new Route(17, "Kragujevac-Kraljevo", stations17, Trains[1]));
+            Routes.Add(new Route(17, "Kragujevac-Kraljevo", stations17, Trains[2]));
 
             List<Station> stations18 = new List<Station>
             {
                 Stations[6],
                 Stations[7],
             };
-            Routes.Add(new Route(18, "Kraljevo-Kragujevac", stations18, Trains[1]));
+            Routes.Add(new Route(18, "Kraljevo-Kragujevac", stations18, Trains[2]));
 
             List<Station> stations19 = new List<Station>
             {
                 Stations[6],
                 Stations[8],
             };
-            Routes.Add(new Route(19, "Kraljevo-Vranje", stations19, Trains[1]));
+            Routes.Add(new Route(19, "Kraljevo-Vranje", stations19, Trains[2]));
 
             List<Station> stations20 = new List<Station>
             {
                 Stations[8],
                 Stations[6],
             };
-            Routes.Add(new Route(20, "Vranje-Kraljevo", stations20, Trains[1]));
+            Routes.Add(new Route(20, "Vranje-Kraljevo", stations20, Trains[2]));
 
             List<Station> stations21 = new List<Station>
             {
                 Stations[6],
                 Stations[9],
             };
-            Routes.Add(new Route(21, "Kraljevo-Kosovska Mitrovica", stations21, Trains[1]));
+            Routes.Add(new Route(21, "Kraljevo-Kosovska Mitrovica", stations21, Trains[2]));
 
             List<Station> stations22 = new List<Station>
             {
                 Stations[9],
                 Stations[6],
             };
-            Routes.Add(new Route(22, "Kosovska Mitrovica-Kraljevo", stations22, Trains[1]));
+            Routes.Add(new Route(22, "Kosovska Mitrovica-Kraljevo", stations22, Trains[2]));
+            Num_routes = Routes.Count;
         }
 
         private void AddLines()
@@ -747,7 +759,7 @@ namespace SerbiaRailway.services
                 stationSchedules22.Add(_stationSchedules[i]);
             }
             Lines.Add(new Line(22, Routes[21], weekDays22, stationSchedules22));
-            
+            Num_lines = Lines.Count;
         }
 
         private void AddSchedules()
