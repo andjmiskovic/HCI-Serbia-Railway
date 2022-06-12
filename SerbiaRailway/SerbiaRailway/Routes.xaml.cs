@@ -32,6 +32,14 @@ namespace SerbiaRailway
         {
             AddRoute addRoute = new AddRoute(observableCollection);
             addRoute.ShowDialog();
+            DataGridXAML.Items.Refresh();
+        }
+
+        private void btnEditLine_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            EditRoute editRoute = new EditRoute((Route)DataGridXAML.SelectedItem, observableCollection);
+            editRoute.ShowDialog();
+            DataGridXAML.Items.Refresh();
         }
     }
 }
