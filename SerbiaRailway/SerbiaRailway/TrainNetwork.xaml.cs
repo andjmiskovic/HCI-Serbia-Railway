@@ -91,7 +91,6 @@ namespace SerbiaRailway
                         {
                             TimeSpan departure = foundLine.GetStartingTimeByStation(startingStation);
                             TimeSpan arrival = foundLine.GetEndingTimeByStation(endingStation);
-                            double price = foundLine.calculatePriceByTwoStation(startingStation, endingStation);
                             PartialLine partialLine = new PartialLine(startingStation, endingStation, departure, arrival, foundLine);
                             TimetableCard ttc = new TimetableCard(departure.ToString(), arrival.ToString(), (arrival - departure).ToString(), partialLine, foundLine.Route.Train.Manufacturer, null);
                             timetableCardPanel.Children.Add(ttc);

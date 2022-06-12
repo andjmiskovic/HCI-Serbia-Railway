@@ -3,6 +3,7 @@ using SerbiaRailway.services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SerbiaRailway
@@ -19,32 +20,50 @@ namespace SerbiaRailway
             ToSelect.ItemsSource = DataService.Data.GetStationNames();
         }
 
-        private void SearchLines(object sender, System.Windows.RoutedEventArgs e)
+        private void SearchLines(object sender, RoutedEventArgs e)
         {
             Station from = DataService.Data.GetStationByName(FromSelect.Text);
             Station to = DataService.Data.GetStationByName(ToSelect.Text);
-            DateTime date = DateTime.Now;
+            if(from == null || to == null)
+            {
+                MessageBox.Show("Please select start and end station.");
+                return;
+            }
+            DateTime date;
             if (Calendar.SelectedDate != null)
                 date = (DateTime)Calendar.SelectedDate;
+            else
+            {
+                MessageBox.Show("Please select the desired date of your travel.");
+                return;
+            }
             CardStack.Children.RemoveRange(0, CardStack.Children.Count);
             List<PartialLine> lines = Search(from, to);
+            int count = 0;
             foreach (PartialLine line in lines)
             {
                 TimeSpan duration = DateTime.Parse(line.EndTime.ToString()).Subtract(DateTime.Parse(line.StartTime.ToString()));
-                // ovde treba da se dobavlja iz fajla ride
-                Ride ride = new Ride(date, line.Line);
-                CardStack.Children.Add(new TimetableCard(line.StartTime.ToString(), line.EndTime.ToString(), duration.ToString(), line, line.Line.Route.Train.Manufacturer, ride));
+                Ride ride = DataService.Data.GetRide(date, line.Line);
+                if(ride != null) { 
+                    CardStack.Children.Add(new TimetableCard(line.StartTime.ToString(), line.EndTime.ToString(), duration.ToString(), line, line.Line.Route.Train.Manufacturer, ride));
+                    count++;
+                }
             }
-            if (lines.Count() == 0)
+            if (count == 0)
             {
-                Label label = new Label();
-                label.Content = "No available lines with these search data.";
+                Label label = new Label
+                {
+                    Content = "No available lines for the selected date.",
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    FontSize = 20
+                };
                 CardStack.Children.Add(label);
             }
         }
 
         public List<PartialLine> Search(Station from, Station to)
         {
+            WelcomePicture.Visibility = Visibility.Hidden;
             List<PartialLine> lines = new List<PartialLine>();
 
             foreach(Line line in DataService.Data.Lines)

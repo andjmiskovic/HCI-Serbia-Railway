@@ -23,5 +23,35 @@ namespace SerbiaRailway.model
             EndTime = endTime;
             Line = line;
         }
+
+        public double CalculatePrice()
+        {
+            double price = 0;
+            bool startingFound = false;
+            foreach (StationSchedule stationSchedule in Line.StationSchedules)
+            {
+                if (stationSchedule.StartingStation == Start & stationSchedule.EndStation == End)
+                {
+                    return stationSchedule.Price;
+                }
+
+                if (stationSchedule.StartingStation == Start & startingFound == false)
+                {
+                    price = stationSchedule.Price;
+                    startingFound = true;
+                }
+
+                if (stationSchedule.EndStation == End & startingFound == true)
+                {
+                    price += stationSchedule.Price;
+                    break;
+                }
+                else
+                {
+                    price += stationSchedule.Price;
+                }
+            }
+            return price;
+        }
     }
 }

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SerbiaRailway"
       xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="SerbiaRailway.MyTickets"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" KeyDown="Window_KeyDown"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MyTickets">
     <Page.Resources>
@@ -49,12 +49,23 @@
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <RadioButton Content="  Reserved Tickets  " Name="Reserved" IsChecked="True" GroupName="TicketType" Margin="10 0 0 0" Checked="Reserved_Checked"/>
-            <RadioButton Content="  Bought Tickets  " Name="Bought" IsChecked="False" GroupName="TicketType" Margin="10 0 0 0" Checked="Bought_Checked"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <RadioButton Grid.Column="0" Content="Reserved Tickets" Name="Reserved" IsChecked="True" GroupName="TicketType" Margin="10 10 0 10" Checked="Reserved_Checked"/>
+            <RadioButton Grid.Column="1" Content="Bought Tickets" Name="Bought" IsChecked="False" GroupName="TicketType" Margin="10 10 0 10" Checked="Bought_Checked"/>
+            <Button Grid.Column="2" local:HelpProvider.HelpKey="ticketsReport" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Name="NoTickets">
+            <Label Margin="10 100 10 10" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold">You don't have any tickets yet.</Label>
+            <Image Source="resources/tickets.png" Width="200" />
         </StackPanel>
 
-        <ScrollViewer Grid.Row="1" Background="#f5f5f5">
+        <ScrollViewer Name="TicketsScroll" Visibility="Hidden" Grid.Row="1" Background="#f5f5f5">
             <StackPanel Name="Tickets" Orientation="Vertical">
             </StackPanel>
         </ScrollViewer>

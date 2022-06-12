@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbiaRailway.help"
         mc:Ignorable="d" Icon="resources/icon.png" 
-        Title="Help Viewer" Height="450" Width="800">
+        Title="Help Viewer" Height="450" Width="800" MinHeight="400" MinWidth="400">
     <Window.CommandBindings>
         <CommandBinding Command="NavigationCommands.BrowseBack" CanExecute="BrowseBack_CanExecute" Executed="BrowseBack_Executed" />
         <CommandBinding Command="NavigationCommands.BrowseForward" CanExecute="BrowseForward_CanExecute" Executed="BrowseForward_Executed" />

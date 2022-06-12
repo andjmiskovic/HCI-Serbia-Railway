@@ -11,8 +11,8 @@ namespace SerbiaRailway
         public ClientWindow()
         {
             InitializeComponent();
-            Main.Content = new MyTickets();
-            MyTicketsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
+            Main.Content = new TimetableClient();
+            TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
         }
 
         private void SwitchToMyTickets(object sender, RoutedEventArgs e)

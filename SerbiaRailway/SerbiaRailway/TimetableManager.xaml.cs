@@ -1,5 +1,6 @@
 ﻿using SerbiaRailway.model;
 using SerbiaRailway.services;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,7 +36,7 @@ namespace SerbiaRailway
             int lineId = int.Parse(Line.SelectedItem.ToString().Split('(')[0]);
         }
 
-        public void OnLineSelected(object sender, System.Windows.RoutedEventArgs e)
+        public void OnLineSelected(object sender, RoutedEventArgs e)
         {
             SelectedLine = DataService.Data.GetLineById(int.Parse(Line.SelectedItem.ToString().Split('(')[0]));
             _stationSchedules = DataService.Data.GetLineById(SelectedLine.Id).StationSchedules;
@@ -49,37 +50,39 @@ namespace SerbiaRailway
             Sunday.IsChecked = SelectedLine.WeekDays["Sunday"];
         }
 
-        private void SelectAll_OnClick(object sender, System.Windows.RoutedEventArgs e)
+        private void SaveLineChanges()
         {
-            Monday.IsChecked = true;
-            Tuesday.IsChecked = true;
-            Wednesday.IsChecked = true;
-            Thursday.IsChecked = true;
-            Friday.IsChecked = true;
-            Saturday.IsChecked = true;
-            Sunday.IsChecked = true;
+            if (SelectedLine == null)
+            {
+                MessageBox.Show("You have to select the line you want to edit first.");
+            }
+            else
+            {
+                List<StationSchedule> stationSchedules = new List<StationSchedule>();
+                foreach (StationSchedule stationSchedule in _stationSchedules)
+                {
+                    stationSchedules.Add(new StationSchedule(stationSchedule.StartingStation, stationSchedule.EndStation,
+                        stationSchedule.Departure, stationSchedule.Arrival, stationSchedule.Price));
+                }
+                DataService.Data.GetLineById(SelectedLine.Id).StationSchedules = stationSchedules;
+
+                Dictionary<string, bool> weekDays = new Dictionary<string, bool>();
+                weekDays.Add("Monday", (bool)Monday.IsChecked);
+                weekDays.Add("Tuesday", (bool)Tuesday.IsChecked);
+                weekDays.Add("Wednesday", (bool)Wednesday.IsChecked);
+                weekDays.Add("Thursday", (bool)Thursday.IsChecked);
+                weekDays.Add("Friday", (bool)Friday.IsChecked);
+                weekDays.Add("Saturday", (bool)Saturday.IsChecked);
+                weekDays.Add("Sunday", (bool)Sunday.IsChecked);
+                DataService.Data.GetLineById(SelectedLine.Id).WeekDays = weekDays;
+
+                MessageBox.Show("Changes saved successfully.");
+            }
         }
 
-        private void SaveChanges(object sender, System.Windows.RoutedEventArgs e)
+        private void SaveChanges(object sender, RoutedEventArgs e)
         {
-            List<StationSchedule> stationSchedules = new List<StationSchedule>();
-            foreach (StationSchedule stationSchedule in _stationSchedules)
-            {
-                stationSchedules.Add(new StationSchedule(stationSchedule.StartingStation, stationSchedule.EndStation,
-                    stationSchedule.Departure, stationSchedule.Arrival, stationSchedule.Price));
-            }
-            DataService.Data.GetLineById(SelectedLine.Id).StationSchedules = stationSchedules;
-            //DataService.Data.Lines[SelectedLine.Id].StationSchedules = stationSchedules;
-
-            Dictionary<string, bool> weekDays = new Dictionary<string, bool>();
-            weekDays.Add("Monday", (bool)Monday.IsChecked);
-            weekDays.Add("Tuesday", (bool)Tuesday.IsChecked);
-            weekDays.Add("Wednesday", (bool)Wednesday.IsChecked);
-            weekDays.Add("Thursday", (bool)Thursday.IsChecked);
-            weekDays.Add("Friday", (bool)Friday.IsChecked);
-            weekDays.Add("Saturday", (bool)Saturday.IsChecked);
-            weekDays.Add("Sunday", (bool)Sunday.IsChecked);
-            DataService.Data.GetLineById(SelectedLine.Id).WeekDays = weekDays;
+            this.SaveLineChanges();
         }
 
         private void Help(object sender, RoutedEventArgs e)
@@ -94,6 +97,11 @@ namespace SerbiaRailway
                 HelpProvider.SetHelpKey((DependencyObject)sender, "timetableManager");
                 HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
+            if (e.Key == Key.S && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                this.SaveLineChanges();
+            }
         }
     }
+
 }

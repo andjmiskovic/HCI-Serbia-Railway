@@ -56,14 +56,13 @@
 
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                <RadioButton Content="  Monthly Tickets  " Name="MonthlyTickets" IsChecked="True" GroupName="TicketType" Margin="10 0 0 0" Checked="Monthly_Checked"/>
-                <RadioButton Content="  Tickets for the ride  " Name="RideTickets" IsChecked="False" GroupName="TicketType" Margin="10 0 0 0" Checked="Ride_Checked"/>
-            </StackPanel>
-            <Button Grid.Column="1" local:HelpProvider.HelpKey="ticketsReport" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
+            <RadioButton Grid.Column="0" Content="Monthly Tickets" Name="MonthlyTickets" IsChecked="True" GroupName="TicketType" Margin="10 10 0 10" Checked="Monthly_Checked"/>
+            <RadioButton Grid.Column="1" Content="Tickets for the ride" Name="RideTickets" IsChecked="False" GroupName="TicketType" Margin="10 10 0 10" Checked="Ride_Checked"/>
+            <Button Grid.Column="2" local:HelpProvider.HelpKey="ticketsReport" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
         </Grid>
 
         <Grid Grid.Row="1">
@@ -91,10 +90,6 @@
             </ComboBox>
             <ComboBox Name="Year" Margin="10 0 10 0" Grid.Column="1" Text="Select Year" IsEditable="True" SelectedValuePath="Content" FontSize="20">
                 <ComboBoxItem Content="2022"/>
-                <ComboBoxItem Content="2021"/>
-                <ComboBoxItem Content="2020"/>
-                <ComboBoxItem Content="2019"/>
-                <ComboBoxItem Content="2018"/>
                 <ToolTipService.ToolTip>
                     <TextBlock FontSize="30" Text="Select year"/>
                 </ToolTipService.ToolTip>

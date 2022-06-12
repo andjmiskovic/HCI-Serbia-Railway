@@ -52,6 +52,15 @@ namespace SerbiaRailway.services
             return null;
         }
 
+        internal Ride GetRide(DateTime date, Line line)
+        {
+            foreach(Ride ride in Rides) {
+                if (ride.Date == date && line.Id == ride.Line.Id)
+                    return ride;
+            }
+            return null;
+        }
+
         private void AddUsers()
         {
             Managers.Add(new Manager("ana", "123", "Ana", "Avramovski"));

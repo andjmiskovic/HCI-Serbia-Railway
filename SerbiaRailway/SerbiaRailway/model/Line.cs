@@ -90,34 +90,5 @@ namespace SerbiaRailway.model
             StationSchedules = stationSchedule;
         }
 
-        internal double calculatePriceByTwoStation(Station startingStation, Station endingStation)
-        {
-            double price = 0;
-            bool startingFound = false;
-            foreach(StationSchedule stationSchedule in StationSchedules)
-            {
-                if (stationSchedule.StartingStation == startingStation & stationSchedule.EndStation == endingStation)
-                {
-                    return stationSchedule.Price;
-                }
-
-                if (stationSchedule.StartingStation == startingStation & startingFound == false)
-                {
-                    price = stationSchedule.Price;
-                    startingFound = true;
-                }
-
-                if (stationSchedule.EndStation == endingStation & startingFound == true)
-                {
-                    price += stationSchedule.Price;
-                    break;
-                }
-                else
-                {
-                    price += stationSchedule.Price;
-                }
-            }
-            return price;
-        }
     }
 }

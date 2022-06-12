@@ -131,6 +131,7 @@
     <Compile Include="services\DataService.cs" />
     <Compile Include="services\LoginService.cs" />
     <Compile Include="services\TicketService.cs" />
+    <Compile Include="services\ValidationServices.cs" />
     <Compile Include="TicketCardManager.xaml.cs">
       <DependentUpon>TicketCardManager.xaml</DependentUpon>
     </Compile>
@@ -258,6 +259,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Content Include="help\timetableManager.htm" />
+    <Resource Include="resources\tickets.png" />
+    <Resource Include="resources\suitcase.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

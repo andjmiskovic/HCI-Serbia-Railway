@@ -32,7 +32,7 @@ namespace SerbiaRailway.model
             }
             foreach(Ticket ticket in Tickets)
             {
-                seats[ticket.Wagon][ticket.Seat.SeatNumber].isAvailable = IsSeatAvailable(start, end, ticket);
+                seats[ticket.Wagon][ticket.Seat.SeatNumber - 1].isAvailable = IsSeatAvailable(start, end, ticket);
             }
             return seats;
         }
