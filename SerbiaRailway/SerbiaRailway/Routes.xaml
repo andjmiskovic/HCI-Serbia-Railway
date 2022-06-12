@@ -40,7 +40,7 @@
 
         <StackPanel Grid.Column="0"  Margin="10 0 0 0" Orientation="Horizontal" Grid.Row="0" ToolTip="Search all lines...">
             <Label Content="{StaticResource Search}" Height="30"/>
-            <TextBox Name="searchBox" VerticalAlignment="Center" FontSize="20" MinWidth="300" Margin="10 0 0 0" />
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Name="searchBox" VerticalAlignment="Center" FontSize="20" MinWidth="300" Margin="10 0 0 0" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="2">

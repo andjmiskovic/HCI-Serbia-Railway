@@ -142,7 +142,7 @@ namespace SerbiaRailway
             }
             Train train = (Train)trainComboBox.SelectedItem;
             string name = stations[0] + "-" + stations[stations.Count - 1];
-            int id = DataService.Data.Routes.Count + 1;
+            int id = ++DataService.Data.Num_routes;
             Route route = new Route(id, name, stations, train);
             DataService.Data.Routes.Add(route);
             _observableCollection.Add(route);

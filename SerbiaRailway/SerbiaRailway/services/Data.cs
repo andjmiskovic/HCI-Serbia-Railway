@@ -11,6 +11,13 @@ namespace SerbiaRailway.services
     public sealed class Data
     {
         private static readonly Data instance = new Data();
+
+        public int Num_managers { get; set; } = 0;
+        public int Num_clients { get; set; } = 0;
+        public int Num_stations { get; set; } = 0;
+        public int Num_trains { get; set; } = 0;
+        public int Num_routes { get; set; } = 0;
+        public int Num_lines { get; set; } = 0;
         public List<Manager> Managers { get; set; }
         public List<Client> Clients { get; set; }
         public List<Station> Stations { get; set; }
@@ -55,10 +62,12 @@ namespace SerbiaRailway.services
         private void AddUsers()
         {
             Managers.Add(new Manager("ana", "123", "Ana", "Avramovski"));
+            Num_managers = Managers.Count;
             Clients.Add(new Client("pera", "123", "Rastko", "Sakal"));
             Clients.Add(new Client("zdera", "123", "Miloje", "Milic"));
             Clients.Add(new Client("lera", "123", "Luka", "Banac"));
             Clients.Add(new Client("tera", "123", "Tomislav", "Stan"));
+            Num_clients = Clients.Count;
         }
 
         private void AddStations()
@@ -73,6 +82,7 @@ namespace SerbiaRailway.services
             Stations.Add(new Station(8, "Kragujevac center", new Location(44.01306948716552, 20.91634370652272)));
             Stations.Add(new Station(9, "Vranje center", new Location(42.552404405533665, 21.900640818808117)));
             Stations.Add(new Station(10, "Kosovska Mitrovica center", new Location(42.89615490730306, 20.868055000038066)));
+            Num_stations = Stations.Count;
         }
 
         private void AddTrains() 
@@ -129,6 +139,7 @@ namespace SerbiaRailway.services
             Trains.Add(new Train(1, "Speedy Gonzales", wagons1, true));
             Trains.Add(new Train(2, "SirmiumTrains", wagons2, true));
             Trains.Add(new Train(3, "Serbia trains", wagons3, true));
+            Num_trains = Trains.Count;
         }
 
         private void AddStationSchedules()
@@ -361,6 +372,7 @@ namespace SerbiaRailway.services
                 Stations[6],
             };
             Routes.Add(new Route(22, "Kosovska Mitrovica-Kraljevo", stations22, Trains[2]));
+            Num_routes = Routes.Count;
         }
 
         private void AddLines()
@@ -738,7 +750,7 @@ namespace SerbiaRailway.services
                 stationSchedules22.Add(_stationSchedules[i]);
             }
             Lines.Add(new Line(22, Routes[21], weekDays22, stationSchedules22));
-            
+            Num_lines = Lines.Count;
         }
 
         private void AddSchedules()

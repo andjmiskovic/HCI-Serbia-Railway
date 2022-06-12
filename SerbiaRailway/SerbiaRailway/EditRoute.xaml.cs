@@ -166,7 +166,16 @@ namespace SerbiaRailway
             _route.Stations = stations;
             _route.Train = train;
             _route.setStationNames();
-            _observableCollection[_route.Id - 1] = _route;
+            int i = 0;
+            foreach (Route route in _observableCollection)
+            {
+                if (_route.Id == route.Id)
+                {
+                    break;
+                }
+                i++;
+            }
+            _observableCollection[i] = _route;
             Application.Current.Windows[2].Close();
         }
     }
