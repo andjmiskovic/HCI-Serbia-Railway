@@ -135,22 +135,35 @@ namespace SerbiaRailway
 
         private void saveChanges_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult decision = MessageBox.Show("Are you sure you want to add this route?",
-                    "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (decision == MessageBoxResult.Yes)
+            if (RouteStations.Items.Count < 2)
             {
-                List<Station> stations = new List<Station>();
-                foreach (ListBoxItem station in RouteStations.Items)
+                MessageBox.Show("Please add 2 stations to your route stations list!", "Not enough stations", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            else if (trainComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a train!", "No train selected", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            else
+            {
+                MessageBoxResult decision = MessageBox.Show("Are you sure you want to add this route?",
+                    "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (decision == MessageBoxResult.Yes)
                 {
-                    stations.Add(DataService.Data.GetStationByName((string)station.Content));
+                    List<Station> stations = new List<Station>();
+                    foreach (ListBoxItem station in RouteStations.Items)
+                    {
+                        stations.Add(DataService.Data.GetStationByName((string)station.Content));
+                    }
+                    Train train = (Train)trainComboBox.SelectedItem;
+                    string name = stations[0] + "-" + stations[stations.Count - 1];
+                    int id = ++DataService.Data.Num_routes;
+                    Route route = new Route(id, name, stations, train);
+                    DataService.Data.Routes.Add(route);
+                    _observableCollection.Add(route);
+                    Application.Current.Windows[2].Close();
                 }
-                Train train = (Train)trainComboBox.SelectedItem;
-                string name = stations[0] + "-" + stations[stations.Count - 1];
-                int id = ++DataService.Data.Num_routes;
-                Route route = new Route(id, name, stations, train);
-                DataService.Data.Routes.Add(route);
-                _observableCollection.Add(route);
-                Application.Current.Windows[2].Close();
             }
         }
     }

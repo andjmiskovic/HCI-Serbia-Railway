@@ -155,32 +155,45 @@ namespace SerbiaRailway
 
         private void saveChanges_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult decision = MessageBox.Show("Are you sure you want to edit this route?",
-                    "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (decision == MessageBoxResult.Yes)
+            if (RouteStations.Items.Count < 2)
             {
-                List<Station> stations = new List<Station>();
-                foreach (ListBoxItem station in RouteStations.Items)
+                MessageBox.Show("Please add 2 stations to your route stations list!", "Not enough stations", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            else if (trainComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a train!", "No train selected", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            else
+            {
+                MessageBoxResult decision = MessageBox.Show("Are you sure you want to edit this route?",
+                    "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (decision == MessageBoxResult.Yes)
                 {
-                    stations.Add(DataService.Data.GetStationByName((string)station.Content));
-                }
-                Train train = (Train)trainComboBox.SelectedItem;
-                string name = stations[0] + "-" + stations[stations.Count - 1];
-                _route.Name = name;
-                _route.Stations = stations;
-                _route.Train = train;
-                _route.setStationNames();
-                int i = 0;
-                foreach (Route route in _observableCollection)
-                {
-                    if (_route.Id == route.Id)
+                    List<Station> stations = new List<Station>();
+                    foreach (ListBoxItem station in RouteStations.Items)
                     {
-                        break;
+                        stations.Add(DataService.Data.GetStationByName((string)station.Content));
                     }
-                    i++;
+                    Train train = (Train)trainComboBox.SelectedItem;
+                    string name = stations[0] + "-" + stations[stations.Count - 1];
+                    _route.Name = name;
+                    _route.Stations = stations;
+                    _route.Train = train;
+                    _route.setStationNames();
+                    int i = 0;
+                    foreach (Route route in _observableCollection)
+                    {
+                        if (_route.Id == route.Id)
+                        {
+                            break;
+                        }
+                        i++;
+                    }
+                    _observableCollection[i] = _route;
+                    Application.Current.Windows[2].Close();
                 }
-                _observableCollection[i] = _route;
-                Application.Current.Windows[2].Close();
             }
         }
     }
