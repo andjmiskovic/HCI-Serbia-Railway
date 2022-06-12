@@ -2,6 +2,7 @@
 using SerbiaRailway.services;
 using System;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SerbiaRailway
@@ -26,7 +27,8 @@ namespace SerbiaRailway
         public void Search()
         {
             observableCollection.Clear();
-            mSearchText = mSearchText.ToLower();
+            if (SearchText != "" && SearchText != null)
+                mSearchText = mSearchText.ToLower();
             foreach (Route route in DataService.Data.Routes)
             {
                 string route_id = route.Id.ToString().ToLower();
@@ -63,8 +65,21 @@ namespace SerbiaRailway
 
         private void btnDeleteLine_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            DataService.Data.Routes.Remove((Route)DataGridXAML.SelectedItem);
-            observableCollection.Remove((Route)DataGridXAML.SelectedItem);
+            if (DataGridXAML.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a route you want to delete!", "No selected route", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            else
+            {
+                MessageBoxResult decision = MessageBox.Show("Are you sure you want to delete this route? There is no going back!", 
+                    "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (decision == MessageBoxResult.Yes)
+                {
+                    DataService.Data.Routes.Remove((Route)DataGridXAML.SelectedItem);
+                    observableCollection.Remove((Route)DataGridXAML.SelectedItem);
+                }
+            }
         }
 
         private void btnAddNewLine_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -76,10 +91,18 @@ namespace SerbiaRailway
 
         private void btnEditLine_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            EditRoute editRoute = new EditRoute((Route)DataGridXAML.SelectedItem, observableCollection);
-            editRoute.ShowDialog();
-            SearchText = mSearchText;
-            DataGridXAML.Items.Refresh();
+            if (DataGridXAML.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a route you want to edit!", "No selected route", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            else
+            {
+                EditRoute editRoute = new EditRoute((Route)DataGridXAML.SelectedItem, observableCollection);
+                editRoute.ShowDialog();
+                SearchText = mSearchText;
+                DataGridXAML.Items.Refresh();
+            }
         }
     }
 }
