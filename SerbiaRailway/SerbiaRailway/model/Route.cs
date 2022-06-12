@@ -25,11 +25,17 @@ namespace SerbiaRailway.model
             Name = name;
             Stations = stations;
             Train = train;
+            setStationNames();
+        }
+
+        public void setStationNames()
+        {
+            StationNames = "";
             foreach (Station station in Stations)
             {
                 StationNames += station + ", ";
             }
-            StationNames = StationNames.Substring(0, StationNames.Length-2);
+            StationNames = StationNames.Substring(0, StationNames.Length - 2);
         }
     }
 }
