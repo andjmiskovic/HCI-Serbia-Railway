@@ -20,7 +20,7 @@ namespace SerbiaRailway
 
         private void FillTickets()
         {
-            Tickets.Children.RemoveRange(0, Tickets.Children.Count);
+            Tickets.Children.Clear();
             List<Ticket> tickets;
             if ((bool)Reserved.IsChecked)
                 tickets = LoginService.CurrentlyLoggedClient.Reserved;
@@ -37,7 +37,9 @@ namespace SerbiaRailway
                 TicketsScroll.Visibility = Visibility.Visible;
                 foreach (Ticket ticket in tickets)
                 {
-                    Tickets.Children.Add(new TicketCard(ticket));
+                    TicketCard ticketCard = new TicketCard(ticket);
+                    Tickets.Children.Add(ticketCard);
+                    ticketCard.setStackPanels(Tickets, NoTickets, TicketsScroll);
                 }
             }
         }

@@ -163,10 +163,13 @@ namespace SerbiaRailway
                 Client client = LoginService.CurrentlyLoggedClient;
                 if (SelectedSeat == null)
                     System.Windows.MessageBox.Show("You have to select the seat first.");
-                int wagon = this.GetSelectedWagon();
-                TicketService.ReserveTicket(client, SelectedSeat, this.line, wagon, ride.Date);
-                System.Windows.MessageBox.Show("You have successfully reserved a ticket.");
-                this.Close();
+                else
+                {
+                    int wagon = this.GetSelectedWagon();
+                    TicketService.ReserveTicket(client, SelectedSeat, this.line, wagon, ride.Date);
+                    System.Windows.MessageBox.Show("You have successfully reserved a ticket.");
+                    this.Close();
+                }
             }
             catch
             {
@@ -181,10 +184,13 @@ namespace SerbiaRailway
                 Client client = LoginService.CurrentlyLoggedClient;
                 if (SelectedSeat == null)
                     System.Windows.MessageBox.Show("You have to select the seat first.");
-                int wagon = this.GetSelectedWagon();
-                TicketService.BuyTicket(client, SelectedSeat, this.line, wagon, ride.Date);
-                System.Windows.MessageBox.Show("You have successfully bought a ticket.");
-                this.Close();
+                else
+                {
+                    int wagon = this.GetSelectedWagon();
+                    TicketService.BuyTicket(client, SelectedSeat, this.line, wagon, ride.Date);
+                    System.Windows.MessageBox.Show("You have successfully bought a ticket.");
+                    this.Close();
+                }
             }
             catch
             {

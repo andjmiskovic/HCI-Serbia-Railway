@@ -11,12 +11,23 @@ namespace SerbiaRailway
     /// </summary>
     public partial class TicketCard : UserControl
     {
+        private StackPanel tickets;
+        private StackPanel noTickets;
+        private ScrollViewer ticketsScroll;
+
         public Ticket ticket { get; set; }
         public TicketCard(Ticket ticket)
         {
             InitializeComponent();
             this.ticket = ticket;
             FillData();
+        }
+
+        public void setStackPanels(StackPanel tickets, StackPanel noTickets, ScrollViewer ticketsScroll)
+        {
+            this.tickets = tickets;
+            this.noTickets = noTickets;
+            this.ticketsScroll = ticketsScroll;
         }
 
         private void FillData()
@@ -41,6 +52,12 @@ namespace SerbiaRailway
             DataService.Data.Tickets.Remove(ticket);
             DataService.Data.GetRide(ticket.Date, ticket.PartialLine.Line).Tickets.Remove(ticket);
             MessageBox.Show("Your reservation has been canceled.");
+            this.tickets.Children.Remove(this);
+            if (this.tickets.Children.Count == 0)
+            {
+                this.noTickets.Visibility = Visibility.Visible;
+                this.ticketsScroll.Visibility = Visibility.Hidden;
+            }
         }
 
         private void Buy(object sender, RoutedEventArgs e)
@@ -49,6 +66,12 @@ namespace SerbiaRailway
             ticket.State = TicketState.BOUGHT;
             LoginService.CurrentlyLoggedClient.Bought.Add(ticket);
             MessageBox.Show("You have bought this ticket.");
+            this.tickets.Children.Remove(this);
+            if (this.tickets.Children.Count == 0)
+            {
+                this.noTickets.Visibility = Visibility.Visible;
+                this.ticketsScroll.Visibility = Visibility.Hidden;
+            }
         }
     }
 }
