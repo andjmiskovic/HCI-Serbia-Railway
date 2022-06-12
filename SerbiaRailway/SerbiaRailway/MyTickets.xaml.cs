@@ -1,7 +1,9 @@
 ﻿using SerbiaRailway.model;
 using SerbiaRailway.services;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SerbiaRailway
 {
@@ -20,36 +22,50 @@ namespace SerbiaRailway
         {
             Tickets.Children.RemoveRange(0, Tickets.Children.Count);
             List<Ticket> tickets;
-            Label label = new Label();
-            label.FontSize = 20;
             if ((bool)Reserved.IsChecked)
-            {
                 tickets = LoginService.CurrentlyLoggedClient.Reserved;
-                label.Content = "You haven't reserved any tickets yet.";
+            else
+                tickets = LoginService.CurrentlyLoggedClient.Bought;
+            if (tickets.Count == 0)
+            {
+                NoTickets.Visibility = Visibility.Visible;
+                TicketsScroll.Visibility = Visibility.Hidden;
             }
             else
             {
-                tickets = LoginService.CurrentlyLoggedClient.Bought;
-                label.Content = "You haven't bought any tickets yet.";
+                NoTickets.Visibility = Visibility.Hidden;
+                TicketsScroll.Visibility = Visibility.Visible;
+                foreach (Ticket ticket in tickets)
+                {
+                    Tickets.Children.Add(new TicketCard(ticket));
+                }
             }
-            foreach (Ticket ticket in tickets)
+        }
+
+        private void Reserved_Checked(object sender, RoutedEventArgs e)
+        {
+            if(Tickets != null)
+                FillTickets();
+        }
+
+        private void Bought_Checked(object sender, RoutedEventArgs e)
+        {
+            if(Tickets != null)
+                FillTickets();
+        }
+
+        private void Help(object sender, RoutedEventArgs e)
+        {
+            HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
             {
-                Tickets.Children.Add(new TicketCard(ticket));
+                HelpProvider.SetHelpKey((DependencyObject)sender, "myTickets");
+                HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
-            if (tickets.Count == 0)
-                Tickets.Children.Add(label);
-        }
-
-        private void Reserved_Checked(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if(Tickets != null)
-                FillTickets();
-        }
-
-        private void Bought_Checked(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if(Tickets != null)
-                FillTickets();
         }
     }
 }

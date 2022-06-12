@@ -20,5 +20,10 @@ namespace SerbiaRailway.model
             Wagons = wagons;
             IsActive = isActive;
         }
+
+        public override string ToString()
+        {
+            return Manufacturer;
+        }
     }
 }

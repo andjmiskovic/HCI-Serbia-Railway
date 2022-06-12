@@ -2,7 +2,9 @@
 using SerbiaRailway.services;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SerbiaRailway
 {
@@ -73,7 +75,7 @@ namespace SerbiaRailway
             Line.Items.Clear();
             foreach(Line line in DataService.Data.Lines) 
             {
-                Line.Items.Add(line.Id + " (" + line.Name + ")");
+                Line.Items.Add(line.Id + " (" + line.Route.Name + ")");
             }
         }
 
@@ -99,20 +101,48 @@ namespace SerbiaRailway
             }
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Tickets.Children.Clear();
-            if ((bool)MonthlyTickets.IsChecked)
+                Tickets.Children.Clear();
+                if ((bool)MonthlyTickets.IsChecked)
+                {
+                    try
+                    {
+                        int year = int.Parse(Year.SelectedValue.ToString());
+                        int month = Month.SelectedIndex + 1;
+                        FillMonthlyTickets(month, year);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Please choose month and year.");
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        DateTime date = Date.SelectedDate.Value;
+                        int lineId = int.Parse(Line.SelectedItem.ToString().Split('(')[0]);
+                        FillRideTickets(lineId, date);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Please choose line and date.");
+                    }
+                }
+        }
+
+        private void Help(object sender, RoutedEventArgs e)
+        {
+            HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
             {
-                int year = int.Parse(Year.SelectedValue.ToString());
-                int month = Month.SelectedIndex + 1;
-                FillMonthlyTickets(month, year);
-            }
-            else
-            {
-                DateTime date = Date.SelectedDate.Value;
-                int lineId = int.Parse(Line.SelectedItem.ToString().Split('(')[0]);
-                FillRideTickets(lineId, date);
+                HelpProvider.SetHelpKey((DependencyObject)sender, "ticketsReport");
+                HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
         }
     }

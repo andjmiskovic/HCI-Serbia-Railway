@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SerbiaRailway.model
 {
@@ -20,7 +21,7 @@ namespace SerbiaRailway.model
         public Dictionary<int, List<TakenSeat>> GetAvailableSeats(Station start, Station end)
         {
             Dictionary<int, List<TakenSeat>> seats = new Dictionary<int, List<TakenSeat>>();
-            foreach(Wagon wagon in Line.Train.Wagons)
+            foreach(Wagon wagon in Line.Route.Train.Wagons)
             {
                 List<TakenSeat> takenSeats = new List<TakenSeat>();
                 foreach (Seat seat in wagon.Seats)
@@ -31,7 +32,7 @@ namespace SerbiaRailway.model
             }
             foreach(Ticket ticket in Tickets)
             {
-                seats[ticket.Wagon][ticket.Seat.SeatNumber].isAvailable = IsSeatAvailable(start, end, ticket);
+                seats[ticket.Wagon][ticket.Seat.SeatNumber - 1].isAvailable = IsSeatAvailable(start, end, ticket);
             }
             return seats;
         }
@@ -40,7 +41,7 @@ namespace SerbiaRailway.model
         public bool IsSeatAvailable(Station start, Station end, Ticket ticket)
         {
             bool available = false;
-            foreach(StationSchedule stationSchedule in Line.StationSchedule)
+            foreach(StationSchedule stationSchedule in Line.StationSchedules)
             {
                 // na pocetku putovanja gledamo da je slobodno sediste, posle nas boli uvo
                 if(start.Name.Equals(stationSchedule.StartingStation.Name))
@@ -56,15 +57,4 @@ namespace SerbiaRailway.model
         }
     }
 
-    public class TakenSeat
-    {
-        public Seat seat { get; set; }
-        public bool isAvailable { get; set; }
-
-        public TakenSeat(Seat seat, bool isAvailable)
-        {
-            this.seat = seat;
-            this.isAvailable = isAvailable;
-        }
-    }
 }

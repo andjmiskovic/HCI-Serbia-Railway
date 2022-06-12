@@ -3,74 +3,116 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SerbiaRailway"
-      mc:Ignorable="d" 
+      xmlns:local="clr-namespace:SerbiaRailway" xmlns:local1="clr-namespace:SerbiaRailway.services"
+      mc:Ignorable="d" KeyDown="Window_KeyDown"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TimetableManager">
 
     <Page.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Background" Value="#FFFCA311"/>
-            <Setter Property="BorderBrush" Value="#FFFCA311"/>
-        </Style>
         <Style TargetType="ToolTip">
             <Setter Property="FontSize" Value="30"/>
         </Style>
-        <Image x:Key="Delete" Source="resources/bin.png"/>
-        <Image x:Key="Remove" Source="resources/bin.png"/>
-        <Image x:Key="Edit" Source="resources/edit.png"/>
-        <Image x:Key="Add" Source="resources/plus.png"/>
-        <Image x:Key="Append" Source="resources/plus.png"/>
-        <Image x:Key="Search" Source="resources/search.png"/>
     </Page.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Margin="0 0 10 0" Grid.Column="0" Grid.Row="0">
+        <Grid Margin="10 0 10 0">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="60"/>
             </Grid.ColumnDefinitions>
-            <ComboBox x:Name="selectLine" Grid.Column="0" Margin="10" Text="Select line" ToolTip="Select line" IsEditable="True" FontSize="20"/>
-            <Button x:Name="btnAddNewRide" Grid.Column="1" Content="{StaticResource Add}" ToolTip="Add new ride" Height="30" Padding="5"/>
-            <Button x:Name="btnDeleteRide" Grid.Column="2" Content="{StaticResource Delete}" ToolTip="Delete selected ride" Height="30" Padding="5"/>
+            <Label Content="Select line to edit its timetable: " VerticalAlignment="Center" Grid.Column="0" FontSize="20" />
+            <ComboBox Name="Line" Grid.Column="1" SelectionChanged="OnLineSelected" Margin="10 0 10 0" Text="Select line" ToolTip="Select line you want to edit" IsEditable="True" FontSize="20"/>
+            <Button Grid.Column="2" local:HelpProvider.HelpKey="timetableManager" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
         </Grid>
-
-        <Grid Margin="0 0 10 0" Grid.Column="1" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="40"/>
-            </Grid.ColumnDefinitions>
-            <ComboBox x:Name="selectStation" Grid.Column="0" Margin="10" Text="Select station" ToolTip="Select station" IsEditable="True" FontSize="20"/>
-            <Button x:Name="btnAppendStation" Grid.Column="1" Content="{StaticResource Append}" ToolTip="Append station list" Height="30" Padding="5"/>
-            <Button x:Name="btnRemoveStation" Grid.Column="2" Content="{StaticResource Remove}" ToolTip="Remove station from list" Height="30" Padding="5"/>
-        </Grid>
-
-        <DataGrid x:Name="RideTable" IsReadOnly="True" Grid.Row="1" Grid.Column="0" Margin="10" FontSize="15">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding trainID}" Width="*"/>
-                <DataGridTextColumn Header="Departure" Binding="{Binding departureTime}" Width="4*"/>
-                <DataGridTextColumn Header="Arrival" Binding="{Binding arrivalTime}" Width="2*"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
-        <DataGrid x:Name="StationsTable" IsReadOnly="False" Grid.Row="1" Grid.Column="1" Margin="10" FontSize="15">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Station" Binding="{Binding Station}" Width="3*"/>
-                <DataGridTextColumn Header="Departure" Binding="{Binding DepartureTime}" Width="2*"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
+        <Separator Grid.Row="1" Margin="10 0 10 0"/>
+        <Label Grid.Row="2" Margin="10 0 0 0" FontSize="20">Riding days on weekly:</Label>
+        <StackPanel Name="WeekDays" Orientation="Horizontal" Grid.Row="3" Margin="10 0 10 0">
+            <CheckBox Name="Monday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Monday</CheckBox>
+            <CheckBox Name="Tuesday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Tuesday</CheckBox>
+            <CheckBox Name="Wednesday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Wednesday</CheckBox>
+            <CheckBox Name="Thursday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Thursday</CheckBox>
+            <CheckBox Name="Friday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Friday</CheckBox>
+            <CheckBox Name="Saturday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Saturday</CheckBox>
+            <CheckBox Name="Sunday" IsChecked="True" Margin="10 0 0 0" FontSize="20">Sunday</CheckBox>
+        </StackPanel>
+        <Separator Grid.Row="4" Margin="10 0 10 0"/>
+        <Label Grid.Row="5" Margin="10 0 0 0" FontSize="20">Station schedule:</Label>
+        <ScrollViewer Grid.Row="6" Margin="10 0 10 0">
+            <DataGrid Name = "StationSchedule" FontSize="20" AlternatingRowBackground="#fff" Background="#fff" Foreground="#000"
+            AlternationCount = "1" AutoGenerateColumns = "False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserSortColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="4*" IsReadOnly="True" Header = "Start station" Binding = "{Binding StartingStation.Name}" >
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding StartingStation.Name}" />
+                                <Setter Property="Background" Value="#fff"/>
+                                <Setter Property="Foreground" Value="#000"/>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="4*" IsReadOnly="True" Header = "End station" Binding = "{Binding EndStation.Name}" >
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding EndStation.Name}" />
+                                <Setter Property="Background" Value="#fff"/>
+                                <Setter Property="Foreground" Value="#000"/>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="3*" Header = "Departure">
+                        <DataGridTextColumn.Binding>
+                            <Binding Path="Departure" 
+                             NotifyOnTargetUpdated="True" 
+                             UpdateSourceTrigger="PropertyChanged" 
+                             Mode="TwoWay" 
+                             ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <local1:TimeValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="3*" Header = "Arrival">
+                        <DataGridTextColumn.Binding>
+                            <Binding Path="Arrival" 
+                             NotifyOnTargetUpdated="True" 
+                             UpdateSourceTrigger="PropertyChanged" 
+                             Mode="TwoWay" 
+                             ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <local1:TimeValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="2*" Header = "Price">
+                        <DataGridTextColumn.Binding>
+                            <Binding Path="Price" 
+                             NotifyOnTargetUpdated="True" 
+                             UpdateSourceTrigger="PropertyChanged" 
+                             Mode="TwoWay" 
+                             ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <local1:PriceValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <Button Grid.Row="7" Margin="10 0 10 0" Click="SaveChanges">Save changes</Button>
     </Grid>
 </Page>

@@ -27,6 +27,11 @@
             <Button ToolTip="Click to search available timelines." Click="SearchLines" Grid.Column="3" Margin="5" Grid.Row="3" VerticalAlignment="Center">SEARCH</Button>
         </Grid>
 
+        <StackPanel Name="WelcomePicture"  Grid.Column="1">
+            <Label Margin="10 100 10 10" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold">Are you ready for your next journey?</Label>
+            <Image Source="resources/suitcase.png" Width="200" />
+        </StackPanel>
+        
         <ScrollViewer Grid.Column="1">
             <StackPanel Name="CardStack" Orientation="Vertical">
             </StackPanel>

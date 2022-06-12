@@ -8,9 +8,9 @@ namespace SerbiaRailway.model
     public class Line
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public List<StationSchedule> StationSchedule { get; set; }
-        public Train Train { get; set; }
+        public Route Route { get; set; }
+        public Dictionary<string, bool> WeekDays { get; set; }
+        public List<StationSchedule> StationSchedules { get; set; }
 
         /////////////////////////////////
 
@@ -20,41 +20,41 @@ namespace SerbiaRailway.model
 
         public Station FirstStation()
         {
-            return StationSchedule.ElementAt(0).StartingStation;
-        }
-
-        public Station LastStation()
-        {
-            return StationSchedule.ElementAt(-1).EndStation;
+            return Route.Stations.ElementAt(0);
         }
 
         // ukupno vreme koliko voz putuje od prve do poslednje stanice
         public double TravelTime()
         {
-            return StationSchedule.Sum(item => item.TravelTime);
+            return StationSchedules.Sum(item => item.TravelTime);
         }
+
+        public Station LastStation()
+        {
+            return Route.Stations.ElementAt(-1);
+        }
+
 
         public string GetStationString()
         {
-            if (StationSchedule.Count() == 1) // ima samo jedna stanica
+            if (Route.Stations.Count() == 1) // ima samo jedna stanica
             {
-                return StationSchedule.ElementAt(0).StartingStation.Name + "," + StationSchedule.ElementAt(0).EndStation.Name;
+                return Route.Stations.ElementAt(0).Name + "," + Route.Stations.ElementAt(0).Name;
             }
 
             int i = 1;
             string retVal = FirstStation().Name + ",";
-            while (i < StationSchedule.Count())
+            while (i < Route.Stations.Count())
             {
-                retVal += StationSchedule.ElementAt(i).StartingStation.Name + "," + StationSchedule.ElementAt(i).EndStation.Name;
+                retVal += Route.Stations.ElementAt(i).Name + "," + Route.Stations.ElementAt(i).Name;
                 i++;
             }
-
             return retVal;
         }
 
         public TimeSpan GetStartingTimeByStation(Station station)
         {
-            foreach (StationSchedule stationSchedule in StationSchedule)
+            foreach (StationSchedule stationSchedule in StationSchedules)
             {
                 if (station == stationSchedule.StartingStation)
                 {
@@ -67,7 +67,7 @@ namespace SerbiaRailway.model
 
         public TimeSpan GetEndingTimeByStation(Station station)
         {
-            foreach (StationSchedule stationSchedule in StationSchedule)
+            foreach (StationSchedule stationSchedule in StationSchedules)
             {
                 if (station == stationSchedule.EndStation)
                 {
@@ -82,47 +82,17 @@ namespace SerbiaRailway.model
         {
         }
 
-        public Line(int id, string name, List<StationSchedule> stationSchedule, Train train)
+        public Line(int id, Route route, Dictionary<string, bool> weekDays, List<StationSchedule> stationSchedule)
         {
             Id = id;
-            Name = name;
-            StationSchedule = stationSchedule;
-            Train = train;
-        }
-
-        internal double calculatePriceByTwoStation(Station startingStation, Station endingStation)
-        {
-            double price = 0;
-            bool startingFound = false;
-            foreach(StationSchedule stationSchedule in StationSchedule)
-            {
-                if (stationSchedule.StartingStation == startingStation & stationSchedule.EndStation == endingStation)
-                {
-                    return stationSchedule.Price;
-                }
-
-                if (stationSchedule.StartingStation == startingStation & startingFound == false)
-                {
-                    price = stationSchedule.Price;
-                    startingFound = true;
-                }
-
-                if (stationSchedule.EndStation == endingStation & startingFound == true)
-                {
-                    price += stationSchedule.Price;
-                    break;
-                }
-                else
-                {
-                    price += stationSchedule.Price;
-                }
-            }
-            return price;
+            Route = route;
+            WeekDays = weekDays;
+            StationSchedules = stationSchedule;
         }
 
         public override string ToString()
         {
-            return this.Id.ToString() + " - " + this.Name;
+            return this.Id.ToString() + " - " + this.Route.Name;
         }
     }
 }

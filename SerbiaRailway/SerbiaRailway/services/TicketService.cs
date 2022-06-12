@@ -18,6 +18,8 @@ namespace SerbiaRailway.services
                 Price = CalculateTicketPrice(partial) + seat.ExtraPrice
             };
             LoginService.AddTicket(ticket);
+            DataService.Data.Tickets.Add(ticket);
+            DataService.Data.GetRide(ticket.Date, ticket.PartialLine.Line).Tickets.Add(ticket);
         }
 
         public static void ReserveTicket(Client client, Seat seat, PartialLine partial, int wagon, DateTime date)
@@ -33,13 +35,15 @@ namespace SerbiaRailway.services
                 Price = CalculateTicketPrice(partial) + seat.ExtraPrice
             };
             LoginService.AddTicket(ticket);
+            DataService.Data.Tickets.Add(ticket);
+            DataService.Data.GetRide(ticket.Date, ticket.PartialLine.Line).Tickets.Add(ticket);
         }
 
         public static double CalculateTicketPrice(PartialLine partial)
         {
             double price = 0;
             bool riding = false;
-            foreach(StationSchedule station in partial.Line.StationSchedule)
+            foreach(StationSchedule station in partial.Line.StationSchedules)
             {
                 if(station.StartingStation.Name.Equals(partial.Start.Name))
                 {

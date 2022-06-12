@@ -20,8 +20,9 @@ namespace SerbiaRailway
         private Ride ride { get; set; }
         private Seat SelectedSeat { get; set; }
         private System.Windows.Controls.RadioButton PreviousSelectedSeat { get; set; }
-        private String PreviousSelectedSeatColor { get; set; }
+        private string PreviousSelectedSeatColor { get; set; }
         private double RidePriceValue { get; set; }
+        private List<TakenSeat> TakenSeats { get; set; }
         public BuyTickets()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace SerbiaRailway
         {
             this.line = line;
             InitializeComponent();
-            AddWagons(line.Line.Train.Wagons.Count());
+            AddWagons(line.Line.Route.Train.Wagons.Count());
             Date.Content = ride.Date.ToString("MM/dd/yyyy");
             StartingStation.Content = line.Start.Name;
             StartingTime.Content = line.StartTime.ToString().Substring(0, 5);
@@ -66,6 +67,7 @@ namespace SerbiaRailway
         private void DrawSeats()
         {
             List<TakenSeat> seats = ride.GetAvailableSeats(line.Start, line.End)[GetSelectedWagon()];
+            this.TakenSeats = seats;
             int numberOfCols = seats.Count() / 4 + 1;
             SeatsMap.ColumnDefinitions.Clear();
             for (int i=0; i< numberOfCols; i++)
@@ -114,17 +116,31 @@ namespace SerbiaRailway
             }
         }
 
+        private bool isSeatTaken(int number)
+        {
+            foreach(TakenSeat takenSeat in this.TakenSeats)
+            {
+                if (!takenSeat.isAvailable && takenSeat.seat.SeatNumber == number)
+                    return true;
+            }
+            return false;
+        }
+
         void SetSeatNumber(object sender, RoutedEventArgs e)
         {
-            SelectedSeat = (Seat)((System.Windows.Controls.RadioButton)sender).Tag;
-            SeatPrice.Content = SelectedSeat.ExtraPrice + "rsd";
-            TotalPrice.Content = RidePriceValue + SelectedSeat.ExtraPrice + "rsd";
-            SelectedSeatNumber.Content = SelectedSeat.SeatNumber;
-            if(PreviousSelectedSeat != null)
-                PreviousSelectedSeat.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(this.PreviousSelectedSeatColor)); 
-            ((System.Windows.Controls.RadioButton)sender).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#069A8E"));
-            PreviousSelectedSeat = (System.Windows.Controls.RadioButton)sender;
-            PreviousSelectedSeatColor = SelectedSeat.Type == SeatType.FIRST_CLASS ? "#FBA311" : "#F8CB2E";
+            Seat selected = (Seat)((System.Windows.Controls.RadioButton)sender).Tag;
+            if (!isSeatTaken(selected.SeatNumber))
+            {
+                SelectedSeat = selected;
+                SeatPrice.Content = SelectedSeat.ExtraPrice + "rsd";
+                TotalPrice.Content = RidePriceValue + SelectedSeat.ExtraPrice + "rsd";
+                SelectedSeatNumber.Content = SelectedSeat.SeatNumber;
+                if(PreviousSelectedSeat != null)
+                    PreviousSelectedSeat.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(this.PreviousSelectedSeatColor)); 
+                ((System.Windows.Controls.RadioButton)sender).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#069A8E"));
+                PreviousSelectedSeat = (System.Windows.Controls.RadioButton)sender;
+                PreviousSelectedSeatColor = SelectedSeat.Type == SeatType.FIRST_CLASS ? "#FBA311" : "#F8CB2E";
+            }
         }
 
         private int GetSelectedWagon()
@@ -142,15 +158,52 @@ namespace SerbiaRailway
 
         private void ReserveTicket(object sender, RoutedEventArgs e)
         {
-            Client client = LoginService.CurrentlyLoggedClient;
-            Seat seat = ride.GetAvailableSeats(this.line.Start, this.line.End)[this.GetSelectedWagon()][1].seat;
-            int wagon = this.GetSelectedWagon();
-            TicketService.ReserveTicket(client, seat, this.line, wagon, ride.Date);
+            try
+            {
+                Client client = LoginService.CurrentlyLoggedClient;
+                if (SelectedSeat == null)
+                    System.Windows.MessageBox.Show("You have to select the seat first.");
+                int wagon = this.GetSelectedWagon();
+                TicketService.ReserveTicket(client, SelectedSeat, this.line, wagon, ride.Date);
+                System.Windows.MessageBox.Show("You have successfully reserved a ticket.");
+                this.Close();
+            }
+            catch
+            {
+                System.Windows.MessageBox.Show("Error occured. Please try again later.");
+            }
         }
 
         private void BuyTicket(object sender, RoutedEventArgs e)
         {
-            TicketService.BuyTicket(LoginService.CurrentlyLoggedClient, ride.GetAvailableSeats(this.line.Start, this.line.End)[this.GetSelectedWagon()][1].seat, this.line, this.GetSelectedWagon(), ride.Date);
+            try
+            {
+                Client client = LoginService.CurrentlyLoggedClient;
+                if (SelectedSeat == null)
+                    System.Windows.MessageBox.Show("You have to select the seat first.");
+                int wagon = this.GetSelectedWagon();
+                TicketService.BuyTicket(client, SelectedSeat, this.line, wagon, ride.Date);
+                System.Windows.MessageBox.Show("You have successfully bought a ticket.");
+                this.Close();
+            }
+            catch
+            {
+                System.Windows.MessageBox.Show("Error occured. Please try again later.");
+            }
+        }
+
+        private void Help(object sender, RoutedEventArgs e)
+        {
+            HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+        }
+
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                HelpProvider.SetHelpKey((DependencyObject)sender, "buyTickets");
+                HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+            }
         }
     }
 }

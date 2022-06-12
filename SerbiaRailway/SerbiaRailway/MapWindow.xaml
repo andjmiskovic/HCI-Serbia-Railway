@@ -7,7 +7,8 @@
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Map" Height="600" Width="1000">
+        Icon="resources/icon.png"
+        Title="Map" MinHeight="500" MinWidth="500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

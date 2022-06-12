@@ -20,16 +20,16 @@ namespace SerbiaRailway
         {
             Main.Content = new Trains();
             TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
-            LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            RoutesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TicketsReportBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
         }
 
         private void SwitchToLinesPage(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Lines();
+            Main.Content = new Routes();
             TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
-            LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
+            RoutesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TicketsReportBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
 
@@ -37,7 +37,7 @@ namespace SerbiaRailway
             foreach(SerbiaRailway.model.Line line in lines)
             {
                 line.StationStr = line.GetStationString();
-                line.TrainName = line.Train.Manufacturer;
+                line.TrainName = line.Route.Train.Manufacturer;
                 line.Traveling = line.TravelTime();
                 //Lines.DataGridXAML.Items.Add(line);
             }
@@ -47,7 +47,7 @@ namespace SerbiaRailway
         {
             Main.Content = new TimetableManager();
             TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
-            LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            RoutesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
             TicketsReportBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
         }
@@ -56,7 +56,7 @@ namespace SerbiaRailway
         {
             Main.Content = new TicketsReport();
             TrainsBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
-            LinesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+            RoutesBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TicketsReportBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFCA311"));
         }

@@ -36,14 +36,14 @@ namespace SerbiaRailway
         {
             string outputString = "\n\tStation-Time list: \n\n";
             int order = 1;
-            foreach (StationSchedule ss in line.StationSchedule)
+            foreach (StationSchedule ss in line.StationSchedules)
             {
                 outputString += order.ToString() + ".  " + ss.StartingStation.ToString() + "\n";
                 outputString += "\t" + ss.Departure.ToString(@"hh\:mm") + "\n\n";
                 order++;
             }
-            outputString += order.ToString() + ".  " + line.StationSchedule.Last().EndStation.ToString() + "\n";
-            outputString += "\t" + line.StationSchedule.Last().Arrival.ToString(@"hh\:mm");
+            outputString += order.ToString() + ".  " + line.StationSchedules.Last().EndStation.ToString() + "\n";
+            outputString += "\t" + line.StationSchedules.Last().Arrival.ToString(@"hh\:mm");
             textblock.Text = outputString;
         }
 
@@ -51,7 +51,7 @@ namespace SerbiaRailway
         {
             this.mapa.Children.Clear();
 
-            foreach (StationSchedule ss in line.StationSchedule)
+            foreach (StationSchedule ss in line.StationSchedules)
             {
                 addMarker(ss.StartingStation.Location);
                 addMarker(ss.EndStation.Location);
@@ -78,6 +78,7 @@ namespace SerbiaRailway
 
             this.mapa.Children.Add(polyline);
         }
+
     }
 
 }

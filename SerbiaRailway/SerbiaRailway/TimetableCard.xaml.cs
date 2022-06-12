@@ -23,6 +23,7 @@ namespace SerbiaRailway
             EndTime.Content = endTime.Substring(0, 5);
             TravelTime.Content = travelTime.Substring(0, 5);
             Manufacturer.Content = manufacturer;
+            Price.Content = line.CalculatePrice().ToString() + "rsd";
             Line = line;
             Ride = ride;
         }

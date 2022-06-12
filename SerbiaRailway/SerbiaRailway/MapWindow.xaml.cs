@@ -38,7 +38,7 @@ namespace SerbiaRailway
         {
             this.mapa.Children.Clear();
 
-            foreach (StationSchedule ss in line.StationSchedule)
+            foreach (StationSchedule ss in line.StationSchedules)
             {
                 addMarker(ss.StartingStation.Location);
                 addMarker(ss.EndStation.Location);

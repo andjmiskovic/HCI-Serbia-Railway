@@ -1,4 +1,4 @@
-﻿<Page x:Class="SerbiaRailway.Lines"
+﻿<Page x:Class="SerbiaRailway.Routes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -48,13 +48,12 @@
             <Button x:Name="btnDeleteLine" Content="{StaticResource Delete}" ToolTip="Delete selected line" Height="30" Padding="5"/>
             <Button x:Name="btnEditLine" Content="{StaticResource Edit}" ToolTip="Edit selected line" Height="30" Padding="5"/>
         </StackPanel>
-        <DataGrid x:Name="DataGridXAML" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Margin="10" FontSize="15" IsReadOnly="True">
+        <DataGrid AutoGenerateColumns = "False" x:Name="DataGridXAML" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Margin="10" FontSize="15" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
-                <DataGridTextColumn Header="Line name" Binding="{Binding Name}" Width="2*"/>
-                <DataGridTextColumn Header="Station Schedule" Binding="{Binding StationStr}" Width="2.5*"/>
-                <DataGridTextColumn Header="Train" Binding="{Binding TrainName}" Width="auto"/>
-                <DataGridTextColumn Header="Travel time" Binding="{Binding Traveling}" Width="*"/>
+                <DataGridTextColumn Header="Route name" Binding="{Binding Name}" Width="1*"/>
+                <DataGridTextColumn Header="Stations" Binding="{Binding StationNames}" Width="2*"/>
+                <DataGridTextColumn Header="Train" Binding="{Binding Train}" Width="1*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
