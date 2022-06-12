@@ -110,6 +110,7 @@
     </Compile>
     <Compile Include="AddTrainWindow.xaml.cs">
       <DependentUpon>AddTrainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddRoute.xaml.cs">
       <DependentUpon>AddRoute.xaml</DependentUpon>
     </Compile>
@@ -182,6 +183,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddTrainWindow.xaml">
+    <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddRoute.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

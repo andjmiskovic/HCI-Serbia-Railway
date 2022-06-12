@@ -2,6 +2,7 @@
 using SerbiaRailway.services;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -76,6 +77,25 @@ namespace SerbiaRailway
                     "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (decision == MessageBoxResult.Yes)
                 {
+                    Route route = (Route)DataGridXAML.SelectedItem;
+                    foreach (Ride ride in DataService.Data.Rides.ToList())
+                    {
+                        if (ride.Line.Route.Id == route.Id)
+                        {
+                            foreach (Ticket ticket in ride.Tickets.ToList())
+                            {
+                                DataService.Data.Tickets.Remove(ticket);
+                            }
+                            DataService.Data.Rides.Remove(ride);
+                        }
+                    }
+                    foreach (Line line in DataService.Data.Lines.ToList())
+                    {
+                        if (line.Route.Id == route.Id)
+                        {
+                            DataService.Data.Lines.Remove(line);
+                        }
+                    }
                     DataService.Data.Routes.Remove((Route)DataGridXAML.SelectedItem);
                     observableCollection.Remove((Route)DataGridXAML.SelectedItem);
                 }
