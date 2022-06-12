@@ -44,17 +44,14 @@
         </StackPanel>
         
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="2">
-            <Button x:Name="btnAddNewTrain" Content="{StaticResource Add}" ToolTip="Add new train" Height="30" Padding="5"/>
+            <Button x:Name="btnAddNewTrain" Content="{StaticResource Add}" ToolTip="Add new train" Height="30" Padding="5" Click="btnAddNewTrain_Click"/>
             <Button x:Name="btnDeleteTrain" Content="{StaticResource Delete}" ToolTip="Delete selected train" Height="30" Padding="5"/>
             <Button x:Name="btnEditTrain" Content="{StaticResource Edit}" ToolTip="Edit selected train" Height="30" Padding="5"/>
         </StackPanel>
 
-        <DataGrid x:Name="DataGridXAML" Grid.Row="1" Grid.Column="0" Margin="10" FontSize="15">
+        <DataGrid x:Name="DataGridXAML" Grid.Row="1" Grid.Column="0" 
+                  Margin="10" FontSize="15" IsReadOnly="True" SelectionUnit="FullRow">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding trainID}" Width="*"/>
-                <DataGridTextColumn Header="Train Name" Binding="{Binding trainName}" Width="4*"/>
-                <DataGridTextColumn Header="Seats" Binding="{Binding trainSeats}" Width="2*"/>
-                <DataGridTextColumn Header="Wagons" Binding="{Binding trainWagons}" Width="2*"/>
             </DataGrid.Columns>
         </DataGrid>
 
