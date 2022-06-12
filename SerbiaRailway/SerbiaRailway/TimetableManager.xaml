@@ -51,7 +51,7 @@
         <Label Grid.Row="5" Margin="10 0 0 0" FontSize="20">Station schedule:</Label>
         <ScrollViewer Grid.Row="6" Margin="10 0 10 0">
             <DataGrid Name = "StationSchedule" FontSize="20" AlternatingRowBackground="#fff" Background="#fff" Foreground="#000"
-            AlternationCount = "1" AutoGenerateColumns = "False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserSortColumns="False">
+            AutoGenerateColumns = "False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserSortColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="4*" IsReadOnly="True" Header = "Start station" Binding = "{Binding StartingStation.Name}" >
                         <DataGridTextColumn.CellStyle>
@@ -59,6 +59,12 @@
                                 <Setter Property="ToolTip" Value="{Binding StartingStation.Name}" />
                                 <Setter Property="Background" Value="#fff"/>
                                 <Setter Property="Foreground" Value="#000"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#e5e5e5" />
+                                        <Setter Property="BorderBrush" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
                             </Style>
                         </DataGridTextColumn.CellStyle>
                     </DataGridTextColumn>
@@ -68,6 +74,12 @@
                                 <Setter Property="ToolTip" Value="{Binding EndStation.Name}" />
                                 <Setter Property="Background" Value="#fff"/>
                                 <Setter Property="Foreground" Value="#000"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#e5e5e5" />
+                                        <Setter Property="BorderBrush" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
                             </Style>
                         </DataGridTextColumn.CellStyle>
                     </DataGridTextColumn>
@@ -83,6 +95,19 @@
                                 </Binding.ValidationRules>
                             </Binding>
                         </DataGridTextColumn.Binding>
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding EndStation.Name}" />
+                                <Setter Property="Background" Value="#fff"/>
+                                <Setter Property="Foreground" Value="#000"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#e5e5e5" />
+                                        <Setter Property="BorderBrush" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
                     </DataGridTextColumn>
                     <DataGridTextColumn Width="3*" Header = "Arrival">
                         <DataGridTextColumn.Binding>
@@ -96,6 +121,19 @@
                                 </Binding.ValidationRules>
                             </Binding>
                         </DataGridTextColumn.Binding>
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding EndStation.Name}" />
+                                <Setter Property="Background" Value="#fff"/>
+                                <Setter Property="Foreground" Value="#000"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#e5e5e5" />
+                                        <Setter Property="BorderBrush" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
                     </DataGridTextColumn>
                     <DataGridTextColumn Width="2*" Header = "Price">
                         <DataGridTextColumn.Binding>
@@ -109,6 +147,19 @@
                                 </Binding.ValidationRules>
                             </Binding>
                         </DataGridTextColumn.Binding>
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding EndStation.Name}" />
+                                <Setter Property="Background" Value="#fff"/>
+                                <Setter Property="Foreground" Value="#000"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#e5e5e5" />
+                                        <Setter Property="BorderBrush" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
                     </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
