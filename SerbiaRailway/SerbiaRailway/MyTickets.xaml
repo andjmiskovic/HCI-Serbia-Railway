@@ -57,7 +57,7 @@
             </Grid.ColumnDefinitions>
             <RadioButton Grid.Column="0" Content="Reserved Tickets" Name="Reserved" IsChecked="True" GroupName="TicketType" Margin="10 10 0 10" Checked="Reserved_Checked"/>
             <RadioButton Grid.Column="1" Content="Bought Tickets" Name="Bought" IsChecked="False" GroupName="TicketType" Margin="10 10 0 10" Checked="Bought_Checked"/>
-            <Button Grid.Column="2" local:HelpProvider.HelpKey="ticketsReport" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
+            <Button Grid.Column="2" local:HelpProvider.HelpKey="myTickets" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
         </Grid>
 
         <StackPanel Grid.Row="1" Name="NoTickets">

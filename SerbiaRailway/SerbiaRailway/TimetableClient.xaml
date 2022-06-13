@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SerbiaRailway"
       xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="SerbiaRailway.TimetableClient"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" KeyDown="Window_KeyDown"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TimetableClient">
     <Grid>
@@ -13,8 +13,12 @@
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="5">
+        <Grid Grid.Row="0" Margin="5" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -27,12 +31,14 @@
             <Button ToolTip="Click to search available timelines." Click="SearchLines" Grid.Column="3" Margin="5" Grid.Row="3" VerticalAlignment="Center">SEARCH</Button>
         </Grid>
 
-        <StackPanel Name="WelcomePicture"  Grid.Column="1">
+        <Button Grid.Column="1" Margin="0 0 10 0" local:HelpProvider.HelpKey="timetableClient" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" HorizontalAlignment="Right" FontWeight="Bold" Click="Help"/>
+
+        <StackPanel Name="WelcomePicture" Grid.Row="1" Grid.Column="1">
             <Label Margin="10 100 10 10" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold">Are you ready for your next journey?</Label>
             <Image Source="resources/suitcase.png" Width="200" />
         </StackPanel>
         
-        <ScrollViewer Grid.Column="1">
+        <ScrollViewer Grid.Column="1" Grid.Row="1">
             <StackPanel Name="CardStack" Orientation="Vertical">
             </StackPanel>
         </ScrollViewer>
