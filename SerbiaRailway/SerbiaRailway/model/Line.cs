@@ -31,7 +31,7 @@ namespace SerbiaRailway.model
 
         public Station LastStation()
         {
-            return Route.Stations.ElementAt(-1);
+            return Route.Stations.ElementAt(Route.Stations.Count - 1);
         }
 
 
@@ -76,6 +76,16 @@ namespace SerbiaRailway.model
             }
             TimeSpan ts = new TimeSpan(0, 0, 0);
             return ts;
+        }
+
+        public double GetTotalPrice()
+        {
+            double price = 0;
+            foreach (StationSchedule stationSchedule in StationSchedules)
+            {
+                price += stationSchedule.Price;
+            }
+            return price;
         }
 
         public Line()

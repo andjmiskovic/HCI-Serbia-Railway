@@ -13,6 +13,8 @@ namespace SerbiaRailway
     /// </summary>
     public partial class TicketsReport : Page
     {
+        private StackPanel monthlyPanel = new StackPanel();
+        private StackPanel ridePanel = new StackPanel();
         public TicketsReport()
         {
             InitializeComponent();
@@ -22,11 +24,13 @@ namespace SerbiaRailway
         private void FillMonthlyTickets(int month, int year)
         {
             bool zeroTickets = true;
+            monthlyPanel.Children.Clear();
             foreach (Ticket ticket in DataService.Data.Tickets)
             {
                 if (correctMonth(ticket.Date, month, year))
                 {
                     Tickets.Children.Add(new TicketCardManager(ticket));
+                    monthlyPanel.Children.Add(new TicketCardManager(ticket));
                     zeroTickets = false;
                 }
             }
@@ -47,16 +51,17 @@ namespace SerbiaRailway
         private void FillRideTickets(int lineId, DateTime date)
         {
             bool zeroTickets = true;
+            ridePanel.Children.Clear();
             foreach (Ticket ticket in DataService.Data.Tickets)
             {
-                Console.WriteLine(ticket.PartialLine.Line.Id);
                 if (checkRide(ticket, lineId, date))
                 {
                     Tickets.Children.Add(new TicketCardManager(ticket));
+                    ridePanel.Children.Add(new TicketCardManager(ticket));
                     zeroTickets = false;
                 }
             }
-            if(zeroTickets)
+            if (zeroTickets)
             {
                 Label label = new Label();
                 label.FontSize = 20;
@@ -81,6 +86,14 @@ namespace SerbiaRailway
 
         private void Monthly_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (Tickets != null)
+            {
+                Tickets.Children.Clear();
+                foreach (TicketCardManager ticketManager in monthlyPanel.Children)
+                {
+                    Tickets.Children.Add(new TicketCardManager(ticketManager.ticket));
+                }
+            }
             if (Year != null)
             {
                 Year.Visibility = System.Windows.Visibility.Visible;
@@ -92,6 +105,14 @@ namespace SerbiaRailway
 
         private void Ride_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (Tickets != null)
+            {
+                Tickets.Children.Clear();
+                foreach (TicketCardManager ticketManager in ridePanel.Children)
+                {
+                    Tickets.Children.Add(new TicketCardManager(ticketManager.ticket));
+                }
+            }
             if (Year != null)
             {
                 Year.Visibility = System.Windows.Visibility.Hidden;
@@ -103,33 +124,33 @@ namespace SerbiaRailway
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-                Tickets.Children.Clear();
-                if ((bool)MonthlyTickets.IsChecked)
+            Tickets.Children.Clear();
+            if ((bool)MonthlyTickets.IsChecked)
+            {
+                try
                 {
-                    try
-                    {
-                        int year = int.Parse(Year.SelectedValue.ToString());
-                        int month = Month.SelectedIndex + 1;
-                        FillMonthlyTickets(month, year);
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Please choose month and year.");
-                    }
+                    int year = int.Parse(Year.SelectedValue.ToString());
+                    int month = Month.SelectedIndex + 1;
+                    FillMonthlyTickets(month, year);
                 }
-                else
+                catch
                 {
-                    try
-                    {
-                        DateTime date = Date.SelectedDate.Value;
-                        int lineId = int.Parse(Line.SelectedItem.ToString().Split('(')[0]);
-                        FillRideTickets(lineId, date);
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Please choose line and date.");
-                    }
+                    MessageBox.Show("Please choose month and year.");
                 }
+            }
+            else
+            {
+                try
+                {
+                    DateTime date = Date.SelectedDate.Value;
+                    int lineId = int.Parse(Line.SelectedItem.ToString().Split('(')[0]);
+                    FillRideTickets(lineId, date);
+                }
+                catch
+                {
+                    MessageBox.Show("Please choose line and date.");
+                }
+            }
         }
 
         private void Help(object sender, RoutedEventArgs e)

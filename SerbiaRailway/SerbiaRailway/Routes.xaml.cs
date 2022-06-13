@@ -98,6 +98,8 @@ namespace SerbiaRailway
                     }
                     DataService.Data.Routes.Remove((Route)DataGridXAML.SelectedItem);
                     observableCollection.Remove((Route)DataGridXAML.SelectedItem);
+                    MessageBox.Show("Route has been deleted successfully!",
+                    "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }

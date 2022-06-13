@@ -162,6 +162,8 @@ namespace SerbiaRailway
                     Route route = new Route(id, name, stations, train);
                     DataService.Data.Routes.Add(route);
                     _observableCollection.Add(route);
+                    MessageBox.Show("Route has been added successfully!",
+                    "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
                     Application.Current.Windows[2].Close();
                 }
             }

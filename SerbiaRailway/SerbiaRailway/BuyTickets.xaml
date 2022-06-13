@@ -56,13 +56,14 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="110"/>
                 <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
             <Label VerticalAlignment="Center" FontSize="15" Grid.Column="0" Margin="10 0 10 0">Please select the wagon:</Label>
             <StackPanel Name="WagonStack" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             </StackPanel>
             <Button Grid.Column="2" local:HelpProvider.HelpKey="buyTickets" ToolTip="Do you need help?" Margin="0 0 10 0" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
+            <Button Grid.Column="1" x:Name="demoBtn" ToolTip="View a demo" Margin="10 0 10 0" Content="Demo" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="demoBtn_Click"/>
         </Grid>
         <Separator Grid.Row="1" Margin="10"/>
         <Grid Grid.Row="2">
