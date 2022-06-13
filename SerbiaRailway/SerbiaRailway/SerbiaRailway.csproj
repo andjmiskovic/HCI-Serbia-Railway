@@ -120,6 +120,9 @@
     <Compile Include="EditRoute.xaml.cs">
       <DependentUpon>EditRoute.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditTrain.xaml.cs">
+      <DependentUpon>EditTrain.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HelpProvider.cs" />
     <Compile Include="HelpViewer.xaml.cs">
       <DependentUpon>HelpViewer.xaml</DependentUpon>
@@ -192,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditRoute.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditTrain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
