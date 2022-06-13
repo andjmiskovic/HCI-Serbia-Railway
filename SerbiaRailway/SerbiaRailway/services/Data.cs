@@ -2,9 +2,6 @@
 using SerbiaRailway.model;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace SerbiaRailway.services
 {
@@ -779,8 +776,7 @@ namespace SerbiaRailway.services
         {
             Rides.Add(new Ride(new DateTime(2022, 6, 4), Lines[10]));
             List<Ticket> tickets1 = new List<Ticket>();
-            PartialLine partialLine1 = new PartialLine(Stations[1], Stations[4], new TimeSpan(11, 10, 0),
-                new TimeSpan(11, 25, 0), Lines[10]);
+            PartialLine partialLine1 = new PartialLine(Stations[1], Stations[4], Lines[10]);
             Ticket ticket1 = new Ticket(Clients[0], new DateTime(2022, 6, 4), 400, partialLine1, TicketState.BOUGHT, 
                 partialLine1.Line.Route.Train.Wagons[0].Seats[16], 1);
             Clients[0].Bought.Add(ticket1);
@@ -805,25 +801,24 @@ namespace SerbiaRailway.services
 
             Rides.Add(new Ride(new DateTime(2022, 6, 4), Lines[4]));
             List<Ticket> tickets2 = new List<Ticket>();
-            PartialLine partialLine2 = new PartialLine(Stations[2], Stations[3], new TimeSpan(8, 45, 0),
-                new TimeSpan(9, 25, 0), Lines[4]);
+            PartialLine partialLine2 = new PartialLine(Stations[2], Stations[3], Lines[4]);
             Ticket ticket5 = new Ticket(Clients[0], new DateTime(2022, 6, 4), 500, partialLine2, TicketState.BOUGHT,
-                partialLine1.Line.Route.Train.Wagons[0].Seats[16], 1);
+                partialLine2.Line.Route.Train.Wagons[0].Seats[16], 1);
             Clients[0].Bought.Add(ticket5);
             Tickets.Add(ticket5);
             tickets2.Add(ticket5);
             Ticket ticket6 = new Ticket(Clients[1], new DateTime(2022, 6, 4), 500, partialLine2, TicketState.BOUGHT,
-                partialLine1.Line.Route.Train.Wagons[0].Seats[17], 1);
+                partialLine2.Line.Route.Train.Wagons[0].Seats[17], 1);
             Clients[1].Bought.Add(ticket6);
             Tickets.Add(ticket6);
             tickets2.Add(ticket6);
             Ticket ticket7 = new Ticket(Clients[2], new DateTime(2022, 6, 4), 500, partialLine2, TicketState.BOUGHT,
-                partialLine1.Line.Route.Train.Wagons[0].Seats[18], 1);
+                partialLine2.Line.Route.Train.Wagons[0].Seats[18], 1);
             Clients[2].Bought.Add(ticket7);
             Tickets.Add(ticket7);
             tickets2.Add(ticket7);
             Ticket ticket8 = new Ticket(Clients[3], new DateTime(2022, 6, 4), 500, partialLine2, TicketState.BOUGHT,
-                partialLine1.Line.Route.Train.Wagons[0].Seats[19], 1);
+                partialLine2.Line.Route.Train.Wagons[0].Seats[19], 1);
             Clients[3].Bought.Add(ticket8);
             Tickets.Add(ticket8);
             tickets2.Add(ticket8);
@@ -831,25 +826,24 @@ namespace SerbiaRailway.services
 
             Rides.Add(new Ride(new DateTime(2022, 6, 4), Lines[16]));
             List<Ticket> tickets3 = new List<Ticket>();
-            PartialLine partialLine3 = new PartialLine(Stations[7], Stations[6], new TimeSpan(15, 0, 0),
-                new TimeSpan(15, 30, 0), Lines[16]);
+            PartialLine partialLine3 = new PartialLine(Stations[7], Stations[6], Lines[16]);
             Ticket ticket9 = new Ticket(Clients[0], new DateTime(2022, 6, 4), 400, partialLine3, TicketState.BOUGHT,
-                partialLine1.Line.Route.Train.Wagons[0].Seats[16], 1);
+                partialLine3.Line.Route.Train.Wagons[0].Seats[16], 1);
             Clients[0].Bought.Add(ticket9);
             Tickets.Add(ticket9);
             tickets3.Add(ticket9);
             Ticket ticket10 = new Ticket(Clients[1], new DateTime(2022, 6, 4), 400, partialLine3, TicketState.BOUGHT,
-                partialLine1.Line.Route.Train.Wagons[0].Seats[17], 1);
+                partialLine3.Line.Route.Train.Wagons[0].Seats[17], 1);
             Clients[1].Bought.Add(ticket10);
             Tickets.Add(ticket10);
             tickets3.Add(ticket10);
             Ticket ticket11 = new Ticket(Clients[2], new DateTime(2022, 6, 4), 400, partialLine3, TicketState.BOUGHT,
-                partialLine1.Line.Route.Train.Wagons[0].Seats[18], 1);
+                partialLine3.Line.Route.Train.Wagons[0].Seats[18], 1);
             Clients[2].Bought.Add(ticket11);
             Tickets.Add(ticket11);
             tickets3.Add(ticket11);
             Ticket ticket12 = new Ticket(Clients[3], new DateTime(2022, 6, 4), 400, partialLine3, TicketState.BOUGHT,
-                partialLine1.Line.Route.Train.Wagons[0].Seats[19], 1);
+                partialLine3.Line.Route.Train.Wagons[0].Seats[19], 1);
             Clients[3].Bought.Add(ticket12);
             Tickets.Add(ticket12);
             tickets3.Add(ticket12);
@@ -864,9 +858,7 @@ namespace SerbiaRailway.services
                     {
                         Ride ride = new Ride(dateTime, line);
                         List<Ticket> tickets = new List<Ticket>();
-                        PartialLine partialLine = new PartialLine(line.FirstStation(), line.LastStation(),
-                            line.GetStartingTimeByStation(line.FirstStation()),
-                            line.GetEndingTimeByStation(line.LastStation()), line);
+                        PartialLine partialLine = new PartialLine(line.FirstStation(), line.LastStation(), line);
                         if (i % 2 == 0)
                         {
                             Ticket newTicket1 = new Ticket(Clients[0], dateTime, line.GetTotalPrice(), partialLine,

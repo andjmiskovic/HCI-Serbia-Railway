@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SerbiaRailway.model
 {
@@ -11,17 +7,33 @@ namespace SerbiaRailway.model
     {
         public Station Start { get; set; }
         public Station End { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
         public Line Line { get; set; }
 
-        public PartialLine(Station start, Station end, TimeSpan startTime, TimeSpan endTime, Line line)
+        public PartialLine(Station start, Station end, Line line)
         {
             Start = start;
             End = end;
-            StartTime = startTime;
-            EndTime = endTime;
             Line = line;
+        }
+
+        public TimeSpan StartTime()
+        {
+            foreach(StationSchedule schedule in Line.StationSchedules)
+            {
+                if (schedule.StartingStation == Start)
+                    return schedule.Departure;
+            }
+            return new TimeSpan();
+        }
+
+        public TimeSpan EndTime()
+        {
+            foreach (StationSchedule schedule in Line.StationSchedules)
+            {
+                if (schedule.EndStation == End)
+                    return schedule.Arrival;
+            }
+            return new TimeSpan();
         }
 
         public double CalculatePrice()

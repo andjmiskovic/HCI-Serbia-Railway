@@ -1,7 +1,6 @@
 ﻿using SerbiaRailway.model;
 using SerbiaRailway.services;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -84,7 +83,7 @@ namespace SerbiaRailway
             }
         }
 
-        private void Monthly_Checked(object sender, System.Windows.RoutedEventArgs e)
+        private void Monthly_Checked(object sender, RoutedEventArgs e)
         {
             if (Tickets != null)
             {
@@ -96,14 +95,14 @@ namespace SerbiaRailway
             }
             if (Year != null)
             {
-                Year.Visibility = System.Windows.Visibility.Visible;
-                Month.Visibility = System.Windows.Visibility.Visible;
-                Line.Visibility = System.Windows.Visibility.Hidden;
-                Date.Visibility = System.Windows.Visibility.Hidden;
+                Year.Visibility = Visibility.Visible;
+                Month.Visibility = Visibility.Visible;
+                Line.Visibility = Visibility.Hidden;
+                Date.Visibility = Visibility.Hidden;
             }
         }
 
-        private void Ride_Checked(object sender, System.Windows.RoutedEventArgs e)
+        private void Ride_Checked(object sender, RoutedEventArgs e)
         {
             if (Tickets != null)
             {
@@ -115,14 +114,19 @@ namespace SerbiaRailway
             }
             if (Year != null)
             {
-                Year.Visibility = System.Windows.Visibility.Hidden;
-                Month.Visibility = System.Windows.Visibility.Hidden;
-                Line.Visibility = System.Windows.Visibility.Visible;
-                Date.Visibility = System.Windows.Visibility.Visible;
+                Year.Visibility = Visibility.Hidden;
+                Month.Visibility = Visibility.Hidden;
+                Line.Visibility = Visibility.Visible;
+                Date.Visibility = Visibility.Visible;
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            LoadTickets();
+        }
+
+        private void LoadTickets()
         {
             Tickets.Children.Clear();
             if ((bool)MonthlyTickets.IsChecked)
@@ -135,7 +139,7 @@ namespace SerbiaRailway
                 }
                 catch
                 {
-                    MessageBox.Show("Please choose month and year.");
+                    MessageBox.Show("Please choose month and year.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
@@ -148,7 +152,7 @@ namespace SerbiaRailway
                 }
                 catch
                 {
-                    MessageBox.Show("Please choose line and date.");
+                    MessageBox.Show("Please choose line and date.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -165,9 +169,22 @@ namespace SerbiaRailway
                 HelpProvider.SetHelpKey((DependencyObject)sender, "ticketsReport");
                 HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
+            if(e.Key == Key.Enter)
+            {
+                LoadTickets();
+            }
+            if (e.Key == Key.D && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                PlayDemo();
+            }
         }
 
         private void demoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            PlayDemo();
+        }
+
+        private void PlayDemo()
         {
 
         }

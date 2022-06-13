@@ -54,7 +54,8 @@ namespace SerbiaRailway
         {
             if (SelectedLine == null)
             {
-                MessageBox.Show("You have to select the line you want to edit first.");
+                MessageBox.Show("You have to select the line you want to edit first.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
             else
             {
@@ -75,7 +76,7 @@ namespace SerbiaRailway
                     }
                     else if (stationSchedule.Price < 100)
                     {
-                        MessageBox.Show($"Price of a trip between stations cannot be less than 100 dinars!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"Price of a trip between stations cannot be less than 100 RSD!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
                     timeSpan = stationSchedule.Arrival;
@@ -98,7 +99,7 @@ namespace SerbiaRailway
                 weekDays.Add("Sunday", (bool)Sunday.IsChecked);
                 DataService.Data.GetLineById(SelectedLine.Id).WeekDays = weekDays;
 
-                MessageBox.Show("Changes saved successfully.");
+                MessageBox.Show("Changes saved successfully.", "Congratulations", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

@@ -1,18 +1,8 @@
 ﻿using Microsoft.Maps.MapControl.WPF;
 using SerbiaRailway.model;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SerbiaRailway
 {
@@ -34,7 +24,7 @@ namespace SerbiaRailway
 
         }
 
-        private void showLineOnMap(model.Line line)
+        private void showLineOnMap(Line line)
         {
             this.mapa.Children.Clear();
             for (int i = 0; i < line.StationSchedules.Count(); i++)
