@@ -48,6 +48,7 @@
             <Button Click="btnAddNewLine_Click" x:Name="btnAddNewLine" Content="{StaticResource Add}" ToolTip="Add new routes" Height="30" Padding="5"/>
             <Button Click="btnDeleteLine_Click" x:Name="btnDeleteLine" Content="{StaticResource Delete}" ToolTip="Delete selected route" Height="30" Padding="5"/>
             <Button Click="btnEditLine_Click" x:Name="btnEditLine" Content="{StaticResource Edit}" ToolTip="Edit selected route" Height="30" Padding="5"/>
+            <Button Grid.Column="1" x:Name="demoBtn" ToolTip="View a demo" Foreground="White" Background="#2196f3" BorderBrush="#2196f3"  Width="80" Margin="10 0 10 0" Content="Demo" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="demoBtn_Click"/>
             <Button Grid.Column="2" local:HelpProvider.HelpKey="routes" Foreground="White" Background="#2196f3" BorderBrush="#2196f3" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
         </StackPanel>
         <DataGrid AutoGenerateColumns = "False" x:Name="DataGridXAML" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Margin="10" FontSize="15" IsReadOnly="True">
