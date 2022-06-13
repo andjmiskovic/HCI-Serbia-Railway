@@ -1,4 +1,5 @@
-﻿using SerbiaRailway.model;
+﻿using SerbiaRailway.demos;
+using SerbiaRailway.model;
 using SerbiaRailway.services;
 using System;
 using System.Windows;
@@ -186,7 +187,8 @@ namespace SerbiaRailway
 
         private void PlayDemo()
         {
-
+            TicketsReportDemo ticketsReportDemo = new TicketsReportDemo();
+            ticketsReportDemo.ShowDialog();
         }
     }
 }

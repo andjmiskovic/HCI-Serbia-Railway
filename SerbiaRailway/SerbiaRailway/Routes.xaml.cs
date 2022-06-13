@@ -1,4 +1,5 @@
-﻿using SerbiaRailway.model;
+﻿using SerbiaRailway.demos;
+using SerbiaRailway.model;
 using SerbiaRailway.services;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -143,7 +144,8 @@ namespace SerbiaRailway
 
         private void demoBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            RouteSearchDeleteEditDemo routeSearchDeleteEditDemo = new RouteSearchDeleteEditDemo();
+            routeSearchDeleteEditDemo.ShowDialog();
         }
     }
 }

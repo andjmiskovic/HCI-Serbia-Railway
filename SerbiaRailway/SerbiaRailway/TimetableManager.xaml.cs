@@ -1,4 +1,5 @@
-﻿using SerbiaRailway.model;
+﻿using SerbiaRailway.demos;
+using SerbiaRailway.model;
 using SerbiaRailway.services;
 using System;
 using System.Collections.Generic;
@@ -128,7 +129,8 @@ namespace SerbiaRailway
 
         private void demoBtn_Click_1(object sender, RoutedEventArgs e)
         {
-
+            TimetableDemo timetableDemo = new TimetableDemo();
+            timetableDemo.ShowDialog();
         }
     }
 

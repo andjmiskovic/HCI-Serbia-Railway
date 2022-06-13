@@ -114,8 +114,26 @@
     <Compile Include="ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Demo.xaml.cs">
-      <DependentUpon>Demo.xaml</DependentUpon>
+    <Compile Include="demos\AddRouteDemo.xaml.cs">
+      <DependentUpon>AddRouteDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="demos\BuyReserveTicketDemo.xaml.cs">
+      <DependentUpon>BuyReserveTicketDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="demos\CreateTrainDemo.xaml.cs">
+      <DependentUpon>CreateTrainDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="demos\MyTicketsDemo.xaml.cs">
+      <DependentUpon>MyTicketsDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="demos\RouteSearchDeleteEditDemo.xaml.cs">
+      <DependentUpon>RouteSearchDeleteEditDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="demos\TicketsReportDemo.xaml.cs">
+      <DependentUpon>TicketsReportDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="demos\TimetableDemo.xaml.cs">
+      <DependentUpon>TimetableDemo.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditRoute.xaml.cs">
       <DependentUpon>EditRoute.xaml</DependentUpon>
@@ -190,7 +208,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Demo.xaml">
+    <Page Include="demos\AddRouteDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="demos\BuyReserveTicketDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="demos\CreateTrainDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="demos\MyTicketsDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="demos\RouteSearchDeleteEditDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="demos\TicketsReportDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="demos\TimetableDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
