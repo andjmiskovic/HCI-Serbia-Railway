@@ -12,6 +12,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="70"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -30,15 +32,16 @@
             <Calendar Name="Calendar" Grid.Row="2"/>
             <Button ToolTip="Click to search available timelines." Click="SearchLines" Grid.Column="3" Margin="5" Grid.Row="3" VerticalAlignment="Center">SEARCH</Button>
         </Grid>
+        
+        <Button Grid.Column="2" x:Name="demoBtn" ToolTip="View a demo" Margin="10 0 10 0" Content="Demo" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="demoBtn_Click"/>
+        <Button Grid.Column="3" Margin="0 0 10 0" local:HelpProvider.HelpKey="timetableClient" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" HorizontalAlignment="Right" FontWeight="Bold" Click="Help"/>
 
-        <Button Grid.Column="1" Margin="0 0 10 0" local:HelpProvider.HelpKey="timetableClient" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" HorizontalAlignment="Right" FontWeight="Bold" Click="Help"/>
-
-        <StackPanel Name="WelcomePicture" Grid.Row="1" Grid.Column="1">
+        <StackPanel Name="WelcomePicture" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
             <Label Margin="10 100 10 10" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold">Are you ready for your next journey?</Label>
             <Image Source="resources/suitcase.png" Width="200" />
         </StackPanel>
         
-        <ScrollViewer Grid.Column="1" Grid.Row="1">
+        <ScrollViewer Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1">
             <StackPanel Name="CardStack" Orientation="Vertical">
             </StackPanel>
         </ScrollViewer>
