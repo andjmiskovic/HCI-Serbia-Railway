@@ -58,6 +58,28 @@ namespace SerbiaRailway
             }
             else
             {
+                TimeSpan timeSpan = new TimeSpan(0, 0, 0);
+                foreach (StationSchedule stationSchedule in _stationSchedules)
+                {
+                    if (stationSchedule.Departure >= stationSchedule.Arrival)
+                    {
+                        MessageBox.Show($"Departure time from station {stationSchedule.StartingStation} must be before arriving to the " +
+                            $"{stationSchedule.EndStation} station!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    else if (stationSchedule.Departure < timeSpan)
+                    {
+                        MessageBox.Show($"Departure time from station {stationSchedule.StartingStation} cannot be done " +
+                            $"if the train didnt arrive!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    else if (stationSchedule.Price < 100)
+                    {
+                        MessageBox.Show($"Price of a trip between stations cannot be less than 100 dinars!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    timeSpan = stationSchedule.Arrival;
+                }
                 List<StationSchedule> stationSchedules = new List<StationSchedule>();
                 foreach (StationSchedule stationSchedule in _stationSchedules)
                 {
