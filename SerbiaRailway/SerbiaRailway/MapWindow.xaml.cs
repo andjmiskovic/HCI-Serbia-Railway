@@ -37,19 +37,19 @@ namespace SerbiaRailway
         private void showLineOnMap(model.Line line)
         {
             this.mapa.Children.Clear();
-
-            foreach (StationSchedule ss in line.StationSchedules)
+            for (int i = 0; i < line.StationSchedules.Count(); i++)
             {
-                addMarker(ss.StartingStation.Location);
-                addMarker(ss.EndStation.Location);
-                addNewPolyline(ss.StartingStation.Location, ss.EndStation.Location);
+                addNewPolyline(line.StationSchedules[i].StartingStation.Location, line.StationSchedules[i].EndStation.Location);
+                addMarker(line.StationSchedules[i].StartingStation.Location, i + 1);
+                addMarker(line.StationSchedules[i].EndStation.Location, i + 2);
             }
         }
 
-        private void addMarker(Location location)
+        private void addMarker(Location location, int number)
         {
             Pushpin pushpin = new Pushpin();
             pushpin.Location = location;
+            pushpin.Content = number;
             this.mapa.Children.Add(pushpin);
         }
 

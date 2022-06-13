@@ -286,7 +286,25 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="help\addRoute.htm" />
+    <Content Include="help\addTrain.htm" />
+    <Resource Include="help\images\timetableManagerWhole.png" />
+    <Resource Include="help\images\linesWhole.png" />
+    <Resource Include="help\images\timetableClient.png" />
+    <Resource Include="help\images\map.png" />
+    <Resource Include="help\images\boughtTickets.png" />
+    <Resource Include="help\images\reservedTicketspng.png" />
+    <Resource Include="help\images\trainNetwork.png" />
+    <Resource Include="help\images\buyTickets.png" />
+    <Resource Include="help\images\legendSeat.png" />
+    <Resource Include="help\images\monthlyTickets.png" />
+    <Resource Include="help\images\ticketsForTheRide.png" />
+    <Content Include="help\myTickets.htm" />
+    <Content Include="help\routes.htm" />
+    <Content Include="help\timetableClient.htm" />
     <Content Include="help\timetableManager.htm" />
+    <Content Include="help\trainNetwork.htm" />
+    <Content Include="help\trains.htm" />
     <Resource Include="resources\tickets.png" />
     <Resource Include="resources\suitcase.png" />
     <EmbeddedResource Include="Properties\Resources.resx">

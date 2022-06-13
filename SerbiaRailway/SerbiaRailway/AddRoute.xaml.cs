@@ -133,6 +133,20 @@ namespace SerbiaRailway
             }
         }
 
+        private void Help(object sender, RoutedEventArgs e)
+        {
+            HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                HelpProvider.SetHelpKey((DependencyObject)sender, "addRoute");
+                HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+            }
+        }
+
         private void saveChanges_Click(object sender, RoutedEventArgs e)
         {
             if (RouteStations.Items.Count < 2)

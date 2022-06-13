@@ -1,7 +1,9 @@
 ﻿using SerbiaRailway.model;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SerbiaRailway
 {
@@ -14,7 +16,6 @@ namespace SerbiaRailway
         {
             InitializeComponent();
             fillData();
-            
         }
 
         public void fillData()
@@ -28,10 +29,24 @@ namespace SerbiaRailway
             DataGridXAML.ItemsSource = xamlData;
         }
 
-        private void btnAddNewTrain_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void btnAddNewTrain_Click(object sender, RoutedEventArgs e)
         {
             AddTrainWindow at1 = new AddTrainWindow();
             at1.Show();
+        }
+
+        private void Help(object sender, RoutedEventArgs e)
+        {
+            HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                HelpProvider.SetHelpKey((DependencyObject)sender, "trains");
+                HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+            }
         }
     }
 

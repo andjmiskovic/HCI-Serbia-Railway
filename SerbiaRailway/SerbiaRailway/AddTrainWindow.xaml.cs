@@ -201,5 +201,24 @@ namespace SerbiaRailway
             FillWagons();
             Wagon_ComboBox.SelectedIndex = 0;
         }
+
+        private void Help(object sender, RoutedEventArgs e)
+        {
+            HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                HelpProvider.SetHelpKey((DependencyObject)sender, "addTrain");
+                HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
+            }
+        }
+
+        private void demoBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
