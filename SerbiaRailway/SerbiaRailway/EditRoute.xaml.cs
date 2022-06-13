@@ -212,6 +212,8 @@ namespace SerbiaRailway
                             DataService.Data.Lines.Remove(line);
                         }
                     }
+                    MessageBox.Show("Route has been edited successfully!",
+                    "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
                     Application.Current.Windows[2].Close();
                 }
             }
