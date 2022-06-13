@@ -14,10 +14,6 @@ namespace SerbiaRailway
     /// </summary>
     public partial class AddTrainWindow : Window
     {
-        AddTrainPage1 page1 = new AddTrainPage1();
-        AddTrainPage2 page2 = new AddTrainPage2();
-        public string Manufacturer { get; set; }
-        public int WagonsNumber { get; set; }
         public int ExtraPrice { get; set; }
         public int SeatsNumber { get; set; }
 
@@ -26,90 +22,65 @@ namespace SerbiaRailway
         public AddTrainWindow()
         {
             InitializeComponent();
-            Main.Content = page1;
         }
 
-        private void NextButton_Click(object sender, RoutedEventArgs e)
+        /*private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            if (page1.Manufacturer_TextBox.Text == "Insert train manufacturer name" || page1.Manufacturer_TextBox.Text == "")
+            if (Manufacturer_TextBox.Text == "Insert train manufacturer name" || Manufacturer_TextBox.Text == "")
             {
                 MessageBox.Show("Please fill manufacturer name.");
             }
             else
             {
-                Manufacturer = page1.Manufacturer_TextBox.Text;
-                ComboBoxItem typeItem = (ComboBoxItem)page1.Wagons_ComboBox.SelectedItem;
+                Manufacturer = Manufacturer_TextBox.Text;
+                ComboBoxItem typeItem = (ComboBoxItem)Wagon_ComboBox.SelectedItem;
                 WagonsNumber = Convert.ToInt32(typeItem.Content.ToString());
-                if (page1.Price_TextBox.Text == "Price" || page1.Price_TextBox.Text == "")
+                if (Price_TextBox.Text == "Price" || Price_TextBox.Text == "")
                 {
                     MessageBox.Show("Please fill extra price.");
                 }
-                else if (int.TryParse(page1.Price_TextBox.Text, out _) == false)
+                else if (int.TryParse(Price_TextBox.Text, out _) == false)
                 {
                     MessageBox.Show("Seats input must be number!");
                 }
                 else
                 {
-                    ExtraPrice = Convert.ToInt32(page1.Price_TextBox.Text);
-
-                    if (page1.Seat_TextBox.Text == "Seats" || page1.Seat_TextBox.Text == "")
-                    {
-                        MessageBox.Show("Please fill number of seats.");
-                    }
-                    else if (int.TryParse(page1.Seat_TextBox.Text, out _) == false)
-                    {
-                        MessageBox.Show("Seat input must be number!");
-                    }
-                    else
-                    {
-                        SeatsNumber = Convert.ToInt32(page1.Seat_TextBox.Text);
-                        LoadSecondPage();
-                    }
+                    ExtraPrice = Convert.ToInt32(Price_TextBox.Text);
+                   // SeatsNumber = Convert.ToInt32(Seat_TextBox.Value);
                 }
             }
-        }
+        }*/
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
+            int wagonsNumber = Convert.ToInt32(WagonsNumber.SelectedValue.ToString());
             List<Wagon> wagonsList = new List<Wagon>();
-            for (int i = 1; i < WagonsNumber+1; i++)
+            for (int i = 1; i < wagonsNumber+1; i++)
             {
                 Wagon wagon = new Wagon(i, wagons[i]);
                 wagonsList.Add(wagon);
             }
             
-            Train train = new Train(services.Data.Instance.Trains.Last().Id+1, Manufacturer, wagonsList, true);
+            Train train = new Train(services.Data.Instance.Trains.Last().Id+1, Manufacturer.Text, wagonsList, true);
             services.DataService.Data.Trains.Add(train);
-            MessageBox.Show("Uspesno ste dodali voz!");
+            MessageBox.Show("Train added successfully!");
             this.Close();
         }
 
-        private void LoadSecondPage()
+        private void FillWagonsComboBox(object sender, SelectionChangedEventArgs e)
         {
-            Main.Content = page2;
-            NextButton.Visibility = Visibility.Hidden;            //ovo mora vako jer se pozivaju 
-            CreateButton.Visibility = Visibility.Visible; // funkcije kojima trebaju polja iz ove klase
-            SeatsLabel.Visibility = Visibility.Visible;
-            Wagons_ComboBox.Visibility = Visibility.Visible;
-
-            FillWagonsComboBox();
-            FillWagons();
-            Wagons_ComboBox.SelectedIndex = 0;
-        }
-
-        private void FillWagonsComboBox()
-        {
-            List<int> wagons = new List<int>();
-            for (int i = 1; i <= WagonsNumber; i++)
+            int wagonsNumber = Convert.ToInt32(WagonsNumber.SelectedValue.ToString());
+            Wagon_ComboBox.Items.Clear();
+            for (int i = 1; i <= wagonsNumber; i++)
             {
-                wagons.Add(i);
+                Wagon_ComboBox.Items.Add(i);
             }
-            Wagons_ComboBox.ItemsSource = wagons;
         }
 
         public void FillWagons()
         {
-            for (int i = 1; i < WagonsNumber + 1; i++)
+            int wagonsNumber = Convert.ToInt32(WagonsNumber.SelectedValue.ToString());
+            for (int i = 1; i <= wagonsNumber; i++)
             {
                 wagons.Add(i, CreateSeats());
             }
@@ -127,18 +98,17 @@ namespace SerbiaRailway
 
         private void wagonsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SelectedWagon = (int)Wagons_ComboBox.SelectedItem;
-            page2.SeatsMap.Children.Clear(); // da ne iscrtava mapu sedista jednu preko druge
-            DrawSeats();
+            SelectedWagon = (int)Wagon_ComboBox.SelectedItem;
+            SeatsMap.Children.Clear();
+            Draw(wagons[SelectedWagon]);
         }
 
-        private void DrawSeats()
+        private void Draw(List<Seat> seats)
         {
-            List<Seat> seats = wagons[SelectedWagon];
             int numberOfCols = seats.Count / 4 + 1;
-            page2.SeatsMap.ColumnDefinitions.Clear();
+            SeatsMap.ColumnDefinitions.Clear();
             for (int i = 0; i < numberOfCols; i++)
-                page2.SeatsMap.ColumnDefinitions.Add(new ColumnDefinition());
+                SeatsMap.ColumnDefinitions.Add(new ColumnDefinition());
             for (int i = 0; i < seats.Count; i++)
             {
                 Button seat = new Button
@@ -171,7 +141,7 @@ namespace SerbiaRailway
                 seat.AddHandler(System.Windows.Controls.Primitives.ButtonBase.ClickEvent, new RoutedEventHandler(click));
                 Grid.SetColumn(seat, i / 4);
                 Grid.SetRow(seat, 3 - i % 4);
-                page2.SeatsMap.Children.Add(seat);
+                SeatsMap.Children.Add(seat);
             }
         }
 
@@ -193,9 +163,43 @@ namespace SerbiaRailway
             {
                 wagon[seatNumber-1].Type = SeatType.FIRST_CLASS;
             }
-                page2.SeatsMap.Children.Clear(); // da ne iscrtava mapu sedista jednu preko druge
-            DrawSeats();
+            SeatsMap.Children.Clear(); // da ne iscrtava mapu sedista jednu preko druge
+            Draw(wagons[SelectedWagon]);
         }
 
+        private void CreateSeats(object sender, RoutedEventArgs e)
+        {
+            if (Manufacturer.Text == "")
+            {
+                MessageBox.Show("You have to enter train name.");
+                return;
+            }
+            if (!int.TryParse(Price.Text, out _))
+            {
+                MessageBox.Show("Price has to be a number.");
+                return;
+            }
+            if (int.Parse(Price.Text) < 50)
+            {
+                MessageBox.Show("Price has to be bigger than 50.");
+                return;
+            }
+            if (!int.TryParse(SeatsPerWagon.Text, out _))
+            {
+                MessageBox.Show("Seats number has to be a number.");
+                return;
+            }
+            if (int.Parse(SeatsPerWagon.Text) > 40 || int.Parse(SeatsPerWagon.Text) < 10)
+            {
+                MessageBox.Show("Seats number has to be in range 10 to 40.");
+                return;
+            }
+            wagons = new Dictionary<int, List<Seat>>();
+            SeatsNumber = int.Parse(SeatsPerWagon.Text);
+            WagonToEdit.Visibility = Visibility.Visible;
+            ExtraPrice = int.Parse(Price.Text);
+            FillWagons();
+            Wagon_ComboBox.SelectedIndex = 0;
+        }
     }
 }

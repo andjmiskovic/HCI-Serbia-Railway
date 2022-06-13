@@ -17,13 +17,13 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <ComboBox x:Name="myComboBox" Grid.Column="0" Grid.Row="0"
-                  Margin="2" Text="Select line" IsEditable="True"
-                  SelectionChanged="myComboBox_SelectionChanged" 
+                  Margin="5" Text="Select line" IsEditable="True"
+                  SelectionChanged="myComboBox_SelectionChanged" ToolTip="Select line"
                   IsReadOnly="True" Focusable="False" FontSize="20" ItemsSource="{Binding Lines}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -36,8 +36,8 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Column="0" Margin="0,5,5,5" Grid.Row="1">
-            <TextBlock x:Name="textblock"  Background="White" FontSize="20" TextAlignment="Left" FontWeight="Bold"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Column="0" Margin="5" Grid.Row="1">
+            <TextBlock x:Name="textblock" FontSize="20" />
         </ScrollViewer>
 
         <m:Map x:Name="mapa" CredentialsProvider="AsKIG-MNydoiEtp21zWd2wx8t--Fj_9mpZpd9ctrJa_QEwvn4GmcppOGoObxmHQo" Mode="Road" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="1" ZoomLevel="6.7" Center="44.091070379479454, 20.79005741822166"/>

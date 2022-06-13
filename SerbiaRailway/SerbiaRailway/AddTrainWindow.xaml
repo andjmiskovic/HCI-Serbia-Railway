@@ -1,42 +1,92 @@
-﻿<Window x:Class="SerbiaRailway.AddTrainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SerbiaRailway"
+        xmlns:local="clr-namespace:SerbiaRailway" xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="SerbiaRailway.AddTrainWindow"
         mc:Ignorable="d"
-        Title="AddTrainWindow" Height="600" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
+        Icon="resources/icon.png"
+        Title="Add New Train" Height="600" Width="800" MinHeight="700" MinWidth="800">
+    <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="7*"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="8*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Frame x:Name="Main" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Center"/>
+        <StackPanel Grid.Row="0" Orientation="Vertical">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label FontSize="20" Grid.Column="0" Content="Train manufacturer name: "/>
+                <TextBox Text="New Train" Grid.Column="1" Name="Manufacturer" HorizontalAlignment="Left" Width="250" FontSize="20"/>
+            </Grid>
 
-        <Label x:Name="SeatsLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Select wagon to configure seats:" 
-               FontSize="20" VerticalContentAlignment="Center" Visibility="Hidden"
-               HorizontalContentAlignment="Right" FontWeight="Medium" Foreground="Black"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="How much wagons will be in train? " 
+               FontSize="20" VerticalContentAlignment="Center"/>
+                <ComboBox Grid.Column="1" SelectedValuePath="Content" SelectionChanged="FillWagonsComboBox" Name="WagonsNumber" FontSize="20" Width="100" HorizontalAlignment="Left" HorizontalContentAlignment="Right">
+                    <ComboBoxItem Content="1" FontSize="20"/>
+                    <ComboBoxItem Content="2" FontSize="20"/>
+                    <ComboBoxItem Content="3" FontSize="20"/>
+                    <ComboBoxItem Content="4" FontSize="20"/>
+                </ComboBox>
+            </Grid>
 
-        <ComboBox x:Name="Wagons_ComboBox" Text="Select" Grid.Row="0" Grid.Column="2"
-                  BorderBrush="Black" BorderThickness="0.6" Margin="20,0,20,0"
-                  HorizontalContentAlignment="Right" FontSize="18" Visibility="Hidden"
-                  SelectionChanged="wagonsComboBox_SelectionChanged">
-        </ComboBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Enter a extra price for the first class seat: " Grid.Column="0"
+               FontSize="20" VerticalContentAlignment="Center" />
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <TextBox Text="100" Name="Price" FontSize="20" Width="100" />
+                    <Label FontSize="20" Content="RSD" />
+                </StackPanel>
+            </Grid>
 
-        <Button x:Name="NextButton" Grid.Row="2" Grid.Column="1" Margin="5,10,5,0"
-                Height="50" Background="Orange" Foreground="Black" VerticalAlignment="Top"
-                Content="Next" FontSize="30" Click="NextButton_Click"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Enter a number of seats per wagon: " 
+               FontSize="20" Grid.Column="0" VerticalContentAlignment="Center"/>
+                <TextBox Grid.Column="1" Name="SeatsPerWagon" HorizontalAlignment="Left" FontSize="20" Width="100" />
+            </Grid>
 
-        <Button x:Name="CreateButton" Grid.Row="2" Grid.Column="1" Margin="5,10,5, 0"
-                Height="50" Background="Orange" Foreground="Black"
-                Content="Create" FontSize="30" Click="CreateButton_Click" Visibility="Hidden"/>
+            <Button Name="DrawSeats" Grid.Row="2" Margin="0 10 0 10" Content="Draw Seats" Click="CreateSeats" />
+
+            <Grid Visibility="Hidden" Name="WagonToEdit">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="SeatsLabel" Content="Select wagon to configure seats:" Grid.Column="0"
+               FontSize="20" VerticalContentAlignment="Center" />
+                <ComboBox HorizontalContentAlignment="Right" Grid.Column="1" SelectedValuePath="Content" Name="Wagon_ComboBox" HorizontalAlignment="Left" FontSize="20" Width="100" SelectionChanged="wagonsComboBox_SelectionChanged">
+                    <ComboBoxItem Content="1" />
+                </ComboBox>
+            </Grid>
+        </StackPanel>
+
+        <Grid x:Name="SeatsMap" Grid.Row="1" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        </Grid>
+
+        <Button x:Name="CreateButton" Grid.Row="2" Margin="0" Content="Create Train" Click="CreateButton_Click" />
     </Grid>
 </Window>

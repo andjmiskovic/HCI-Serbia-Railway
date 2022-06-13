@@ -27,42 +27,41 @@ namespace SerbiaRailway
         {
             var cbo = sender as ComboBox;
             Line selectedLine = (Line)cbo.SelectedItem;
-            //this.myComboBox.Text = "LINE - " + selectedLine.Id + " - " + selectedLine.Name;
             changeTextBlockData(selectedLine);
             showLineOnMap(selectedLine);
         }
 
         private void changeTextBlockData(Line line)
         {
-            string outputString = "\n\tStation-Time list: \n\n";
+            string outputString = "Timeline: \n\n";
             int order = 1;
             foreach (StationSchedule ss in line.StationSchedules)
             {
                 outputString += order.ToString() + ".  " + ss.StartingStation.ToString() + "\n";
-                outputString += "\t" + ss.Departure.ToString(@"hh\:mm") + "\n\n";
+                outputString += "Departure: " + ss.Departure.ToString(@"hh\:mm") + "h\n\n";
                 order++;
             }
             outputString += order.ToString() + ".  " + line.StationSchedules.Last().EndStation.ToString() + "\n";
-            outputString += "\t" + line.StationSchedules.Last().Arrival.ToString(@"hh\:mm");
+            outputString += "Arrival: " + line.StationSchedules.Last().Arrival.ToString(@"hh\:mm") + "h";
             textblock.Text = outputString;
         }
 
         private void showLineOnMap(Line line)
         {
             this.mapa.Children.Clear();
-
-            foreach (StationSchedule ss in line.StationSchedules)
+            for(int i = 0; i< line.StationSchedules.Count(); i++)
             {
-                addMarker(ss.StartingStation.Location);
-                addMarker(ss.EndStation.Location);
-                addNewPolyline(ss.StartingStation.Location, ss.EndStation.Location);
+                addNewPolyline(line.StationSchedules[i].StartingStation.Location, line.StationSchedules[i].EndStation.Location);
+                addMarker(line.StationSchedules[i].StartingStation.Location, i + 1);
+                addMarker(line.StationSchedules[i].EndStation.Location, i + 2);
             }
         }
 
-        void addMarker(Location location)
+        void addMarker(Location location, int number)
         {
             Pushpin pushpin = new Pushpin();
             pushpin.Location = location;
+            pushpin.Content = number;
             this.mapa.Children.Add(pushpin);
         }
 

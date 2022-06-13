@@ -102,12 +102,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddTrainPage1.xaml.cs">
-      <DependentUpon>AddTrainPage1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AddTrainPage2.xaml.cs">
-      <DependentUpon>AddTrainPage2.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AddTrainWindow.xaml.cs">
       <DependentUpon>AddTrainWindow.xaml</DependentUpon>
     </Compile>
@@ -174,16 +168,8 @@
     <Compile Include="MapWindow.xaml.cs">
       <DependentUpon>MapWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddTrainPage1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AddTrainPage2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="AddTrainWindow.xaml">
-    <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddRoute.xaml">

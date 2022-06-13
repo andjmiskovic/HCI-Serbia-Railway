@@ -30,7 +30,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -38,22 +38,81 @@
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0"  Margin="10 0 0 0" Orientation="Horizontal" Grid.Row="0" ToolTip="Search all lines...">
+        <StackPanel Grid.Column="0"  Margin="10 0 0 0" Orientation="Horizontal" Grid.Row="0" ToolTip="Search all routes...">
+            <Label Content="Search routes..." VerticalAlignment="Center" FontSize="15" Height="30"/>
             <Label Content="{StaticResource Search}" Height="30"/>
             <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Name="searchBox" VerticalAlignment="Center" FontSize="20" MinWidth="300" Margin="10 0 0 0" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="2">
-            <Button Click="btnAddNewLine_Click" x:Name="btnAddNewLine" Content="{StaticResource Add}" ToolTip="Add new lines" Height="30" Padding="5"/>
-            <Button Click="btnDeleteLine_Click" x:Name="btnDeleteLine" Content="{StaticResource Delete}" ToolTip="Delete selected line" Height="30" Padding="5"/>
-            <Button Click="btnEditLine_Click" x:Name="btnEditLine" Content="{StaticResource Edit}" ToolTip="Edit selected line" Height="30" Padding="5"/>
+            <Button Click="btnAddNewLine_Click" x:Name="btnAddNewLine" Content="{StaticResource Add}" ToolTip="Add new routes" Height="30" Padding="5"/>
+            <Button Click="btnDeleteLine_Click" x:Name="btnDeleteLine" Content="{StaticResource Delete}" ToolTip="Delete selected route" Height="30" Padding="5"/>
+            <Button Click="btnEditLine_Click" x:Name="btnEditLine" Content="{StaticResource Edit}" ToolTip="Edit selected route" Height="30" Padding="5"/>
+            <Button Grid.Column="2" local:HelpProvider.HelpKey="timetableManager" Background="#2196f3" BorderBrush="#2196f3" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold"/>
         </StackPanel>
         <DataGrid AutoGenerateColumns = "False" x:Name="DataGridXAML" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Margin="10" FontSize="15" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
-                <DataGridTextColumn Header="Route name" Binding="{Binding Name}" Width="1*"/>
-                <DataGridTextColumn Header="Stations" Binding="{Binding StationNames}" Width="2*"/>
-                <DataGridTextColumn Header="Train" Binding="{Binding Train}" Width="1*"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="#fff"/>
+                            <Setter Property="ToolTip" Value="{Binding Id}" />
+                            <Setter Property="Foreground" Value="#000"/>
+                            <Setter Property="Width" Value="50" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#e5e5e5" />
+                                    <Setter Property="BorderBrush" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Route name" Binding="{Binding Name}" Width="1*">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="ToolTip" Value="{Binding Name}" />
+                            <Setter Property="Background" Value="#fff"/>
+                            <Setter Property="Foreground" Value="#000"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#e5e5e5" />
+                                    <Setter Property="BorderBrush" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Stations" Binding="{Binding StationNames}" Width="2*">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="ToolTip" Value="{Binding StationNames}" />
+                            <Setter Property="Background" Value="#fff"/>
+                            <Setter Property="Foreground" Value="#000"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#e5e5e5" />
+                                    <Setter Property="BorderBrush" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Train" Binding="{Binding Train}" Width="1*">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="ToolTip" Value="{Binding Train}" />
+                            <Setter Property="Background" Value="#fff"/>
+                            <Setter Property="Foreground" Value="#000"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#e5e5e5" />
+                                    <Setter Property="BorderBrush" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
