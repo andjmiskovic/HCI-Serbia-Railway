@@ -1,4 +1,5 @@
-﻿using SerbiaRailway.model;
+﻿using SerbiaRailway.demos;
+using SerbiaRailway.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -223,7 +224,8 @@ namespace SerbiaRailway
 
         private void demoBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateTrainDemo createTrainDemo = new CreateTrainDemo();
+            createTrainDemo.ShowDialog();
         }
     }
 }
