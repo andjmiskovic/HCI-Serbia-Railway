@@ -53,11 +53,13 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="110"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <RadioButton Grid.Column="0" Content="Reserved Tickets" Name="Reserved" IsChecked="True" GroupName="TicketType" Margin="10 10 0 10" Checked="Reserved_Checked"/>
             <RadioButton Grid.Column="1" Content="Bought Tickets" Name="Bought" IsChecked="False" GroupName="TicketType" Margin="10 10 0 10" Checked="Bought_Checked"/>
-            <Button Grid.Column="2" local:HelpProvider.HelpKey="ticketsReport" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
+            <Button Grid.Column="2" x:Name="demoBtn" ToolTip="View a demo" Margin="10 0 10 0" Content="Demo" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="demoBtn_Click"/>
+            <Button Grid.Column="3" local:HelpProvider.HelpKey="ticketsReport" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
         </Grid>
 
         <StackPanel Grid.Row="1" Name="NoTickets">

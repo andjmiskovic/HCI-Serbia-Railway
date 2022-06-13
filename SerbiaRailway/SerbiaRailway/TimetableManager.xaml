@@ -30,11 +30,13 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="110"/>
                 <ColumnDefinition Width="60"/>
             </Grid.ColumnDefinitions>
             <Label Content="Select line to edit its timetable: " VerticalAlignment="Center" Grid.Column="0" FontSize="20" />
             <ComboBox Name="Line" Grid.Column="1" SelectionChanged="OnLineSelected" Margin="10 0 10 0" Text="Select line" ToolTip="Select line you want to edit" IsEditable="True" FontSize="20"/>
-            <Button Grid.Column="2" local:HelpProvider.HelpKey="timetableManager" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
+            <Button Grid.Column="2" x:Name="demoBtn" ToolTip="View a demo" Margin="10 0 10 0" Content="Demo" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="demoBtn_Click_1"/>
+            <Button Grid.Column="3" local:HelpProvider.HelpKey="timetableManager" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
         </Grid>
         <Separator Grid.Row="1" Margin="10 0 10 0"/>
         <Label Grid.Row="2" Margin="10 0 0 0" FontSize="20">Riding days on weekly:</Label>
