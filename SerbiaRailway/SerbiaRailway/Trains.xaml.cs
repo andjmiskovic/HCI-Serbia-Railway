@@ -2,6 +2,7 @@
 using SerbiaRailway.services;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SerbiaRailway
@@ -90,7 +91,27 @@ namespace SerbiaRailway
 
         private void btnDeleteTrain_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            TrainXamlData trainXamlData = (TrainXamlData)DataGridXAML.SelectedItem;
+            Train train = DataService.Data.GetTrainByManufacturer(trainXamlData.Manufacturer);
+            foreach (Route route in DataService.Data.Routes)
+            {
+                if (route.Train == train)
+                {
+                    MessageBox.Show("This train is in use and CANNOT be deleted!", "Error", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                    return;
+                }
+            }
+            MessageBoxResult decision = MessageBox.Show("Are you sure you want to delete this train?",
+                    "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (decision == MessageBoxResult.Yes)
+            {
+                DataService.Data.Trains.Remove(train);
+                xamlData.Remove(trainXamlData);
+                DataGridXAML.Items.Refresh();
+                MessageBox.Show("Train has been deleted successfully!",
+                        "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 

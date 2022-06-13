@@ -20,6 +20,7 @@ namespace SerbiaRailway
         public Dictionary<int, List<Seat>> wagons = new Dictionary<int, List<Seat>>();
         public int SelectedWagon { get; set; }
         private List<TrainXamlData> xamlData;
+        private bool seatsDrawn = false;
         public AddTrainWindow()
         {
             InitializeComponent();
@@ -31,49 +32,38 @@ namespace SerbiaRailway
             this.xamlData = xamlData;
         }
 
-        /*private void NextButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (Manufacturer_TextBox.Text == "Insert train manufacturer name" || Manufacturer_TextBox.Text == "")
-            {
-                MessageBox.Show("Please fill manufacturer name.");
-            }
-            else
-            {
-                Manufacturer = Manufacturer_TextBox.Text;
-                ComboBoxItem typeItem = (ComboBoxItem)Wagon_ComboBox.SelectedItem;
-                WagonsNumber = Convert.ToInt32(typeItem.Content.ToString());
-                if (Price_TextBox.Text == "Price" || Price_TextBox.Text == "")
-                {
-                    MessageBox.Show("Please fill extra price.");
-                }
-                else if (int.TryParse(Price_TextBox.Text, out _) == false)
-                {
-                    MessageBox.Show("Seats input must be number!");
-                }
-                else
-                {
-                    ExtraPrice = Convert.ToInt32(Price_TextBox.Text);
-                   // SeatsNumber = Convert.ToInt32(Seat_TextBox.Value);
-                }
-            }
-        }*/
-
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            int wagonsNumber = Convert.ToInt32(WagonsNumber.SelectedValue.ToString());
-            List<Wagon> wagonsList = new List<Wagon>();
-            for (int i = 1; i < wagonsNumber + 1; i++)
+            if (!seatsDrawn)
             {
-                Wagon wagon = new Wagon(i, wagons[i]);
-                wagonsList.Add(wagon);
+                MessageBox.Show("First draw seats before saving changes!", "Error!", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
             }
-            
-            Train train = new Train(services.Data.Instance.Trains.Last().Id + 1, Manufacturer.Text, wagonsList, true);
-            services.DataService.Data.Trains.Add(train);
-            xamlData.Add(new TrainXamlData(train.Wagons[0].Seats.Count * train.Wagons.Count, train.Wagons.Count,
-                train.Id, train.Manufacturer));
-            MessageBox.Show("Train added successfully!");
-            this.Close();
+            MessageBoxResult decision = MessageBox.Show("Are you sure you want to add this train?",
+                    "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (decision == MessageBoxResult.Yes)
+            {
+                int wagonsNumber = Convert.ToInt32(WagonsNumber.SelectedValue.ToString());
+                List<Wagon> wagonsList = new List<Wagon>();
+                for (int i = 1; i < wagonsNumber + 1; i++)
+                {
+                    Wagon wagon = new Wagon(i, wagons[i]);
+                    foreach (Seat seat in wagon.Seats)
+                    {
+                        seat.ExtraPrice = Convert.ToInt32(Price.Text);
+                    }
+                    wagonsList.Add(wagon);
+                }
+
+                Train train = new Train(services.Data.Instance.Trains.Last().Id + 1, Manufacturer.Text, wagonsList, true);
+                services.DataService.Data.Trains.Add(train);
+                xamlData.Add(new TrainXamlData(train.Wagons[0].Seats.Count * train.Wagons.Count, train.Wagons.Count,
+                    train.Id, train.Manufacturer));
+                MessageBox.Show("Train added successfully!",
+                        "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+            }
         }
 
         private void FillWagonsComboBox(object sender, SelectionChangedEventArgs e)
@@ -180,29 +170,35 @@ namespace SerbiaRailway
         {
             if (Manufacturer.Text == "")
             {
-                MessageBox.Show("You have to enter train name.");
+                MessageBox.Show("You have to enter train manufacturer.", "Error!", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
                 return;
             }
             if (!int.TryParse(Price.Text, out _))
             {
-                MessageBox.Show("Price has to be a number.");
+                MessageBox.Show("Price has to be a number.", "Error!", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
                 return;
             }
             if (int.Parse(Price.Text) < 50)
             {
-                MessageBox.Show("Price has to be bigger than 50.");
+                MessageBox.Show("Price has to be bigger than 50.", "Error!", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
                 return;
             }
             if (!int.TryParse(SeatsPerWagon.Text, out _))
             {
-                MessageBox.Show("Seats number has to be a number.");
+                MessageBox.Show("Seats number has to be a number.", "Error!", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
                 return;
             }
             if (int.Parse(SeatsPerWagon.Text) > 40 || int.Parse(SeatsPerWagon.Text) < 10)
             {
-                MessageBox.Show("Seats number has to be in range 10 to 40.");
+                MessageBox.Show("Seats number has to be in range 10 to 40.", "Error!", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
                 return;
             }
+            seatsDrawn = true;
             wagons = new Dictionary<int, List<Seat>>();
             SeatsNumber = int.Parse(SeatsPerWagon.Text);
             WagonToEdit.Visibility = Visibility.Visible;

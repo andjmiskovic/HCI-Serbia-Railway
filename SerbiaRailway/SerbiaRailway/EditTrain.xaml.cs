@@ -27,6 +27,7 @@ namespace SerbiaRailway
         public int SeatsNumber { get; set; }
         public Train Train { get; set; }
         public int SelectedWagon { get; set; }
+        private bool seatsDrawn = false;
         public EditTrain()
         {
             InitializeComponent();
@@ -150,6 +151,7 @@ namespace SerbiaRailway
                     MessageBoxImage.Error);
                 return;
             }
+            seatsDrawn = true;
             wagons = new Dictionary<int, List<Seat>>();
             SeatsNumber = int.Parse(SeatsPerWagon.Text);
             WagonToEdit.Visibility = Visibility.Visible;
@@ -174,6 +176,12 @@ namespace SerbiaRailway
 
         private void editTrain_Click(object sender, RoutedEventArgs e)
         {
+            if (!seatsDrawn)
+            {
+                MessageBox.Show("First draw seats before saving changes!", "Error!", MessageBoxButton.OK, 
+                    MessageBoxImage.Error);
+                return;
+            }
             MessageBoxResult decision = MessageBox.Show("Are you sure you want to edit this train?",
                     "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (decision == MessageBoxResult.Yes)
