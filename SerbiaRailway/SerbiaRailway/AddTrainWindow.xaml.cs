@@ -19,9 +19,16 @@ namespace SerbiaRailway
 
         public Dictionary<int, List<Seat>> wagons = new Dictionary<int, List<Seat>>();
         public int SelectedWagon { get; set; }
+        private List<XAMLDATA> xamlData;
         public AddTrainWindow()
         {
             InitializeComponent();
+        }
+
+        public AddTrainWindow(List<XAMLDATA> xamlData)
+        {
+            InitializeComponent();
+            this.xamlData = xamlData;
         }
 
         /*private void NextButton_Click(object sender, RoutedEventArgs e)
@@ -55,14 +62,16 @@ namespace SerbiaRailway
         {
             int wagonsNumber = Convert.ToInt32(WagonsNumber.SelectedValue.ToString());
             List<Wagon> wagonsList = new List<Wagon>();
-            for (int i = 1; i < wagonsNumber+1; i++)
+            for (int i = 1; i < wagonsNumber + 1; i++)
             {
                 Wagon wagon = new Wagon(i, wagons[i]);
                 wagonsList.Add(wagon);
             }
             
-            Train train = new Train(services.Data.Instance.Trains.Last().Id+1, Manufacturer.Text, wagonsList, true);
+            Train train = new Train(services.Data.Instance.Trains.Last().Id + 1, Manufacturer.Text, wagonsList, true);
             services.DataService.Data.Trains.Add(train);
+            xamlData.Add(new XAMLDATA(train.Wagons[0].Seats.Count * train.Wagons.Count, train.Wagons.Count,
+                train.Id, train.Manufacturer));
             MessageBox.Show("Train added successfully!");
             this.Close();
         }
@@ -155,13 +164,13 @@ namespace SerbiaRailway
         public void UpdateSeat(int seatNumber)
         {
             List<Seat> wagon = wagons[SelectedWagon];
-            if (wagon[seatNumber-1].Type == SeatType.FIRST_CLASS)
+            if (wagon[seatNumber - 1].Type == SeatType.FIRST_CLASS)
             {
-                wagon[seatNumber-1].Type = SeatType.SECOND_CLASS;
+                wagon[seatNumber - 1].Type = SeatType.SECOND_CLASS;
             }
             else
             {
-                wagon[seatNumber-1].Type = SeatType.FIRST_CLASS;
+                wagon[seatNumber - 1].Type = SeatType.FIRST_CLASS;
             }
             SeatsMap.Children.Clear(); // da ne iscrtava mapu sedista jednu preko druge
             Draw(wagons[SelectedWagon]);
