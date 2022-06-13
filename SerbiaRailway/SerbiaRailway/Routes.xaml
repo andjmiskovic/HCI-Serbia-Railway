@@ -30,7 +30,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -39,7 +39,6 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="0"  Margin="10 0 0 0" Orientation="Horizontal" Grid.Row="0" ToolTip="Search all routes...">
-            <Label Content="Search routes..." VerticalAlignment="Center" FontSize="15" Height="30"/>
             <Label Content="{StaticResource Search}" Height="30"/>
             <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Name="searchBox" VerticalAlignment="Center" FontSize="20" MinWidth="300" Margin="10 0 0 0" />
         </StackPanel>

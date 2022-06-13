@@ -19,10 +19,10 @@ namespace SerbiaRailway
 
         public void fillData()
         {
-            List<XAMLDATA> xamlData = new List<XAMLDATA>();
+            List<TrainXamlData> xamlData = new List<TrainXamlData>();
             foreach (Train t in services.DataService.Data.Trains)
             {
-                XAMLDATA xamldata = new XAMLDATA(t.Wagons[0].Seats.Count*t.Wagons.Count, t.Wagons.Count, t.Id, t.Manufacturer);
+                TrainXamlData xamldata = new TrainXamlData(t.Wagons[0].Seats.Count * t.Wagons.Count, t.Wagons.Count, t.Id, t.Manufacturer, t.getExtraPrice());
                 xamlData.Add(xamldata);
             }
             DataGridXAML.ItemsSource = xamlData;
@@ -54,25 +54,26 @@ namespace SerbiaRailway
         }
     }
 
-    public class XAMLDATA
+    public class TrainXamlData
     {
         public int Id { get; set; }
         public string Manufacturer { get; set; }
-        public int NumberOfSeats { get; set; }
-        public int NumberOfWagons { get; set; }
+        public int Seats { get; set; }
+        public int Wagons { get; set; }
+        public double ExtraPrice { get; set; }
 
-        public XAMLDATA()
+        public TrainXamlData()
         {
 
         }
 
-        public XAMLDATA(int seats, int wagons, int id, string manufacturer)
+        public TrainXamlData(int seats, int wagons, int id, string manufacturer, double price)
         {
             this.Id = id;
             this.Manufacturer = manufacturer;
-            this.NumberOfSeats = seats;
-            this.NumberOfWagons = wagons;
-
+            this.Seats = seats;
+            this.Wagons = wagons;
+            this.ExtraPrice = price;
         }
     }
 }

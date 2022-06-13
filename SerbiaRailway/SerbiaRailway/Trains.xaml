@@ -7,7 +7,7 @@
       mc:Ignorable="d" KeyDown="Window_KeyDown"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Trains">
-    
+
     <Page.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"/>
@@ -42,7 +42,7 @@
             <Label Content="{StaticResource Search}" Height="30"/>
             <TextBox Name="searchBox" VerticalAlignment="Center" FontSize="20" MinWidth="300" Margin="10 0 0 0" />
         </StackPanel>
-        
+
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="2">
             <Button x:Name="btnAddNewTrain" Content="{StaticResource Add}" ToolTip="Add new train" Height="30" Padding="5" Click="btnAddNewTrain_Click"/>
             <Button x:Name="btnDeleteTrain" Content="{StaticResource Delete}" ToolTip="Delete selected train" Height="30" Padding="5"/>
@@ -51,20 +51,11 @@
             <Button Grid.Column="2" local:HelpProvider.HelpKey="trains" Foreground="White" Background="#2196f3" BorderBrush="#2196f3" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold"/>
         </StackPanel>
 
-        <DataGrid x:Name="DataGridXAML" Grid.Row="1" Grid.Column="0" 
+        <DataGrid x:Name="DataGridXAML" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" 
                   Margin="10" FontSize="15" IsReadOnly="True" SelectionUnit="FullRow">
             <DataGrid.Columns>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid  Grid.Row="1" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="5*"/>
-            </Grid.RowDefinitions>
-            <ComboBox x:Name="selectWagonComboBox" Grid.Row="0" Margin="10" Text="Select wagon" ToolTip="Select wagon" IsEditable="True" FontSize="20"/>
-        </Grid>
-
     </Grid>
 </Page>
-

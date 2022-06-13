@@ -25,5 +25,15 @@ namespace SerbiaRailway.model
         {
             return Manufacturer;
         }
+
+        public double getExtraPrice()
+        {
+            foreach (Seat seat in Wagons[0].Seats)
+            {
+                if (seat.Type == SeatType.FIRST_CLASS)
+                    return seat.ExtraPrice;
+            }
+            return 0;
+        }
     }
 }

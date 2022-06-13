@@ -220,7 +220,7 @@ namespace SerbiaRailway
 
         private void demoBtn_Click(object sender, RoutedEventArgs e)
         {
-            Demo demo = new Demo();
+            BuyReserveTicketDemo demo = new BuyReserveTicketDemo();
             demo.ShowDialog();
         }
     }
