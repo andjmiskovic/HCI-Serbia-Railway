@@ -60,7 +60,7 @@ namespace SerbiaRailway
                 Train train = new Train(services.Data.Instance.Trains.Last().Id + 1, Manufacturer.Text, wagonsList, true);
                 services.DataService.Data.Trains.Add(train);
                 xamlData.Add(new TrainXamlData(train.Wagons[0].Seats.Count * train.Wagons.Count, train.Wagons.Count,
-                    train.Id, train.Manufacturer, train.getExtraPrice()));
+                    train.Id, train.Manufacturer, double.Parse(Price.Text)));
                 MessageBox.Show("Train added successfully!", "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
             }
