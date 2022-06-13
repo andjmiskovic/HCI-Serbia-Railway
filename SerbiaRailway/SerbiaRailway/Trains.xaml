@@ -40,18 +40,18 @@
 
         <StackPanel Grid.Column="0"  Margin="10 0 0 0" Orientation="Horizontal" Grid.Row="0" ToolTip="Search for trains...">
             <Label Content="{StaticResource Search}" Height="30"/>
-            <TextBox Name="searchBox" VerticalAlignment="Center" FontSize="20" MinWidth="300" Margin="10 0 0 0" />
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Name="searchBox" VerticalAlignment="Center" FontSize="20" MinWidth="300" Margin="10 0 0 0" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="2">
             <Button x:Name="btnAddNewTrain" Content="{StaticResource Add}" ToolTip="Add new train" Height="30" Padding="5" Click="btnAddNewTrain_Click"/>
-            <Button x:Name="btnDeleteTrain" Content="{StaticResource Delete}" ToolTip="Delete selected train" Height="30" Padding="5"/>
-            <Button x:Name="btnEditTrain" Content="{StaticResource Edit}" ToolTip="Edit selected train" Height="30" Padding="5"/>
+            <Button x:Name="btnDeleteTrain" Content="{StaticResource Delete}" ToolTip="Delete selected train" Height="30" Padding="5" Click="btnDeleteTrain_Click"/>
+            <Button x:Name="btnEditTrain" Content="{StaticResource Edit}" ToolTip="Edit selected train" Height="30" Padding="5" Click="btnEditTrain_Click"/>
             <Button Grid.Column="1" x:Name="demoBtn" ToolTip="View a demo" Foreground="White" Background="#2196f3" BorderBrush="#2196f3"  Width="80" Margin="10 0 10 0" Content="Demo" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="demoBtn_Click"/>
             <Button Grid.Column="2" local:HelpProvider.HelpKey="trains" Foreground="White" Background="#2196f3" BorderBrush="#2196f3" Width="50" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold"/>
         </StackPanel>
 
-        <DataGrid x:Name="DataGridXAML" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" 
+        <DataGrid x:Name="DataGridXAML" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="0" 
                   Margin="10" FontSize="15" IsReadOnly="True" SelectionUnit="FullRow">
             <DataGrid.Columns>
             </DataGrid.Columns>
