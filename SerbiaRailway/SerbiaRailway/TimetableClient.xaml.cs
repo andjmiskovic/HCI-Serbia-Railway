@@ -18,6 +18,7 @@ namespace SerbiaRailway
             InitializeComponent();
             FromSelect.ItemsSource = DataService.Data.GetStationNames();
             ToSelect.ItemsSource = DataService.Data.GetStationNames();
+            Calendar.BlackoutDates.AddDatesInPast();
         }
 
         private void SearchLines(object sender, RoutedEventArgs e)
