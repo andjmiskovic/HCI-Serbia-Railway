@@ -19,11 +19,11 @@ namespace SerbiaRailway
 
         private void FillData()
         {
-            StartTime.Content = ticket.PartialLine.StartTime.ToString().Substring(0, 5);
-            EndTime.Content = ticket.PartialLine.EndTime.ToString().Substring(0, 5);
+            StartTime.Content = ticket.PartialLine.StartTime().ToString().Substring(0, 5);
+            EndTime.Content = ticket.PartialLine.EndTime().ToString().Substring(0, 5);
             StartStation.Content = ticket.PartialLine.Start.Name;
             EndStation.Content = ticket.PartialLine.End.Name;
-            TimeSpan duration = DateTime.Parse(ticket.PartialLine.EndTime.ToString()).Subtract(DateTime.Parse(ticket.PartialLine.StartTime.ToString()));
+            TimeSpan duration = DateTime.Parse(ticket.PartialLine.EndTime().ToString()).Subtract(DateTime.Parse(ticket.PartialLine.StartTime().ToString()));
             WagonNumber.Content = "Wagon: " + ticket.Wagon + ", Seat: " + ticket.Seat.SeatNumber;
             Price.Content = "Price: " + ticket.Price.ToString() + "rsd";
             Date.Content = ticket.Date.ToString("MM/dd/yyyy");

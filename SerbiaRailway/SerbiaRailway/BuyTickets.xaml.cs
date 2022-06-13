@@ -5,9 +5,7 @@ using SerbiaRailway.model;
 using System.Collections.Generic;
 using SerbiaRailway.services;
 using System.Windows.Media;
-using System.Windows.Forms;
 using System.Windows.Input;
-using System;
 
 namespace SerbiaRailway
 {
@@ -19,7 +17,7 @@ namespace SerbiaRailway
         private PartialLine line { get; set; }
         private Ride ride { get; set; }
         private Seat SelectedSeat { get; set; }
-        private System.Windows.Controls.RadioButton PreviousSelectedSeat { get; set; }
+        private RadioButton PreviousSelectedSeat { get; set; }
         private string PreviousSelectedSeatColor { get; set; }
         private double RidePriceValue { get; set; }
         private List<TakenSeat> TakenSeats { get; set; }
@@ -35,8 +33,8 @@ namespace SerbiaRailway
             AddWagons(line.Line.Route.Train.Wagons.Count());
             Date.Content = ride.Date.ToString("MM/dd/yyyy");
             StartingStation.Content = line.Start.Name;
-            StartingTime.Content = line.StartTime.ToString().Substring(0, 5);
-            EndingTime.Content = line.EndTime.ToString().Substring(0, 5);
+            StartingTime.Content = line.StartTime().ToString().Substring(0, 5);
+            EndingTime.Content = line.EndTime().ToString().Substring(0, 5);
             EndingStation.Content = line.End.Name;
             this.ride = ride;
             DrawSeats();
@@ -49,7 +47,7 @@ namespace SerbiaRailway
         {
             for(int i=1; i <= number; i++)
             {
-                System.Windows.Controls.RadioButton wagon = new System.Windows.Controls.RadioButton();
+                RadioButton wagon = new RadioButton();
                 if (i == 1)
                     wagon.IsChecked = true;
                 wagon.Content = i;
@@ -74,7 +72,7 @@ namespace SerbiaRailway
                 SeatsMap.ColumnDefinitions.Add(new ColumnDefinition());
             for (int i = 0; i < seats.Count(); i++)
             {
-                System.Windows.Controls.RadioButton seat = new System.Windows.Controls.RadioButton
+                RadioButton seat = new RadioButton
                 {
                     Content = seats[i].seat.SeatNumber.ToString(),
                     Name = "Seat" + i,
@@ -128,7 +126,7 @@ namespace SerbiaRailway
 
         void SetSeatNumber(object sender, RoutedEventArgs e)
         {
-            Seat selected = (Seat)((System.Windows.Controls.RadioButton)sender).Tag;
+            Seat selected = (Seat)((RadioButton)sender).Tag;
             if (!isSeatTaken(selected.SeatNumber))
             {
                 SelectedSeat = selected;
@@ -137,16 +135,16 @@ namespace SerbiaRailway
                 SelectedSeatNumber.Content = SelectedSeat.SeatNumber;
                 if(PreviousSelectedSeat != null)
                     PreviousSelectedSeat.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(this.PreviousSelectedSeatColor)); 
-                ((System.Windows.Controls.RadioButton)sender).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#069A8E"));
-                PreviousSelectedSeat = (System.Windows.Controls.RadioButton)sender;
+                ((RadioButton)sender).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#069A8E"));
+                PreviousSelectedSeat = (RadioButton)sender;
                 PreviousSelectedSeatColor = SelectedSeat.Type == SeatType.FIRST_CLASS ? "#FBA311" : "#F8CB2E";
             }
         }
 
         private int GetSelectedWagon()
         {
-            List<System.Windows.Controls.RadioButton> radioButtons = WagonStack.Children.OfType<System.Windows.Controls.RadioButton>().ToList();
-            foreach (System.Windows.Controls.RadioButton rb in radioButtons)
+            List<RadioButton> radioButtons = WagonStack.Children.OfType<RadioButton>().ToList();
+            foreach (RadioButton rb in radioButtons)
             {
                 if ((bool)rb.IsChecked)
                 {
@@ -162,18 +160,22 @@ namespace SerbiaRailway
             {
                 Client client = LoginService.CurrentlyLoggedClient;
                 if (SelectedSeat == null)
-                    System.Windows.MessageBox.Show("You have to select the seat first.");
+                    MessageBox.Show("You have to select the seat first.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 else
                 {
-                    int wagon = this.GetSelectedWagon();
-                    TicketService.ReserveTicket(client, SelectedSeat, this.line, wagon, ride.Date);
-                    System.Windows.MessageBox.Show("You have successfully reserved a ticket.");
-                    this.Close();
+                    MessageBoxResult result = MessageBox.Show("Are you sure you want to reserve this ticket?", "Reserve ticket", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        int wagon = this.GetSelectedWagon();
+                        TicketService.ReserveTicket(client, SelectedSeat, this.line, wagon, ride.Date);
+                        MessageBox.Show("You have successfully reserved a ticket.", "Congritulations", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.Close();
+                    }
                 }
             }
             catch
             {
-                System.Windows.MessageBox.Show("Error occured. Please try again later.");
+                MessageBox.Show("Error occured. Please try again later.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -183,18 +185,22 @@ namespace SerbiaRailway
             {
                 Client client = LoginService.CurrentlyLoggedClient;
                 if (SelectedSeat == null)
-                    System.Windows.MessageBox.Show("You have to select the seat first.");
+                    MessageBox.Show("You have to select the seat first.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 else
                 {
-                    int wagon = this.GetSelectedWagon();
-                    TicketService.BuyTicket(client, SelectedSeat, this.line, wagon, ride.Date);
-                    System.Windows.MessageBox.Show("You have successfully bought a ticket.");
-                    this.Close();
+                    MessageBoxResult result = MessageBox.Show("Are you sure you want to buy this ticket?", "Buy ticket", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        int wagon = this.GetSelectedWagon();
+                        TicketService.BuyTicket(client, SelectedSeat, this.line, wagon, ride.Date);
+                        MessageBox.Show("You have successfully bought a ticket.", "Congritulations", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.Close();
+                    }
                 }
             }
             catch
             {
-                System.Windows.MessageBox.Show("Error occured. Please try again later.");
+                MessageBox.Show("Error occured. Please try again later.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -203,7 +209,7 @@ namespace SerbiaRailway
             HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
         }
 
-        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.F1)
             {

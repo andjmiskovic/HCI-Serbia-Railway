@@ -1,6 +1,5 @@
 ﻿using SerbiaRailway.model;
 using SerbiaRailway.services;
-using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -65,7 +64,7 @@ namespace SerbiaRailway
             DataContext = this;
         }
 
-        private void btnDeleteLine_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void btnDeleteLine_Click(object sender, RoutedEventArgs e)
         {
             if (DataGridXAML.SelectedItem == null)
             {
@@ -105,14 +104,14 @@ namespace SerbiaRailway
             }
         }
 
-        private void btnAddNewLine_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void btnAddNewLine_Click(object sender, RoutedEventArgs e)
         {
             AddRoute addRoute = new AddRoute(observableCollection);
             addRoute.ShowDialog();
             DataGridXAML.Items.Refresh();
         }
 
-        private void btnEditLine_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void btnEditLine_Click(object sender, RoutedEventArgs e)
         {
             if (DataGridXAML.SelectedItem == null)
             {

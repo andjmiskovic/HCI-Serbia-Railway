@@ -2,7 +2,6 @@
 using SerbiaRailway.services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -24,11 +23,16 @@ namespace SerbiaRailway
 
         private void SearchLines(object sender, RoutedEventArgs e)
         {
+            Search();
+        }
+
+        private void Search() 
+        { 
             Station from = DataService.Data.GetStationByName(FromSelect.Text);
             Station to = DataService.Data.GetStationByName(ToSelect.Text);
             if (from == null || to == null)
             {
-                MessageBox.Show("Please select start and end station.");
+                MessageBox.Show("Please select start and end station.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             DateTime date;
@@ -36,7 +40,7 @@ namespace SerbiaRailway
                 date = (DateTime)Calendar.SelectedDate;
             else
             {
-                MessageBox.Show("Please select the desired date of your travel.");
+                MessageBox.Show("Please select the desired date of your travel.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             CardStack.Children.RemoveRange(0, CardStack.Children.Count);
@@ -44,12 +48,16 @@ namespace SerbiaRailway
             int count = 0;
             foreach (PartialLine line in lines)
             {
-                TimeSpan duration = DateTime.Parse(line.EndTime.ToString()).Subtract(DateTime.Parse(line.StartTime.ToString()));
+                TimeSpan duration = DateTime.Parse(line.EndTime().ToString()).Subtract(DateTime.Parse(line.StartTime().ToString()));
                 Ride ride = DataService.Data.GetRide(date, line.Line);
                 if (ride != null)
                 {
-                    CardStack.Children.Add(new TimetableCard(line.StartTime.ToString(), line.EndTime.ToString(), duration.ToString(), line, line.Line.Route.Train.Manufacturer, ride));
-                    count++;
+                    int isToday = DateTime.Compare(ride.Date.Date, DateTime.Now.Date);
+                    if (isToday == 1 || (isToday == 0 && TimeSpan.Compare(line.StartTime(), DateTime.Now.TimeOfDay) == 1))
+                    {
+                        CardStack.Children.Add(new TimetableCard(line.StartTime().ToString(), line.EndTime().ToString(), duration.ToString(), line, line.Line.Route.Train.Manufacturer, ride));
+                        count++;
+                    }
                 }
             }
             if (count == 0)
@@ -73,24 +81,22 @@ namespace SerbiaRailway
             {
                 bool hasStart = false;
                 bool hasEnd = false;
-                TimeSpan startTime = new TimeSpan();
-                TimeSpan endTime = new TimeSpan();
                 foreach (StationSchedule s in line.StationSchedules)
                 {
                     if (!hasStart && s.StartingStation.Name.Equals(from.Name))
                     {
                         hasStart = true;
-                        startTime = s.Departure;
                     }
                     if (hasStart && s.EndStation.Name.Equals(to.Name))
                     {
                         hasEnd = true;
-                        endTime = s.Arrival;
                         break;
                     }
                 }
                 if (hasEnd)
-                    lines.Add(new PartialLine(from, to, startTime, endTime, line));
+                {
+                    lines.Add(new PartialLine(from, to, line));
+                }
             }
             return lines;
         }
@@ -107,6 +113,19 @@ namespace SerbiaRailway
                 HelpProvider.SetHelpKey((DependencyObject)sender, "timetableClient");
                 HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
+            if (e.Key == Key.Enter)
+            {
+                Search();
+            }
+            if (e.Key == Key.D && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                PlayDemo();
+            }
+        }
+
+        private void PlayDemo()
+        {
+
         }
 
     }

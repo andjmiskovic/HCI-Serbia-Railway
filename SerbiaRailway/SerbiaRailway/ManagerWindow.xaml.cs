@@ -33,8 +33,8 @@ namespace SerbiaRailway
             TimetableBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             TicketsReportBtn.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
 
-            List<SerbiaRailway.model.Line> lines = services.Data.Instance.Lines;
-            foreach(SerbiaRailway.model.Line line in lines)
+            List<model.Line> lines = services.Data.Instance.Lines;
+            foreach(model.Line line in lines)
             {
                 line.StationStr = line.GetStationString();
                 line.TrainName = line.Route.Train.Manufacturer;

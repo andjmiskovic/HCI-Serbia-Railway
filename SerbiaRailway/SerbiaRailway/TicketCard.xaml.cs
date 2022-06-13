@@ -1,6 +1,5 @@
 ﻿using SerbiaRailway.model;
 using SerbiaRailway.services;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -32,8 +31,8 @@ namespace SerbiaRailway
 
         private void FillData()
         {
-            StartTime.Content = ticket.PartialLine.StartTime.ToString().Substring(0, 5);
-            EndTime.Content = ticket.PartialLine.EndTime.ToString().Substring(0, 5);
+            StartTime.Content = ticket.PartialLine.StartTime().ToString().Substring(0, 5);
+            EndTime.Content = ticket.PartialLine.EndTime().ToString().Substring(0, 5);
             StartStation.Content = ticket.PartialLine.Start.Name;
             EndStation.Content = ticket.PartialLine.End.Name;
             WagonNumber.Content = "Wagon: " + ticket.Wagon + ", Seat: " + ticket.Seat.SeatNumber.ToString();
@@ -48,29 +47,37 @@ namespace SerbiaRailway
 
         private void CancelReservation(object sender, RoutedEventArgs e)
         {
-            LoginService.CurrentlyLoggedClient.Reserved.Remove(ticket);
-            DataService.Data.Tickets.Remove(ticket);
-            DataService.Data.GetRide(ticket.Date, ticket.PartialLine.Line).Tickets.Remove(ticket);
-            MessageBox.Show("Your reservation has been canceled.");
-            this.tickets.Children.Remove(this);
-            if (this.tickets.Children.Count == 0)
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel this reservation?", "Reservation cancelation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
             {
-                this.noTickets.Visibility = Visibility.Visible;
-                this.ticketsScroll.Visibility = Visibility.Hidden;
+                LoginService.CurrentlyLoggedClient.Reserved.Remove(ticket);
+                DataService.Data.Tickets.Remove(ticket);
+                DataService.Data.GetRide(ticket.Date, ticket.PartialLine.Line).Tickets.Remove(ticket);
+                MessageBox.Show("Your reservation has been canceled.");
+                this.tickets.Children.Remove(this);
+                if (this.tickets.Children.Count == 0)
+                {
+                    this.noTickets.Visibility = Visibility.Visible;
+                    this.ticketsScroll.Visibility = Visibility.Hidden;
+                }
             }
         }
 
         private void Buy(object sender, RoutedEventArgs e)
         {
-            LoginService.CurrentlyLoggedClient.Reserved.Remove(ticket);
-            ticket.State = TicketState.BOUGHT;
-            LoginService.CurrentlyLoggedClient.Bought.Add(ticket);
-            MessageBox.Show("You have bought this ticket.");
-            this.tickets.Children.Remove(this);
-            if (this.tickets.Children.Count == 0)
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to buy this ticket?", "Buy ticket", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            if (result == MessageBoxResult.Yes)
             {
-                this.noTickets.Visibility = Visibility.Visible;
-                this.ticketsScroll.Visibility = Visibility.Hidden;
+                LoginService.CurrentlyLoggedClient.Reserved.Remove(ticket);
+                ticket.State = TicketState.BOUGHT;
+                LoginService.CurrentlyLoggedClient.Bought.Add(ticket);
+                MessageBox.Show("You have bought this ticket.");
+                this.tickets.Children.Remove(this);
+                if (this.tickets.Children.Count == 0)
+                {
+                    this.noTickets.Visibility = Visibility.Visible;
+                    this.ticketsScroll.Visibility = Visibility.Hidden;
+                }
             }
         }
     }
