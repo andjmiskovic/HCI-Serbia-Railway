@@ -306,6 +306,7 @@
     <Resource Include="help\images\legendSeat.png" />
     <Resource Include="help\images\monthlyTickets.png" />
     <Resource Include="help\images\ticketsForTheRide.png" />
+    <Resource Include="help\images\dragAndDrop.png" />
     <Content Include="help\myTickets.htm" />
     <Content Include="help\routes.htm" />
     <Content Include="help\timetableClient.htm" />

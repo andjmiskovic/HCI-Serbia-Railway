@@ -39,9 +39,9 @@ namespace SerbiaRailway
             TrainXamlDatas = trainXamlDatas;
             SelectedTrainXamlData = trainXamlData;
             Train = train;
-            SeatsNumber = SelectedTrainXamlData.NumberOfSeats / SelectedTrainXamlData.NumberOfWagons;
+            SeatsNumber = SelectedTrainXamlData.Seats / SelectedTrainXamlData.Wagons;
             Manufacturer.Text = train.Manufacturer;
-            WagonsNumber.Text = SelectedTrainXamlData.NumberOfWagons.ToString();
+            WagonsNumber.Text = SelectedTrainXamlData.Wagons.ToString();
             Price.Text = train.Wagons[0].Seats[0].ExtraPrice.ToString();
             SeatsPerWagon.Text = train.Wagons[0].Seats.Count.ToString();
             WagonsNumber.IsEnabled = false;
@@ -162,7 +162,7 @@ namespace SerbiaRailway
 
         private void FillWagons()
         {
-            int wagonsNumber = SelectedTrainXamlData.NumberOfWagons;
+            int wagonsNumber = SelectedTrainXamlData.Wagons;
             Wagon_ComboBox.Items.Clear();
             for (int i = 1; i <= wagonsNumber; i++)
             {
@@ -187,7 +187,7 @@ namespace SerbiaRailway
             if (decision == MessageBoxResult.Yes)
             {
                 List<Wagon> wagonsList = new List<Wagon>();
-                for (int i = 1; i < SelectedTrainXamlData.NumberOfWagons + 1; i++)
+                for (int i = 1; i < SelectedTrainXamlData.Wagons + 1; i++)
                 {
                     Wagon wagon = new Wagon(i, wagons[i]);
                     foreach (Seat seat in wagon.Seats)
