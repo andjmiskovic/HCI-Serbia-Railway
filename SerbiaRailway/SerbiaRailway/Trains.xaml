@@ -45,8 +45,8 @@
         
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="2">
             <Button x:Name="btnAddNewTrain" Content="{StaticResource Add}" ToolTip="Add new train" Height="30" Padding="5" Click="btnAddNewTrain_Click"/>
-            <Button x:Name="btnDeleteTrain" Content="{StaticResource Delete}" ToolTip="Delete selected train" Height="30" Padding="5"/>
-            <Button x:Name="btnEditTrain" Content="{StaticResource Edit}" ToolTip="Edit selected train" Height="30" Padding="5"/>
+            <Button x:Name="btnDeleteTrain" Content="{StaticResource Delete}" ToolTip="Delete selected train" Height="30" Padding="5" Click="btnDeleteTrain_Click"/>
+            <Button x:Name="btnEditTrain" Content="{StaticResource Edit}" ToolTip="Edit selected train" Height="30" Padding="5" Click="btnEditTrain_Click"/>
         </StackPanel>
 
         <DataGrid x:Name="DataGridXAML" Grid.Row="1" Grid.Column="0" 

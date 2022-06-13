@@ -1,0 +1,86 @@
+﻿<Window x:Class="SerbiaRailway.EditTrain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SerbiaRailway"
+        mc:Ignorable="d"
+        Title="Edit Train" Height="600" Width="800" MinHeight="700" MinWidth="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label FontSize="20" Grid.Column="0" Content="Train manufacturer name: "/>
+                <TextBox Grid.Column="1" Name="Manufacturer" HorizontalAlignment="Left" Width="250" FontSize="20"/>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Number of train wagons: " 
+               FontSize="20" VerticalContentAlignment="Center"/>
+                <TextBox Grid.Column="1" Name="WagonsNumber" Width="100" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Right">
+                </TextBox>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Enter a extra price for the first class seat: " Grid.Column="0"
+               FontSize="20" VerticalContentAlignment="Center" />
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <TextBox Text="100" Name="Price" FontSize="20" Width="100" />
+                    <Label FontSize="20" Content="RSD" />
+                </StackPanel>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Number of seats per wagon: " 
+               FontSize="20" Grid.Column="0" VerticalContentAlignment="Center"/>
+                <TextBox Grid.Column="1" Name="SeatsPerWagon" HorizontalAlignment="Left" FontSize="20" Width="100" />
+            </Grid>
+
+            <Button Name="DrawSeats" Grid.Row="2" Margin="0 10 0 10" Content="Draw Seats" Click="CreateSeats" />
+
+            <Grid Visibility="Hidden" Name="WagonToEdit">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="SeatsLabel" Content="Select wagon to configure seats:" Grid.Column="0"
+               FontSize="20" VerticalContentAlignment="Center" />
+                <ComboBox HorizontalContentAlignment="Right" Grid.Column="1" SelectedValuePath="Content" Name="Wagon_ComboBox" HorizontalAlignment="Left" FontSize="20" Width="100" SelectionChanged="wagonsComboBox_SelectionChanged">
+                    <ComboBoxItem Content="1" />
+                </ComboBox>
+            </Grid>
+        </StackPanel>
+
+        <Grid x:Name="SeatsMap" Grid.Row="1" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        </Grid>
+
+        <Button x:Name="editTrain" Grid.Row="2" Margin="0" Content="Edit Train" Click="editTrain_Click" />
+    </Grid>
+</Window>

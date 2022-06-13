@@ -59,6 +59,18 @@ namespace SerbiaRailway.services
             return null;
         }
 
+        public Train GetTrainByManufacturer(string manufacturer)
+        {
+            foreach (Train train in Trains)
+            {
+                if (train.Manufacturer.Equals(manufacturer))
+                {
+                    return train;
+                }
+            }
+            return null;
+        }
+
         internal Ride GetRide(DateTime date, Line line)
         {
             foreach(Ride ride in Rides) {
