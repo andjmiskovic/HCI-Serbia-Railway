@@ -48,6 +48,11 @@ namespace SerbiaRailway
                 HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
         }
+
+        private void demoBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     public class XAMLDATA
