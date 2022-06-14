@@ -863,8 +863,11 @@ namespace SerbiaRailway.services
 
             foreach (Line line in Lines)
             {
-                DateTime dateTime = new DateTime(2022, 6, 15);
-                for(int i = 0; i < 3; i++)
+                DateTime dateTime = new DateTime(2022, 6, 14);
+                Ride newRide = new Ride(dateTime, line);
+                Rides.Add(newRide);
+                dateTime = dateTime.AddDays(1);
+                for (int i = 0; i < 3; i++)
                 {
                     if (line.WeekDays[dateTime.DayOfWeek.ToString()])
                     {

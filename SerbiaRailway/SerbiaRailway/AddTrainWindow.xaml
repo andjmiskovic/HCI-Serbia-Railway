@@ -7,7 +7,7 @@
         xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="SerbiaRailway.AddTrainWindow"
         mc:Ignorable="d" KeyDown="Window_KeyDown"
         Icon="resources/icon.png"
-        Title="Add New Train" Height="600" Width="800" MinHeight="700" MinWidth="800">
+        Title="Add New Train" Height="600" Width="800" MinHeight="700" MinWidth="800" WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="250"/>

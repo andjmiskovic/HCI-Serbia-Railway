@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SerbiaRailway"
         mc:Ignorable="d" KeyDown="Window_KeyDown"
         Icon="resources/icon.png"
-        Title="Buy or Reserve Tickets" MinHeight="600" MinWidth="800">
+        Title="Buy or Reserve Tickets" MinHeight="600" MinWidth="800" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="RadioButton">
             <Setter Property="Background" Value="Transparent" />
