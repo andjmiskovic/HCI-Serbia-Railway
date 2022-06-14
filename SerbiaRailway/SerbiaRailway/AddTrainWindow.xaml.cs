@@ -3,6 +3,7 @@ using SerbiaRailway.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -31,6 +32,12 @@ namespace SerbiaRailway
         {
             InitializeComponent();
             this.xamlData = xamlData;
+        }
+
+        private void TextValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^a-zA-Z]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
@@ -171,6 +178,12 @@ namespace SerbiaRailway
             if (Manufacturer.Text == "")
             {
                 MessageBox.Show("You have to enter train manufacturer.", "Error!", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
+            }
+            if (WagonsNumber.SelectedItem == null)
+            {
+                MessageBox.Show("You must select a number of wagons on the train!", "Error!", MessageBoxButton.OK,
                     MessageBoxImage.Error);
                 return;
             }

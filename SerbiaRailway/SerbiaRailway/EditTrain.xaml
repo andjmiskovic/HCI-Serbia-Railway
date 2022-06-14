@@ -20,7 +20,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label FontSize="20" Grid.Column="0" Content="Train manufacturer name: "/>
-                <TextBox Grid.Column="1" Name="Manufacturer" HorizontalAlignment="Left" Width="250" FontSize="20"/>
+                <TextBox PreviewTextInput="TextValidationTextBox" MaxLength="40" Grid.Column="1" Name="Manufacturer" HorizontalAlignment="Left" Width="250" FontSize="20"/>
             </Grid>
 
             <Grid>

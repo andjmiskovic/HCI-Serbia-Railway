@@ -24,7 +24,7 @@
                     <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
                 <Label FontSize="20" Grid.Column="0" Content="Train manufacturer name: "/>
-                <TextBox Text="New Train" Grid.Column="1" Name="Manufacturer" HorizontalAlignment="Left" Width="250" FontSize="20"/>
+                <TextBox PreviewTextInput="TextValidationTextBox" MaxLength="40" Text="New Train" Grid.Column="1" Name="Manufacturer" HorizontalAlignment="Left" Width="250" FontSize="20"/>
                 <Button local:HelpProvider.HelpKey="addTrain" Grid.Column="3" ToolTip="Do you need help?" Margin="0 0 0 0" Content="?" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="Help"/>
                 <Button x:Name="demoBtn" ToolTip="View a demo" Grid.Column="2" Margin="0 0 10 0" Content="Demo" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="demoBtn_Click"/>
             </Grid>
