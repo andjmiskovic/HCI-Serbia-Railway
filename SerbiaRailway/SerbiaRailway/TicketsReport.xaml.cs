@@ -132,28 +132,24 @@ namespace SerbiaRailway
             Tickets.Children.Clear();
             if ((bool)MonthlyTickets.IsChecked)
             {
-                try
+                if (Year.SelectedValue == null || Month.SelectedItem == null)
+                    MessageBox.Show("Please choose month and year.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                else
                 {
                     int year = int.Parse(Year.SelectedValue.ToString());
                     int month = Month.SelectedIndex + 1;
                     FillMonthlyTickets(month, year);
                 }
-                catch
-                {
-                    MessageBox.Show("Please choose month and year.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
             }
             else
             {
-                try
+                if (Date.SelectedDate == null || Line.SelectedItem == null)
+                    MessageBox.Show("Please choose line and date.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                else
                 {
                     DateTime date = Date.SelectedDate.Value;
                     int lineId = int.Parse(Line.SelectedItem.ToString().Split('(')[0]);
                     FillRideTickets(lineId, date);
-                }
-                catch
-                {
-                    MessageBox.Show("Please choose line and date.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }

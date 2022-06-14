@@ -349,6 +349,9 @@
     <Resource Include="help\images\monthlyTickets.png" />
     <Resource Include="help\images\ticketsForTheRide.png" />
     <Resource Include="help\images\dragAndDrop.png" />
+    <Resource Include="help\images\trains.png" />
+    <Resource Include="help\images\addTrain1.png" />
+    <Resource Include="help\images\addTrain2.png" />
     <Content Include="help\myTickets.htm" />
     <Content Include="help\routes.htm" />
     <Content Include="help\timetableClient.htm" />

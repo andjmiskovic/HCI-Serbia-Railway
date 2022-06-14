@@ -79,52 +79,48 @@ namespace SerbiaRailway
             DataGridXAML.Items.Refresh();
         }
 
-        private void btnEditTrain_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void btnEditTrain_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                TrainXamlData trainXamlData = (TrainXamlData)DataGridXAML.SelectedItem;
-                Train train = DataService.Data.GetTrainByManufacturer(trainXamlData.Manufacturer);
-                EditTrain editTrain = new EditTrain(xamlData, trainXamlData,
-                    DataService.Data.GetTrainByManufacturer(trainXamlData.Manufacturer));
-                editTrain.ShowDialog();
-                DataGridXAML.Items.Refresh();
-            }
-            catch
+            TrainXamlData trainXamlData = (TrainXamlData)DataGridXAML.SelectedItem;
+            if (trainXamlData == null)
             {
                 MessageBox.Show("You have to select train first.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            Train train = DataService.Data.GetTrainByManufacturer(trainXamlData.Manufacturer);
+            EditTrain editTrain = new EditTrain(xamlData, trainXamlData,
+                DataService.Data.GetTrainByManufacturer(trainXamlData.Manufacturer));
+            editTrain.ShowDialog();
+            DataGridXAML.Items.Refresh();
         }
 
         private void btnDeleteTrain_Click(object sender, RoutedEventArgs e)
         {
-            try 
-            { 
-                TrainXamlData trainXamlData = (TrainXamlData)DataGridXAML.SelectedItem;
-                Train train = DataService.Data.GetTrainByManufacturer(trainXamlData.Manufacturer);
-                foreach (Route route in DataService.Data.Routes)
-                {
-                    if (route.Train == train)
-                    {
-                        MessageBox.Show("This train is in use and CANNOT be deleted!", "Error", MessageBoxButton.OK,
-                        MessageBoxImage.Error);
-                        return;
-                    }
-                }
-                MessageBoxResult decision = MessageBox.Show("Are you sure you want to delete this train?",
-                        "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-                if (decision == MessageBoxResult.Yes)
-                {
-                    DataService.Data.Trains.Remove(train);
-                    xamlData.Remove(trainXamlData);
-                    DataGridXAML.Items.Refresh();
-                    MessageBox.Show("Train has been deleted successfully!",
-                            "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
-            catch
+            TrainXamlData trainXamlData = (TrainXamlData)DataGridXAML.SelectedItem;
+            if (trainXamlData == null)
             {
                 MessageBox.Show("You have to select train first.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            Train train = DataService.Data.GetTrainByManufacturer(trainXamlData.Manufacturer);
+            foreach (Route route in DataService.Data.Routes)
+            {
+                if (route.Train == train)
+                {
+                    MessageBox.Show("This train is in use and CANNOT be deleted!", "Error", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                    return;
+                }
+            }
+            MessageBoxResult decision = MessageBox.Show("Are you sure you want to delete this train?",
+                    "Warning!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (decision == MessageBoxResult.Yes)
+            {
+                DataService.Data.Trains.Remove(train);
+                xamlData.Remove(trainXamlData);
+                DataGridXAML.Items.Refresh();
+                MessageBox.Show("Train has been deleted successfully!",
+                        "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

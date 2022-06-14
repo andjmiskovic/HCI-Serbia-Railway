@@ -82,7 +82,7 @@ namespace SerbiaRailway
                     Width = 50,
                     FontSize = 20,
                     VerticalAlignment = VerticalAlignment.Center,
-                    HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Center,
                     IsChecked = false,
                 };
                 if(seats[i].isAvailable)
