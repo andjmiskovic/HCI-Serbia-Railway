@@ -17,6 +17,7 @@ namespace SerbiaRailway
         private PartialLine line { get; set; }
         private Ride ride { get; set; }
         private Seat SelectedSeat { get; set; }
+        private int selectedWagon { get; set; }
         private RadioButton PreviousSelectedSeat { get; set; }
         private string PreviousSelectedSeatColor { get; set; }
         private double RidePriceValue { get; set; }
@@ -99,11 +100,16 @@ namespace SerbiaRailway
                     }
                     seat.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff"));
                     seat.Cursor = System.Windows.Input.Cursors.Hand;
-                } 
+                }
                 else
                 {
                     seat.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
                     seat.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e5e5e5"));
+                }
+                if (selectedWagon == GetSelectedWagon() && SelectedSeat.SeatNumber == seats[i].seat.SeatNumber)
+                {
+                    seat.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff"));
+                    seat.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#069A8E"));
                 }
                 seat.GroupName = "Seats";
                 seat.AddHandler(System.Windows.Controls.Primitives.ButtonBase.ClickEvent, new RoutedEventHandler(SetSeatNumber));
@@ -130,6 +136,7 @@ namespace SerbiaRailway
             if (!isSeatTaken(selected.SeatNumber))
             {
                 SelectedSeat = selected;
+                selectedWagon = GetSelectedWagon();
                 SeatPrice.Content = SelectedSeat.ExtraPrice + "rsd";
                 TotalPrice.Content = RidePriceValue + SelectedSeat.ExtraPrice + "rsd";
                 SelectedSeatNumber.Content = SelectedSeat.SeatNumber;

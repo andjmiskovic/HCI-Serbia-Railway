@@ -36,7 +36,7 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Content="How much wagons will be in train? " 
                FontSize="20" VerticalContentAlignment="Center"/>
-                <ComboBox Grid.Column="1" SelectedValuePath="Content" SelectionChanged="FillWagonsComboBox" Name="WagonsNumber" FontSize="20" Width="100" HorizontalAlignment="Left" HorizontalContentAlignment="Right">
+                <ComboBox Focusable="False" IsEditable="True" IsReadOnly="True" Grid.Column="1" SelectedValuePath="Content" SelectionChanged="FillWagonsComboBox" Name="WagonsNumber" FontSize="20" Width="100" HorizontalAlignment="Left" HorizontalContentAlignment="Right">
                     <ComboBoxItem Content="1" FontSize="20"/>
                     <ComboBoxItem Content="2" FontSize="20"/>
                     <ComboBoxItem Content="3" FontSize="20"/>
@@ -76,7 +76,7 @@
                 </Grid.ColumnDefinitions>
                 <Label x:Name="SeatsLabel" Content="Select wagon to configure seats:" Grid.Column="0"
                FontSize="20" VerticalContentAlignment="Center" />
-                <ComboBox HorizontalContentAlignment="Right" Grid.Column="1" SelectedValuePath="Content" Name="Wagon_ComboBox" HorizontalAlignment="Left" FontSize="20" Width="100" SelectionChanged="wagonsComboBox_SelectionChanged">
+                <ComboBox Focusable="False" IsEditable="True" IsReadOnly="True" HorizontalContentAlignment="Right" Grid.Column="1" SelectedValuePath="Content" Name="Wagon_ComboBox" HorizontalAlignment="Left" FontSize="20" Width="100" SelectionChanged="wagonsComboBox_SelectionChanged">
                     <ComboBoxItem Content="1" />
                 </ComboBox>
             </Grid>

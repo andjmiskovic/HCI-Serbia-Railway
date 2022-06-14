@@ -39,6 +39,11 @@ namespace SerbiaRailway
 
         public void OnLineSelected(object sender, RoutedEventArgs e)
         {
+            if (Line.SelectedItem == null)
+            {
+                MessageBox.Show("Incorrect line in input!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             SelectedLine = DataService.Data.GetLineById(int.Parse(Line.SelectedItem.ToString().Split('(')[0]));
             _stationSchedules = DataService.Data.GetLineById(SelectedLine.Id).StationSchedules;
             StationSchedule.ItemsSource = _stationSchedules;

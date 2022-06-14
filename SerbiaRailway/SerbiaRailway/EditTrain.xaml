@@ -66,7 +66,7 @@
                 </Grid.ColumnDefinitions>
                 <Label x:Name="SeatsLabel" Content="Select wagon to configure seats:" Grid.Column="0"
                FontSize="20" VerticalContentAlignment="Center" />
-                <ComboBox HorizontalContentAlignment="Right" Grid.Column="1" SelectedValuePath="Content" Name="Wagon_ComboBox" HorizontalAlignment="Left" FontSize="20" Width="100" SelectionChanged="wagonsComboBox_SelectionChanged">
+                <ComboBox Focusable="False" IsEditable="True" IsReadOnly="True" HorizontalContentAlignment="Right" Grid.Column="1" SelectedValuePath="Content" Name="Wagon_ComboBox" HorizontalAlignment="Left" FontSize="20" Width="100" SelectionChanged="wagonsComboBox_SelectionChanged">
                     <ComboBoxItem Content="1" />
                 </ComboBox>
             </Grid>

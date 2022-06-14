@@ -47,13 +47,15 @@ namespace SerbiaRailway
 
         private void CancelReservation(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel this reservation?", "Reservation cancelation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel this reservation?", 
+                "Reservation cancelation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)
             {
                 LoginService.CurrentlyLoggedClient.Reserved.Remove(ticket);
                 DataService.Data.Tickets.Remove(ticket);
                 DataService.Data.GetRide(ticket.Date, ticket.PartialLine.Line).Tickets.Remove(ticket);
-                MessageBox.Show("Your reservation has been canceled.");
+                MessageBox.Show("Your reservation has been canceled.", "Success", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
                 this.tickets.Children.Remove(this);
                 if (this.tickets.Children.Count == 0)
                 {
@@ -65,13 +67,15 @@ namespace SerbiaRailway
 
         private void Buy(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure you want to buy this ticket?", "Buy ticket", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to buy this ticket?", "Buy ticket", 
+                MessageBoxButton.YesNo, MessageBoxImage.Information);
             if (result == MessageBoxResult.Yes)
             {
                 LoginService.CurrentlyLoggedClient.Reserved.Remove(ticket);
                 ticket.State = TicketState.BOUGHT;
                 LoginService.CurrentlyLoggedClient.Bought.Add(ticket);
-                MessageBox.Show("You have bought this ticket.");
+                MessageBox.Show("You have bought this ticket.", "Success", MessageBoxButton.OK, 
+                    MessageBoxImage.Information);
                 this.tickets.Children.Remove(this);
                 if (this.tickets.Children.Count == 0)
                 {

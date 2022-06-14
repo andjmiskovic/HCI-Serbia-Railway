@@ -27,8 +27,8 @@
                 <RowDefinition Height="7*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ComboBox Text="From" IsEditable="True" ToolTip="Choose your starting point." Margin="5" Name="FromSelect" Grid.Row="0" Background="White" VerticalAlignment="Center" FontSize="15"/>
-            <ComboBox Text="To" IsEditable="True" ToolTip="Choose your ending point." Name="ToSelect" Margin="5" Grid.Row="1" Background="White" VerticalAlignment="Center" FontSize="15"/>
+            <ComboBox Text="From" Focusable="False" IsEditable="True" IsReadOnly="True" ToolTip="Choose your starting point." Margin="5" Name="FromSelect" Grid.Row="0" Background="White" VerticalAlignment="Center" FontSize="15"/>
+            <ComboBox Text="To" Focusable="False" IsEditable="True" IsReadOnly="True" ToolTip="Choose your ending point." Name="ToSelect" Margin="5" Grid.Row="1" Background="White" VerticalAlignment="Center" FontSize="15"/>
             <Calendar Name="Calendar" Grid.Row="2"/>
             <Button ToolTip="Click to search available timelines." Click="SearchLines" Grid.Column="3" Margin="5" Grid.Row="3" VerticalAlignment="Center">SEARCH</Button>
         </Grid>

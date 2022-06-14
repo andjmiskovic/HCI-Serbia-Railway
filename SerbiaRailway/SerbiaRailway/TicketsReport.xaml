@@ -73,7 +73,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ComboBox Name="Month" Grid.Column="0" Margin="10 0 10 0" SelectedValuePath="Content" Text="Select Month" IsEditable="True" FontSize="20">
+            <ComboBox Focusable="False" IsEditable="True" IsReadOnly="True" Name="Month" Grid.Column="0" Margin="10 0 10 0" SelectedValuePath="Content" Text="Select Month" FontSize="20">
                 <ComboBoxItem Content="January"/>
                 <ComboBoxItem Content="February"/>
                 <ComboBoxItem Content="March"/>
@@ -90,14 +90,14 @@
                     <TextBlock FontSize="30" Text="Select Month" />
                 </ToolTipService.ToolTip>
             </ComboBox>
-            <ComboBox Name="Year" Margin="10 0 10 0" Grid.Column="1" Text="Select Year" IsEditable="True" SelectedValuePath="Content" FontSize="20">
+            <ComboBox Name="Year" Margin="10 0 10 0" Grid.Column="1" Text="Select Year" Focusable="False" IsEditable="True" IsReadOnly="True" SelectedValuePath="Content" FontSize="20">
                 <ComboBoxItem Content="2022"/>
                 <ToolTipService.ToolTip>
                     <TextBlock FontSize="30" Text="Select year"/>
                 </ToolTipService.ToolTip>
             </ComboBox>
 
-            <ComboBox Name="Line" Grid.Column="0" Margin="10 0 10 0" Visibility="Hidden" SelectedValuePath="Content" Text="Select Line ID" IsEditable="True" FontSize="20">
+            <ComboBox Name="Line" Grid.Column="0" Margin="10 0 10 0" Visibility="Hidden" SelectedValuePath="Content" Text="Select Line ID" Focusable="False" IsEditable="True" IsReadOnly="True" FontSize="20">
                 <ToolTipService.ToolTip>
                     <TextBlock FontSize="30" Text="Select ride ID"/>
                 </ToolTipService.ToolTip>

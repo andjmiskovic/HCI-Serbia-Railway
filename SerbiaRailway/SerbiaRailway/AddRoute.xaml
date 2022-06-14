@@ -38,7 +38,7 @@
                 <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="1" Grid.Column="0" Content="Choose the train for this route:"></Label>
-            <ComboBox VerticalAlignment="Top" x:Name="trainComboBox" Grid.Row="1" Grid.Column="1" Margin="0 0 10 0"></ComboBox>
+            <ComboBox Focusable="False" IsEditable="True" IsReadOnly="True" VerticalAlignment="Top" x:Name="trainComboBox" Grid.Row="1" Grid.Column="1" Margin="0 0 10 0"></ComboBox>
             <Button Grid.Column="2" x:Name="demoBtn" ToolTip="View a demo" Margin="10 0 10 0" Content="Demo" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Click="demoBtn_Click"/>
             <Button Grid.Column="3" local:HelpProvider.HelpKey="addRoute" ToolTip="Do you need help?" Content="?" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold" Click="Help"/>
         </Grid>
