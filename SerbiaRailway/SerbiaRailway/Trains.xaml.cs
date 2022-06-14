@@ -137,6 +137,11 @@ namespace SerbiaRailway
                 HelpProvider.SetHelpKey((DependencyObject)sender, "trains");
                 HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
+            if (e.Key == Key.D && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                TrainSearchDeleteEditDemo trainSearchDeleteEditDemo = new TrainSearchDeleteEditDemo();
+                trainSearchDeleteEditDemo.ShowDialog();
+            }
         }
 
         private void demoBtn_Click(object sender, RoutedEventArgs e)

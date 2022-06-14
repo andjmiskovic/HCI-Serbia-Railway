@@ -138,6 +138,11 @@ namespace SerbiaRailway
                 HelpProvider.SetHelpKey((DependencyObject)sender, "addRoute");
                 HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
+            if (e.Key == Key.D && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                AddRouteDemo addRouteDemo = new AddRouteDemo();
+                addRouteDemo.ShowDialog();
+            }
         }
 
         private void saveChanges_Click(object sender, RoutedEventArgs e)

@@ -69,6 +69,11 @@ namespace SerbiaRailway
                 HelpProvider.SetHelpKey((DependencyObject)sender, "myTickets");
                 HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
+            if (e.Key == Key.D && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                MyTicketsDemo myTicketsDemo = new MyTicketsDemo();
+                myTicketsDemo.ShowDialog();
+            }
         }
 
         private void demoBtn_Click(object sender, RoutedEventArgs e)

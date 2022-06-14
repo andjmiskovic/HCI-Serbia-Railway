@@ -140,6 +140,11 @@ namespace SerbiaRailway
                 HelpProvider.SetHelpKey((DependencyObject)sender, "routes");
                 HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
+            if (e.Key == Key.D && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                RouteSearchDeleteEditDemo routeSearchDeleteEditDemo = new RouteSearchDeleteEditDemo();
+                routeSearchDeleteEditDemo.ShowDialog();
+            }
         }
 
         private void demoBtn_Click(object sender, RoutedEventArgs e)
