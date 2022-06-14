@@ -12,6 +12,7 @@ Kredencijalni za logovanje korisnika: korisničko ime = pera, lozinka = 123
                                       korisničko ime = tera, lozinka = 123
 
 Ukoliko se projekat ne pokreće potrebno je instalirati:
+    
     - HandyControls.3.3.11
     - MaterialDesignColors.2.0.6
     - MaterialDesignExtensions.3.3.0
