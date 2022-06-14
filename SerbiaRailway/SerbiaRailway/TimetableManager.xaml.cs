@@ -125,6 +125,11 @@ namespace SerbiaRailway
             {
                 this.SaveLineChanges();
             }
+            if (e.Key == Key.D && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                TimetableDemo timetableDemo = new TimetableDemo();
+                timetableDemo.ShowDialog();
+            }
         }
 
         private void demoBtn_Click_1(object sender, RoutedEventArgs e)
