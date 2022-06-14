@@ -132,8 +132,14 @@
     <Compile Include="demos\TicketsReportDemo.xaml.cs">
       <DependentUpon>TicketsReportDemo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="demos\TimetableClientDemo.xaml.cs">
+      <DependentUpon>TimetableClientDemo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="demos\TimetableDemo.xaml.cs">
       <DependentUpon>TimetableDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="demos\TrainSearchDeleteEditDemo.xaml.cs">
+      <DependentUpon>TrainSearchDeleteEditDemo.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditRoute.xaml.cs">
       <DependentUpon>EditRoute.xaml</DependentUpon>
@@ -232,7 +238,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="demos\TimetableClientDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="demos\TimetableDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="demos\TrainSearchDeleteEditDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
