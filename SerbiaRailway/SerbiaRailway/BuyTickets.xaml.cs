@@ -223,6 +223,11 @@ namespace SerbiaRailway
                 HelpProvider.SetHelpKey((DependencyObject)sender, "buyTickets");
                 HelpProvider.ShowHelp(HelpProvider.GetHelpKey((DependencyObject)sender), this);
             }
+            if (e.Key == Key.D && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                BuyReserveTicketDemo demo = new BuyReserveTicketDemo();
+                demo.ShowDialog();
+            }
         }
 
         private void demoBtn_Click(object sender, RoutedEventArgs e)
